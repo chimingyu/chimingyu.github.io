@@ -15,7 +15,7 @@
 第一章  挖掘Twitter（微博）&amp;#160; &amp;#160; &amp;#160; &amp;#160;第一章主要围绕着Twitter初步介绍了以后会用到的一些工具及基本知识。既然是围绕Twitter的，那么">
 <meta property="og:image" content="http://7xrav5.com1.z0.glb.clouddn.com/2016022701.png">
 <meta property="og:image" content="http://7xrav5.com1.z0.glb.clouddn.com/2016022702.png">
-<meta property="og:updated_time" content="2016-02-27T15:25:41.691Z">
+<meta property="og:updated_time" content="2016-03-01T11:38:42.059Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="社交网站的数据挖掘与分析（一）">
 <meta name="twitter:description" content="这一系列的文章是为了记录我在学习《社交网站的数据挖掘与分析》第二版 Matthew A. Russell著 一书的过程，知识的总结以及思路的梳理，希望通过这本书的学习能够让我初步了解 社会计算 这一领域。
@@ -142,7 +142,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/数据挖掘/" style="font-size: 10px;">数据挖掘</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/社会网络分析/" style="font-size: 10px;">社会网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 20px;">蓝桥杯</a>
+                        <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/数据挖掘/" style="font-size: 10px;">数据挖掘</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/社交网络分析/" style="font-size: 10px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 20px;">蓝桥杯</a>
                     </div>
                 </section>
                 
@@ -238,7 +238,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据挖掘/">数据挖掘</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/社会网络分析/">社会网络分析</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据挖掘/">数据挖掘</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/社交网络分析/">社交网络分析</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -265,6 +265,10 @@ APP_KEY = &apos;你的APP key&apos;
 MY_APP_SECRET = &apos;你的APP  secret&apos;
 #这里的回调地址我写的是自己博客的地址，与在应用控制台-高级应用中填写的地址一致即可
 REDIRECT_URL = &apos;https://chimingyu.com&apos; 
+api = weibo.APIClient(APP_KEY,MY_APP_SECRET,REDIRECT_URL)
+authorize_url = api.get_authorize_url()
+print(authorize_url)
+webbrowser.open_new(authorize_url)
 </code></pre><p>运行后会跳转到我的博客首页，即上面的回调地址，输入要登录的用户名及密码，然后在URL中可以找到code字段<br><code>http://chimingyu.com/?code=e63ec8b7bc1b65698ded0987403aa81c</code><br>4.输入code值模拟认证：代码需要上一步的code字段，模拟登陆，并发送一条微博</p>
 <pre><code>request = api.request_access_token(code, REDIRECT_URL)
 access_token = request.access_token
