@@ -141,7 +141,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/数据挖掘/" style="font-size: 20px;">数据挖掘</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/社交网络分析/" style="font-size: 20px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a>
+                        <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/数据挖掘/" style="font-size: 16.67px;">数据挖掘</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/社交网络分析/" style="font-size: 16.67px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 13.33px;">蓝桥杯</a>
                     </div>
                 </section>
                 
@@ -210,6 +210,94 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Python练习册（一）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/03/Python练习册（一）/" class="article-date">
+      <time datetime="2016-03-03T15:21:45.000Z" itemprop="datePublished">2016-03-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/03/Python练习册（一）/">Python练习册（一）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#160; &#160; &#160; &#160;有一个很有意思的Python练习册，每天一道Python练习，拿来练手了，地址在<a href="https://github.com/Yixiaohan/show-me-the-code" target="_blank" rel="external">这里</a><br><strong>第 0000 题</strong>：将你的 QQ 头像（或者微博头像）右上角加上红色的数字，类似于微信未读信息数量那种提示效果。 类似于图中效果:<br>&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;<img src="http://7xrav5.com1.z0.glb.clouddn.com/result.jpg" alt="enter image description here"><br>这道题要求我们对照片进行一定处理，那就找一下有没有自带的和图像处理有关系的库，然后发现有一个叫做PIL的库是用来做图像处理的，因为我们要在照片上加文字，找到能在照片上添加文字的函数即可。</p>
+<pre><code>from PIL import Image,ImageDraw,ImageFont
+
+def add_num(img_path,str):
+    image = Image.open(img_path)
+    draw = ImageDraw.Draw(image)
+    myfont = ImageFont.truetype(&apos;C:/windows/fonts/Arial.ttf&apos;, size=40) #修改字体或字号
+    fillcolor = &quot;#ff0000&quot; #修改颜色为红色
+    width, height = image.size
+    draw.text((width-40, 0), str, font=myfont, fill=fillcolor)
+    image.save(&apos;C:\\Users\\chi\\Desktop\\result.jpg&apos;,&apos;jpeg&apos;)
+
+if __name__ == &apos;__main__&apos;:
+    add_num(&apos;C:\\Users\\chi\\Desktop\\avatar.png&apos;,&apos;1&apos;)
+</code></pre><p><strong>第 0001 题</strong>：做为 Apple Store App 独立开发者，你要搞限时促销，为你的应用生成激活码（或者优惠券），使用 Python 如何生成 200 个激活码（或者优惠券）？<br>因为并不清楚激活码的格式到底应该是生么样子的，所以这里直接就随机格式的，只要保证没有重复的就好。</p>
+<pre><code>import string
+import random
+
+def generate_activation_code(amount,length):
+    s = string.letters + string.digits
+    activation_code = []
+    while (len(activation_code) &lt; amount):
+        x = &apos;&apos;
+        for j in range(0,length):
+            x = x + s[random.randint(0,61)]
+        if x not in activation_code:
+            activation_code.append(x)
+
+    return activation_code
+
+print generate_activation_code(200,16)
+</code></pre><p>然后看到0002和0003需要用到数据库，先去下载一个数据库……</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-社交网站的数据挖掘与分析（三）" class="article article-type-post" itemscope itemprop="blogPost">
   
