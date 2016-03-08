@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>社交网站的数据挖掘与分析（三） | 迟没有的回收站</title>
+  <title>社交网站的数据挖掘与分析（四） | 迟没有的回收站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;#160; &amp;#160; &amp;#160; &amp;#160;今天尝试着利用了新浪微博的api做一些简单的分析，分析结果还是很有意思的。主要的分析想法是根据《社交网站的数据挖掘与分析》一书中第一章关于对Twitter分析的内容引申而来的，由于众所周知的原因，Twitter在国内无法访问，所以，我就借鉴同样的思路，利用新浪微博，完成了相似的分析。书中先是寻找了Twitter上的热门话题，然后分析了热门话题下">
+  <meta name="description" content="上一章节对微博做了简单的挖掘动作，主要是练习了API的使用，和几个工具包的操作。这一章，我们会对Facebook进行挖掘，来分析粉丝页面，查看好友关系。
+第二章 挖掘Facebook这一章，我们将利用社交图谱API进军到Facebook平台，来探索其中的巨大可能性。有一点很有意思，尽管Facebook一直自称为一种社交图谱，但是它也在转型为兴趣图谱，因为他的页面和点赞的特性中，维护了人与其感兴趣事">
 <meta property="og:type" content="article">
-<meta property="og:title" content="社交网站的数据挖掘与分析（三）">
-<meta property="og:url" content="http://yoursite.com/2016/03/02/社交网站的数据挖掘与分析（三）/index.html">
+<meta property="og:title" content="社交网站的数据挖掘与分析（四）">
+<meta property="og:url" content="http://yoursite.com/2016/03/08/社交网站的数据挖掘与分析（四）/index.html">
 <meta property="og:site_name" content="迟没有的回收站">
-<meta property="og:description" content="&amp;#160; &amp;#160; &amp;#160; &amp;#160;今天尝试着利用了新浪微博的api做一些简单的分析，分析结果还是很有意思的。主要的分析想法是根据《社交网站的数据挖掘与分析》一书中第一章关于对Twitter分析的内容引申而来的，由于众所周知的原因，Twitter在国内无法访问，所以，我就借鉴同样的思路，利用新浪微博，完成了相似的分析。书中先是寻找了Twitter上的热门话题，然后分析了热门话题下">
-<meta property="og:image" content="http://7xrav5.com1.z0.glb.clouddn.com/2016030201.png">
-<meta property="og:image" content="http://7xrav5.com1.z0.glb.clouddn.com/2016030202.png">
-<meta property="og:image" content="http://7xrav5.com1.z0.glb.clouddn.com/2016030203.png">
-<meta property="og:updated_time" content="2016-03-02T06:28:24.323Z">
+<meta property="og:description" content="上一章节对微博做了简单的挖掘动作，主要是练习了API的使用，和几个工具包的操作。这一章，我们会对Facebook进行挖掘，来分析粉丝页面，查看好友关系。
+第二章 挖掘Facebook这一章，我们将利用社交图谱API进军到Facebook平台，来探索其中的巨大可能性。有一点很有意思，尽管Facebook一直自称为一种社交图谱，但是它也在转型为兴趣图谱，因为他的页面和点赞的特性中，维护了人与其感兴趣事">
+<meta property="og:updated_time" content="2016-03-08T14:53:34.490Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="社交网站的数据挖掘与分析（三）">
-<meta name="twitter:description" content="&amp;#160; &amp;#160; &amp;#160; &amp;#160;今天尝试着利用了新浪微博的api做一些简单的分析，分析结果还是很有意思的。主要的分析想法是根据《社交网站的数据挖掘与分析》一书中第一章关于对Twitter分析的内容引申而来的，由于众所周知的原因，Twitter在国内无法访问，所以，我就借鉴同样的思路，利用新浪微博，完成了相似的分析。书中先是寻找了Twitter上的热门话题，然后分析了热门话题下">
+<meta name="twitter:title" content="社交网站的数据挖掘与分析（四）">
+<meta name="twitter:description" content="上一章节对微博做了简单的挖掘动作，主要是练习了API的使用，和几个工具包的操作。这一章，我们会对Facebook进行挖掘，来分析粉丝页面，查看好友关系。
+第二章 挖掘Facebook这一章，我们将利用社交图谱API进军到Facebook平台，来探索其中的巨大可能性。有一点很有意思，尽管Facebook一直自称为一种社交图谱，但是它也在转型为兴趣图谱，因为他的页面和点赞的特性中，维护了人与其感兴趣事">
   
     <link rel="alternative" href="/atom.xml" title="迟没有的回收站" type="application/atom+xml">
   
@@ -233,11 +233,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-社交网站的数据挖掘与分析（三）" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-社交网站的数据挖掘与分析（四）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/02/社交网站的数据挖掘与分析（三）/" class="article-date">
-      <time datetime="2016-03-02T06:23:58.000Z" itemprop="datePublished">2016-03-02</time>
+      <a href="/2016/03/08/社交网站的数据挖掘与分析（四）/" class="article-date">
+      <time datetime="2016-03-08T14:52:43.000Z" itemprop="datePublished">2016-03-08</time>
 </a>
     </div>
   
@@ -250,7 +250,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      社交网站的数据挖掘与分析（三）
+      社交网站的数据挖掘与分析（四）
     </h1>
   
 
@@ -271,107 +271,64 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>&#160; &#160; &#160; &#160;今天尝试着利用了新浪微博的api做一些简单的分析，分析结果还是很有意思的。主要的分析想法是根据《社交网站的数据挖掘与分析》一书中第一章关于对Twitter分析的内容引申而来的，由于众所周知的原因，Twitter在国内无法访问，所以，我就借鉴同样的思路，利用新浪微博，完成了相似的分析。书中先是寻找了Twitter上的热门话题，然后分析了热门话题下面的评论内容，给出了直观的分析结果，我就利用了同样的思路进行分析，一步一步来。<br>&#160; &#160; &#160; &#160;首先，书中根据Twitter的api直接获得了热门话题下面的评论，因为新浪微博的该功能需要认证，所以，为了简单，我选取了一条评论量很大的参与了话题的微博进行分析。首先现在热门话题中找到你感兴趣的微博，随便看了一下24小时内最热的话题，发现前三个都没听过……只有第四个《夏至未至》小说看过，果断就选取了这个初中时候的回忆。<br>&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;<img src="http://7xrav5.com1.z0.glb.clouddn.com/2016030201.png" alt="enter image description here"><br>&#160; &#160; &#160; &#160;点进话题选一条热门的微博，找到了置顶的郭敬明同学的微博，恩，决定就是他了。<br>&#160; &#160; &#160; &#160;  &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;<img src="http://7xrav5.com1.z0.glb.clouddn.com/2016030202.png" alt="enter image description here"><br>&#160; &#160; &#160; &#160;紧接着找到获取某条微博评论的api</p>
+        <p>上一章节对微博做了简单的挖掘动作，主要是练习了API的使用，和几个工具包的操作。这一章，我们会对Facebook进行挖掘，来分析粉丝页面，查看好友关系。</p>
+<h2 id="第二章-挖掘Facebook"><a href="#第二章-挖掘Facebook" class="headerlink" title="第二章 挖掘Facebook"></a>第二章 挖掘Facebook</h2><p>这一章，我们将利用社交图谱API进军到Facebook平台，来探索其中的巨大可能性。有一点很有意思，尽管Facebook一直自称为一种社交图谱，但是它也在转型为兴趣图谱，因为他的页面和点赞的特性中，维护了人与其感兴趣事物直接的关系。<br>这一张涉及到的知识有：</p>
+<ul>
+<li>Facebook的社交图谱API以及如何发起API请求。</li>
+<li>开放图协议（Open Graph protocol）以及它与Facebook社交图谱（Social Graph）的关系。</li>
+<li>从Facebook页面和Facebook好友中分析“赞”。</li>
+<li>用来分析社交图谱的团分析（clique analysis）等技术。</li>
+<li>使用D3 JavaScript库对社交图谱进行可视化</li>
+</ul>
+<p>首先让我们对Facebook的API进行一下探索。<br>Facebook平台是一个成熟的，健壮的并且文档详尽的门户网站，通过它我们可以接触到有史以来积累的最全面并且经系统化组织的信息存储。在Twitter上的好友模型是非对称的，而Facebook的好友模型是对称的，并且需要用户之间相互同意才能查看对方的交互和活动。此外，Twitter中用户间所有的交互，除了私人消息之外，几乎都是公共状态，而Facebook允许更多细粒度的隐私控制。<br>Facebook的社交图谱是一个大规模图数据结构，包含了社会交互并且包含了节点和节点之间的连接。图谱API提供了与社交图谱交互的主要方法，熟悉API的方法自然是用一下图谱API的管理工具（Graph API Explorer）。所谓的图谱API管理工具除了能够载入事先保存的访问令牌和调试它们外，和其他的应用程序一样，都是调用了开发者API。<br><strong>访问令牌</strong></p>
 <blockquote>
-<p>comments/show</p>
+<p>出现在应用程序中的访问令牌是一个由登录用户授权的OAuth令牌，他和你的应用程序访问数据时所需要的OAuth令牌是同一个。在这一章，我们会一直使用这个访问令牌。</p>
 </blockquote>
-<p>&#160; &#160; &#160; &#160;看一下需要的参数<br>&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;<img src="http://7xrav5.com1.z0.glb.clouddn.com/2016030203.png" alt="enter image description here"><br>&#160; &#160; &#160; &#160;发现必选的参数中有一个id，但是这个字段并不知道啊，然后找了找其他api，发现有可以获取id的api，于是利用了这个</p>
+<p><strong>节点ID</strong></p>
 <blockquote>
-<p>favorites/ids</p>
+<p>查询的基础是ID（标示）为“644382747”的节点，它对应着名为“Matthew A.Russell”的人，他作为当前登录用户是被预先加载的。节点的“id”和“name”值被称为字段。以后就会看到查询的基础可以是其他的任何节点。这样对图进行遍历以及查询其他节点就会非常自然。</p>
 </blockquote>
-<p>&#160; &#160; &#160; &#160;先把要查找id的微博收藏一下，然后调用这个api就可以看到你收藏的微博的id了，如果你收藏了多个微博，找到时间点契合的那条就可以了。先把上述代码贴上：</p>
-<pre><code># -*- coding: utf-8 -*-
-&quot;&quot;&quot;
-Created on Wed Mar 02 10:30:21 2016
+<p><strong>关系约束</strong></p>
+<blockquote>
+<p>你可以使用“好友”这个关系对原始查询进行修改，作为结果，我们会得到一个叫做“自我图”（ego graph）的图，因为他有一个执行者作为焦点或逻辑中心，并且连接到周围的其它节点上。</p>
+</blockquote>
+<p><strong>“赞”约束</strong></p>
+<blockquote>
+<p>我们可以对每个好友添加“赞”约束从而对原始查询进行更深入的修改，然而在获取“赞”关系之前，必须通过更新访问令牌然后统一对图谱API管理工具程序进行授权从而使其能够访问好友的“赞”信息。</p>
+</blockquote>
+<p>想要使用这个图API管理工具，先看一下Facebook的<a href="https://developers.facebook.com/docs/graph-api" target="_blank" rel="external">Graph API文档</a>，这是一个图形化的API，因为没什么大用，我就不展示操作了，文档写的还是很清楚的，从获取授权到查询都能通过图形化界面进行操作。<br>下面我们利用requests包进行一下HTTP请求，来模拟该过程。</p>
+<pre><code>import json
+def request_over_http(access_token, url, fields):
 
-@author: chi
-&quot;&quot;&quot;
+  # import requests
+  import requests
 
-import weibo
-import json
+  # Build the urls
+  urls = &apos;%s?fields=%s&amp;access_token=%s&apos; % (url, fields, access_token)
+  print &apos;urls: &apos;, urls
 
+  # Get the content
+  content = requests.get(urls, verify=False).json()
 
-APP_KEY = &apos;901650003&apos;
-MY_APP_SECRET = &apos;f409c63a1fd8dc5482a4d1c070327149&apos;
-REDIRECT_URL = &apos;http://chimingyu.com&apos; 
-access = open(&apos;login.txt&apos;,&apos;r&apos;)
-access_str = access.readline()
-access.close()
-access_token = access_str.split(&apos; &apos;)[0]
-expires_in = access_str.split(&apos; &apos;)[1]
-api = weibo.APIClient(APP_KEY,MY_APP_SECRET,REDIRECT_URL)
-api.set_access_token(access_token, expires_in)
-favorites_id = api.favorites__ids()
-print json.dumps(favorites_id,indent=1)
-</code></pre><p>&#160; &#160; &#160; &#160;这里要说一下json包，这个包是用来解析json的，可以把json结果打印成很漂亮的格式，起码能看懂，输出结果是这样的</p>
+  # return
+  return content
+
+url = &apos;https://graph.facebook.com/146581042399042&apos;
+# Get 10 likes for 10 friends
+fields = &apos;id,name,friends.limit(10).fields(likes.limit(10))&apos;
+ACCESS_TOKEN = &apos;181111875601409|CTDX6wKFVFSXKMZQvrUEwco7tqI&apos;
+content = request_over_http(ACCESS_TOKEN, url, fields)
+print json.dumps(content, indent=1)
+</code></pre><p>代码和书上的一样，不知道哪里出错了，返回的信息时error，说不能用GET请求，具体原因还在查找。</p>
 <pre><code>{
-     &quot;favorites&quot;: [
-      {
-       &quot;status&quot;: &quot;3948308718114434&quot;, 
-       &quot;favorited_time&quot;: &quot;Wed Mar 02 11:41:30 +0800 2016&quot;, 
-       &quot;tags&quot;: []
-      }
-     ], 
-     &quot;total_number&quot;: 1
+ &quot;error&quot;: {
+  &quot;message&quot;: &quot;Unsupported get request. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api&quot;, 
+  &quot;code&quot;: 100, 
+  &quot;type&quot;: &quot;GraphMethodException&quot;, 
+  &quot;fbtrace_id&quot;: &quot;DePsXrXvIf5&quot;
+ }
 }
-</code></pre><p>&#160; &#160; &#160; &#160;可以很明显的看到，我的收藏里只有这一条微博，id就是上面的status字段，用这个id就可以去获取评论了，下面的操作直接在命令行里的。</p>
-<pre><code>comments_json = api.comments__show(id=3948308718114434)    #根据返回结果得知评论内容在comments字段
-comments = comments_json[&apos;comments&apos;]
-len(comments)    #获取一下长度，发现只有50，然后注意到默认一页是返回50条记录的，这里给改成200了，200是上限
-comments_json = api.comments__show(id=3948308718114434,count=200)
-comments = comments_json[&apos;comments&apos;]
-</code></pre><p>&#160; &#160; &#160; &#160;接下来，我们要把获得的评论里的评论内容，评论者的信息等一下我们感兴趣的因素提取出来。</p>
-<pre><code>comments_text = [comment[&apos;text&apos;] for comment in comments]    #提取评论文本
-user_info = [comment[&apos;user&apos;] for comment in comments]    #获得评论者的信息
-#这里我选取了我感兴趣的两个字段，年龄和省份来统计
-user_province = [user[&apos;province&apos;] for user in user_info]
-user_gender = [user[&apos;gender&apos;] for user in user_info]
-</code></pre><p>&#160; &#160; &#160; &#160;做好了数据采集工作，我们可以进行一定程度的分析了，实际上，几乎所有的分析都可以归结为某种程度的计数行为。从经验来看，对观察到的事物计数是一切的出发点，因此它也是任何试图从噪声数据中寻找微弱信号的统计滤波或处理的出发点，前面，我们仅仅从每个未排序的列表提取了一些数据的大致内容，现在，我们通过计算频率分布来对数据有更深的认识。<br>&#160; &#160; &#160; &#160;截止至Python2.7，collections模块提供了一个计数器，使得计算频率分布变得异常容易，我们可以用Counter来计算频率分布得到排过序的元素列表，挖掘微博数据的原因很多，其中一个就是知道，人们在谈论什么。在进行统计之前我们还要有一个工作要做，对我们提取到的中文句子进行分词。<br>&#160; &#160; &#160; &#160;书中是分析Twitter的推文，因为推文是英文的，而在英语中，词与词之间有自然地空格作为分割，但是中文的分词方式要比英文的复杂的多，很方便的是，有一些开源的中文分词工具能够很好的帮我们完成这个复杂的工作。比如结巴分词就是一款很优秀的开源工具，下载戳<a href="https://github.com/fxsjy/jieba" target="_blank" rel="external">这里</a>。我们先将我们提取的句子分词，然后将分词结果放在一个列表中。</p>
-<pre><code>for comment_text in comments_text:
-    seg_list = jieba.cut(comment_text)
-        for i in seg_list:
-            word.append(i)
-</code></pre><p>&#160; &#160; &#160; &#160;分词过后我们就可以把结果进行统计了，用的是collections.Counter()方法。</p>
-<pre><code>from collections import Counter
-for item in [word, user_gender,user_province]:
-    c = Counter(item)
-    print c.most_common()[:10]
-</code></pre><p>&#160; &#160; &#160; &#160;输出结果：</p>
-<pre><code>[(u&apos;\uff0c&apos;, 167), (u&apos;\u7684&apos;, 166), (u&apos; &apos;, 139), (u&apos;[&apos;, 139), (u&apos;]&apos;, 139), (u&apos;\u6211&apos;, 84), (u&apos;@&apos;, 83), (u&apos;\uff01&apos;, 61), (u&apos;\u4e86&apos;, 60), (u&apos;\u3002&apos;, 54)]
-[(u&apos;f&apos;, 170), (u&apos;m&apos;, 26)]
-[(u&apos;100&apos;, 23), (u&apos;32&apos;, 17), (u&apos;51&apos;, 15), (u&apos;42&apos;, 11), (u&apos;41&apos;, 11), (u&apos;400&apos;, 11), (u&apos;34&apos;, 11), (u&apos;44&apos;, 10), (u&apos;31&apos;, 9), (u&apos;37&apos;, 9)]
-</code></pre><p>&#160; &#160; &#160; &#160;频率分析的结果是对应元素以其频率的键/值对映射，因此让我们用表格的形式是结果更加直观，易读，在命令行输入</p>
-<pre><code>pip install prettytable
-</code></pre><p>&#160; &#160; &#160; &#160;安装一个叫做prettytable的包，这个包提供了便于将结果格式化固定宽度的表格格式的方法，这样可以很容易的复制粘贴。</p>
-<pre><code>for label,data in ((&apos;Word&apos;,word),(&apos;Gender&apos;,user_gender),(&apos;Province&apos;,user_province)):
-    pt = PrettyTable(field_names=[label,&apos;Count&apos;])
-    c = Counter(data)
-    [pt.add_row(kv) for kv in c.most_common()[:10]]
-    pt.align[label],pt.align[&apos;Count&apos;] = &apos;1&apos;,&apos;r&apos;
-    print pt
-</code></pre><p>&#160; &#160; &#160; &#160;结果发现输出结果中，词语这一部分是乱码，可能是由于编码问题导致的，其他两项都正常。</p>
-<pre><code>+--------+-------+
-| Gender | Count |
-+--------+-------+
-|   f    |   170 |
-|   m    |    26 |
-+--------+-------+
-+----------+-------+
-| Province | Count |
-+----------+-------+
-|   100    |    23 |
-|    32    |    17 |
-|    51    |    15 |
-|    42    |    11 |
-|    41    |    11 |
-|   400    |    11 |
-|    34    |    11 |
-|    44    |    10 |
-|    31    |     9 |
-|    37    |     9 |
-+----------+-------+
-</code></pre><p>重新编码之后发现词语统计的前几项都是“的”，“就”，以及符号这种没有意义的字符，说明在分词的部分，还是欠考虑，没有忽略掉无意义的词语。这一部分留作日后改进吧。</p>
-
+</code></pre>
       
     </div>
     
@@ -382,16 +339,10 @@ for item in [word, user_gender,user_province]:
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/03/03/Python练习册（一）/">
-                    Python练习册（一）
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/03/01/社交网站的数据挖掘与分析（二）/">
-                    社交网站的数据挖掘与分析（二）
+                <a href="/2016/03/06/（译）基于多源数据的用户兴趣模型/">
+                    （译）基于多源数据的用户兴趣模型
                 </a>
             </div>
         
@@ -402,7 +353,7 @@ for item in [word, user_gender,user_province]:
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第二章-挖掘Facebook"><span class="toc-number">1.</span> <span class="toc-text">第二章 挖掘Facebook</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -466,7 +417,7 @@ for item in [word, user_gender,user_province]:
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/03/02/社交网站的数据挖掘与分析（三）/" data-title="社交网站的数据挖掘与分析（三）" data-url="http://yoursite.com/2016/03/02/社交网站的数据挖掘与分析（三）/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/08/社交网站的数据挖掘与分析（四）/" data-title="社交网站的数据挖掘与分析（四）" data-url="http://yoursite.com/2016/03/08/社交网站的数据挖掘与分析（四）/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -490,15 +441,13 @@ for item in [word, user_gender,user_province]:
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/03/Python练习册（一）/" title="上一篇: Python练习册（一）">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/03/01/社交网站的数据挖掘与分析（二）/" title="下一篇: 社交网站的数据挖掘与分析（二）">
+            <a href="/2016/03/06/（译）基于多源数据的用户兴趣模型/" title="下一篇: （译）基于多源数据的用户兴趣模型">
                 <i class="fa fa-angle-right"></i>
             </a>
         
