@@ -158,7 +158,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/RDF/" style="font-size: 10px;">RDF</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/兴趣模型/" style="font-size: 10px;">兴趣模型</a> <a href="/tags/多源数据/" style="font-size: 10px;">多源数据</a> <a href="/tags/数据挖掘/" style="font-size: 15px;">数据挖掘</a> <a href="/tags/本体论/" style="font-size: 10px;">本体论</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/社交网络分析/" style="font-size: 15px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a>
+                        <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/RDF/" style="font-size: 10px;">RDF</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/兴趣模型/" style="font-size: 10px;">兴趣模型</a> <a href="/tags/多源数据/" style="font-size: 10px;">多源数据</a> <a href="/tags/数据挖掘/" style="font-size: 15px;">数据挖掘</a> <a href="/tags/本体论/" style="font-size: 10px;">本体论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/梯度下降法/" style="font-size: 10px;">梯度下降法</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/监督学习/" style="font-size: 10px;">监督学习</a> <a href="/tags/社交网络分析/" style="font-size: 15px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a>
                     </div>
                 </section>
                 
@@ -235,6 +235,85 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-机器学习0" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/14/机器学习0/" class="article-date">
+      <time datetime="2016-03-14T05:46:33.000Z" itemprop="datePublished">2016-03-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/14/机器学习0/">机器学习0</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>本系列文章记录跟随N.G.Andrew学习机器学习的过程。</p>
+<ol>
+<li>什么是机器学习<br>较早的有关于机器学习的定义来自于Arthur Samuel，他编写了一个下棋软件，然后让计算机和计算机进行对局，最终他发现，计算机在经过大量对局之后的棋艺已经超越了他自己。所以，他给出了如下的定义:<blockquote>
+<p>Field of study that gives computers the ability to learn without being explicity programmed.</p>
+</blockquote>
+</li>
+</ol>
+<p>更符合当今发展的定义由Tom Mitchell给出：</p>
+<blockquote>
+<p>A computer program is said to learn from experience E with respect to some task T and som performance measure P of its performance on T as measured by P, improves with experience E.</p>
+</blockquote>
+<p>不仅很准确，而且很押韵。<br>课程主要涉及到4各部分</p>
+<ul>
+<li>监督学习（supervised learning)<br>监督学习是指训练集存在标准输入和标准输出，例如，给定一个训练集，包含了一组关于乳腺癌的数据，对于标准输入来说，包括了肿瘤的大小，患者的年龄等，对于标准输出，是否为恶性肿瘤，这就是典型的监督学习，对于给定的数据，我们知道每一组输入对应的输出是什么。监督学习包括了回归问题（连续的）和分类问题（离散的）。</li>
+<li>学习理论（learning theory)</li>
+<li>非监督学习（unsupervised learning)<br>非监督学习的特点是，训练集只有标准输入，但是不知道标准输出，比较典型的有聚类问题。</li>
+<li>增强学习（reinforcement learning)</li>
+</ul>
+<ol>
+<li>监督学习<br>首先给出接下来会用到的符号定义：<br>m : the number of training examples 训练样本数<br>x : input variables (features) 输入变量，也叫特性<br>y : output variables (target variable) 输出变量，也叫目标变量<br>(x, y) : one train example 一个训练样本<br>$(x^{(i)}, y^{(i)})$ : $i^{th}$ training example 第i个训练样本<br>训练的大致流程如下：<br><img src="http://7xrav5.com1.z0.glb.clouddn.com/2016031401.png" alt="enter image description here | center | 0"><br>可以看出，我们的目的就是要找到函数 $h(x)$ 来帮助我们预测。<br>我们假设$h(x)$是一次函数，这种情形相对简单。将一次函数的系数设为$\theta$。考虑这样一个问题，我们现在有一组房价的数据，包括了两个自变量，房屋面积和使用年限，一个因变量，房屋成交价，我们需要预测，基于这样一组的训练数据，我的房子能卖多少钱。对于这个问题，估价函数就是<br>$$h(x) = h_\theta(x)=\theta_0+\theta_1x_1+\theta_2x_2$$<br>我们使$x_0=1$，简化公式<br>$$h(x) = h_\theta(x)=h_\theta(x)=\theta_0+\theta_1x_1+\theta_2x_2=\theta_0x_0+\theta_1x_1+\theta_2x_2=\sum\limits_{i=0}^n\theta_ix_i=\theta^Tx$$<br>我们的目的是找到一个估价函数，使得其与我们目前的各个点最为接近，也就是说我们的目标是<br>$$min\frac{1}{2}\sum\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2$$<br>这里乘上$\frac{1}{2}$是为了在接下来的步骤中简化运算，因为我们的目的是求得满足最小值的$h(x)$，所以，这个chulbuhui对结果造成影响。<br>$$J(\theta)=\frac{1}{2}\sum\limits_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2$$<br>现在我们的目的就是找到使得$J(\theta)$最小的向量$\theta$。这里，我们要用到一些搜索算法，我们以某一个$\theta（\theta=\vec{0})$值开始，持续改变$\theta$的值来减小$J(\theta)$。<br>这里介绍梯度下降法（Gradient descent )，该方法的特点是一定会结束，但是结果有时候会依赖初值，导致局部最优。<br>为了求得符合条件的$\theta$，反复执行如下算法。<br>$$\theta_i := \theta_i-\alpha\frac{\partial}{\partial\theta_i}J(\theta)$$<br>其中“:=”代表这是一条程序中的赋值语句。<br>$$\frac{\partial}{\partial\theta_i}J(\theta)=\frac{\partial}{\partial\theta_i}\frac{1}{2}\sum\limits_{j=1}^m(h_\theta(x^{(j)})-y^{(j)})^2=\sum\limits_{j=1}^m(h_\theta(x^{(j)})-y^{(j)})\frac{\partial}{\partial\theta_i}(h_\theta(x^{(j)})-y^{(j)})$$<br>$$\sum\limits_{j=1}^m\frac{\partial}{\partial\theta_i}(h_\theta(x^{(j)})-y^{(j)})=\sum\limits_{j=1}^m\frac{\partial}{\partial\theta_i}h_\theta(x^{(j)})=x_i$$<br>$$\theta_i :=\theta_i-\alpha(h_\theta(x)-y)x_i$$<br>其中$\alpha$是算法参数，一般是人工设定的，取值太小会导致收敛太慢，太大的话，有可能越过收敛值。<br>上面的公式也等价于这种形式：<br>$$\theta_i := \theta_i-\alpha\sum_{j=1}^m(h_\theta(x^{(j)})-y^{(j)})x^{(j)}_i$$<br>这种方法叫做批梯度下降法（batch gradient descent)，优点是利用了全部的样本作为训练数据，精度肯定要高一些，但是缺点也很明显，每次都要遍历所有的样本集，导致了运行时间太慢，于是，有了一种改进的算法，叫做随机梯度下降法。<br>$$For \  j\  in\  range(1,m)\quad\theta := \theta_i-\alpha(h_\theta(x^{(j)})-y^{(j)})x^{(j)}_i$$<br>这种方法只需要遍历一遍样本集，就可以得出结果，但是需要注意的是，这种方法有可能在最小值附近徘徊，而达不到最小值点，但是，总体趋势仍然是接近的。<br>通过梯度下降法，我们就能得到一组解了，但是这是通过遍历逼近的方式，下面讲述一种能够得到解析解的方法。</li>
+</ol>
+<hr>
+<p>对于有$n$个自变量$\theta$的函数$J$<br>$$\nabla_\theta J=\begin{bmatrix} \frac{\partial J}{\partial\theta_0}  \\ \vdots\\ \frac{\partial J}{\partial\theta_n} \end{bmatrix}$$<br>$$\theta := \theta-\alpha\nabla_\theta J$$<br>$$f:R^{m\times n}\longrightarrow R$$<br>$$ f(A)\quad A\in R^{m\times n}$$<br>$$\nabla_\theta=\begin{bmatrix} \frac{\partial f}{\partial A_{11}} &amp; \cdots&amp; \frac{\partial f}{\partial A_{1m}} \\ \vdots&amp;\ddots &amp;\vdots\\ \frac{\partial f}{\partial A_{m1}} &amp; \cdots&amp;\frac{\partial f}{\partial A_{mn}} \end{bmatrix}$$<br>下面不加证明的给出几个定理：<br>$$If:\ A \in R^{m\times n}\quad then:\ trA = \sum_{i=1}^n A_{ii}$$<br>$$trAB = trBA \quad trABC = trCAB=trBCA$$<br>$$If:\ f(A) = trAB\quad then:\ \nabla_AtrAB=B^T$$<br>$$trA = trA^T$$<br>$$If:\ a\in R\quad then:\ tr\ a = a$$<br>$$\nabla_AtrABA^TC=CAB+C^TAB$$<br>$$x\theta=\begin{bmatrix}(x^{(1)})^T\\(x^{(2)})^T\\\ \vdots\\(x^{(m)})^T\end{bmatrix}\theta=\begin{bmatrix}(x^{(1)})^T\theta\\(x^{(2)})^T\theta\\\ \vdots\\(x^{(m)})^T\theta\end{bmatrix}=\begin{bmatrix}h_\theta(x^{(1)})\\\ h_\theta(x^{(2)})\\\ \vdots\\h_\theta(x^{(m)})\end{bmatrix}$$<br>$$\vec{y} = \begin{bmatrix}(y^{(1)})\\(y^{(2)})\\\ \vdots\\(y^{(m)})\end{bmatrix}$$<br>$$x\theta-y=\begin{bmatrix}h_\theta(x^{(1)})-y^{(1)}\\h_\theta(x^{(2)})-y^{(2)}\\\ \vdots\\h_\theta(x^{(m)})-y^{(m)}\end{bmatrix}$$<br>$$\frac{1}{2}(x\theta-y)^T(x\theta-y)=\frac{1}{2}\sum_{i=1}^m(h(x^{(i)})-y)^2=J(\theta)$$<br>因为要求最小值点，所以梯度肯定为0。<br>$$\nabla J(\theta)=\vec{0}$$<br>$$\nabla_\theta\frac{1}{2}(x\theta-y)^T(x\theta-y)=\frac{1}{2}\nabla_\theta tr(\theta^Tx^Tx\theta-\theta^Tx^Ty-y^Tx\theta+y^Ty)$$<br>$$=\frac{1}{2}\nabla_\theta tr\ \theta\theta^Tx^Tx-\nabla_\theta tr\ y^Tx\theta-\nabla_\theta tr\ y^Tx\theta$$<br>对于$\nabla_\theta tr\ \theta\theta^Tx^Tx$，乘上单位矩阵$I$整理，$\nabla_\theta tr\ \theta I\theta^Tx^Tx$，将$\theta$看做$A$，$I$看做$B$，$\theta^T$就是$A^T$，然后把$x^Tx$作为$C$，则：<br>$$\nabla_\theta tr\ \theta\theta^Tx^Tx=x^Tx\theta I+x^Tx\theta I$$<br>$$\nabla_\theta tr\ y^Tx\theta=x^Ty$$<br>把求得的结果带入<br>$$\nabla J(\theta)=\frac{1}{2}(x^Tx\theta I+x^Tx\theta I-x^Ty-x^Ty)$$<br>$$x^Tx\theta-x^Ty=\vec{0}$$<br>$$\theta = (x^Tx)^{-1}x^Ty$$</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/梯度下降法/">梯度下降法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/监督学习/">监督学习</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-社交网站的数据挖掘与分析（四）" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -587,7 +666,7 @@ wiki/index.php/Web&quot;&gt;
           
         <p>今天继续蓝桥杯的练习，题目是<a href="http://wenku.baidu.com/link?url=4KZYlK9WKqjhC1CuuhsGt4v4-PQVihHYmciH7vZPpwv7S8xS3jK34Xzy1tYgz_16xJ64zA6BkcmTUF69uqc4ouNIqxVFiXDQXRJ8yAxTCSq" target="_blank" rel="external">2014年第五届蓝桥杯预赛题目JAVA软件开发本科A组</a></p>
 <ol>
-<li><p><strong>猜年龄</strong><br>&#160; &#160; &#160; &#160;小明带两个妹妹参加元宵灯会。别人问她们多大了，她们调皮地说：“我们俩的年龄之积是年龄之和的6倍”。小明又补充说：“她们可不是双胞胎，年龄差肯定也不超过8岁啊。”<br>&#160; &#160; &#160; &#160;请你写出：小明的较小的妹妹的年龄。<br>&#160; &#160; &#160; &#160;<strong>解</strong>：直接遍历找解，小的年龄a，大的年龄b，找到的条件为a<em>b = 6</em>(a+b)，限制条件b-a&lt;=8，解出来妹妹是10岁。</p>
+<li><p><strong>猜年龄</strong><br>&#160; &#160; &#160; &#160;小明带两个妹妹参加元宵灯会。别人问她们多大了，她们调皮地说：“我们俩的年龄之积是年龄之和的6倍”。小明又补充说：“她们可不是双胞胎，年龄差肯定也不超过8岁啊。”<br>&#160; &#160; &#160; &#160;请你写出：小明的较小的妹妹的年龄。<br>&#160; &#160; &#160; &#160;<strong>解</strong>：直接遍历找解，小的年龄a，大的年龄b，找到的条件为a_b = 6_(a+b)，限制条件b-a&lt;=8，解出来妹妹是10岁。</p>
 <pre><code>public class A_2014_1 {
     public static void main(String args[]){
         int a=0;
@@ -1347,11 +1426,11 @@ public class B_2014_6 {
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>这一系列的文章是为了记录我在学习<em>《社交网站的数据挖掘与分析》第二版 Matthew A. Russell著</em> 一书的过程，知识的总结以及思路的梳理，希望通过这本书的学习能够让我初步了解 <em>社会计算</em> 这一领域。</p>
-<h2 id="第一章-挖掘Twitter（微博）"><a href="#第一章-挖掘Twitter（微博）" class="headerlink" title="第一章  挖掘Twitter（微博）"></a>第一章  挖掘Twitter（微博）</h2><p>&#160; &#160; &#160; &#160;第一章主要围绕着Twitter初步介绍了以后会用到的一些工具及基本知识。<br>既然是围绕Twitter的，那么，我们首先要知道Twitter是什么呢？根据书中的解释，<em>Twitter是通过简短对话，将人与其关注的事物相连的的 <strong>兴趣图谱（interest graph）</strong>以及推文和Twitter的“关注”机制将人们以不同方式联系到一起的社交方式</em>。有没有觉得和微博很像？<br>&#160; &#160; &#160; &#160;这里提到了一个概念 <strong>兴趣图谱（interest graph ) </strong>，那什么是兴趣图谱呢？兴趣图谱是对人们与他们兴趣之间的关系进行建模的一种方式。兴趣图谱在数据挖掘领域提供了大量的可能性，这些主要涉及测量事物之间的相关性从而进行智能推荐，或涉及机器学习的其他应用。<br>&#160; &#160; &#160; &#160;Twitter相比之前的社交网站还有一个很重要的特征使得它可以被描述为兴趣图谱。Twitter的标签体系，在介绍这一点时，书中用了一个新的名词 <strong>大众分类法</strong>，这只是一种描述去中心化标签领域的绝好方式，当允许人们使用标签分类内容的时候，它可以涌现为集体智慧。<br>&#160; &#160; &#160; &#160;Twitter也是一个 <strong>非对称模型</strong>，非对称模型很好理解，我关注了范冰冰，而很可能（几乎是一定的…）范冰冰并不会关注我，所以，我和范冰冰之间的关注就不是对称的。<br>&#160; &#160; &#160; &#160;推文是Twitter的核心，就像我们刷微博是为了看别人的140字，但这140字本身还捆绑了两种需要特别重要的元数据：实体和地点。实体指的是用户的引用，主题标签，URL以及和推文相关的媒体文件（图片，视频），而地点可能写在推文中，比如我在人民广场吃炸鸡，也可能是用户实际的签到位置。<br>&#160; &#160; &#160; &#160;这是一条实际的微博，原书用的Twitter，我懒得注册，还要翻墙，直接用微博了。<br>&#160; &#160; &#160; &#160;<img src="http://7xrav5.com1.z0.glb.clouddn.com/2016022701.png" alt="enter image description here"><br>&#160; &#160; &#160; &#160;首先是引用了<strong>@TECH2IPO创见</strong>，然后是微博内容，并给出了两个URL。简短的推文可以蕴含大量信息，可以明确引用多个其他的Twitter用户，到网页的链接，使用主题标签相互引用的主题，而这些话题作为聚集点对整个Twitter虚拟空间（Twitterverse）以一种便于搜索的方式进行垂直切分。<br>&#160; &#160; &#160; &#160;了解了以上的基础知识之后就可以尝试利用API对数据进行基本的采集和处理工作了，为了方便，书中关于Twitter的分析尽可能用新浪微博来代替。一下部分讲解利用python获取OAuth2.0授权的过程。</p>
+        <p>这一系列的文章是为了记录我在学习_《社交网站的数据挖掘与分析》第二版 Matthew A. Russell著_ 一书的过程，知识的总结以及思路的梳理，希望通过这本书的学习能够让我初步了解 _社会计算_ 这一领域。</p>
+<h2 id="第一章-挖掘Twitter（微博）"><a href="#第一章-挖掘Twitter（微博）" class="headerlink" title="第一章  挖掘Twitter（微博）"></a>第一章  挖掘Twitter（微博）</h2><p>&#160; &#160; &#160; &#160;第一章主要围绕着Twitter初步介绍了以后会用到的一些工具及基本知识。<br>既然是围绕Twitter的，那么，我们首先要知道Twitter是什么呢？根据书中的解释，_Twitter是通过简短对话，将人与其关注的事物相连的的 <strong>兴趣图谱（interest graph）</strong>以及推文和Twitter的“关注”机制将人们以不同方式联系到一起的社交方式_。有没有觉得和微博很像？<br>&#160; &#160; &#160; &#160;这里提到了一个概念 <strong>兴趣图谱（interest graph ) </strong>，那什么是兴趣图谱呢？兴趣图谱是对人们与他们兴趣之间的关系进行建模的一种方式。兴趣图谱在数据挖掘领域提供了大量的可能性，这些主要涉及测量事物之间的相关性从而进行智能推荐，或涉及机器学习的其他应用。<br>&#160; &#160; &#160; &#160;Twitter相比之前的社交网站还有一个很重要的特征使得它可以被描述为兴趣图谱。Twitter的标签体系，在介绍这一点时，书中用了一个新的名词 <strong>大众分类法</strong>，这只是一种描述去中心化标签领域的绝好方式，当允许人们使用标签分类内容的时候，它可以涌现为集体智慧。<br>&#160; &#160; &#160; &#160;Twitter也是一个 <strong>非对称模型</strong>，非对称模型很好理解，我关注了范冰冰，而很可能（几乎是一定的…）范冰冰并不会关注我，所以，我和范冰冰之间的关注就不是对称的。<br>&#160; &#160; &#160; &#160;推文是Twitter的核心，就像我们刷微博是为了看别人的140字，但这140字本身还捆绑了两种需要特别重要的元数据：实体和地点。实体指的是用户的引用，主题标签，URL以及和推文相关的媒体文件（图片，视频），而地点可能写在推文中，比如我在人民广场吃炸鸡，也可能是用户实际的签到位置。<br>&#160; &#160; &#160; &#160;这是一条实际的微博，原书用的Twitter，我懒得注册，还要翻墙，直接用微博了。<br>&#160; &#160; &#160; &#160;<img src="http://7xrav5.com1.z0.glb.clouddn.com/2016022701.png" alt="enter image description here"><br>&#160; &#160; &#160; &#160;首先是引用了<strong>@TECH2IPO创见</strong>，然后是微博内容，并给出了两个URL。简短的推文可以蕴含大量信息，可以明确引用多个其他的Twitter用户，到网页的链接，使用主题标签相互引用的主题，而这些话题作为聚集点对整个Twitter虚拟空间（Twitterverse）以一种便于搜索的方式进行垂直切分。<br>&#160; &#160; &#160; &#160;了解了以上的基础知识之后就可以尝试利用API对数据进行基本的采集和处理工作了，为了方便，书中关于Twitter的分析尽可能用新浪微博来代替。一下部分讲解利用python获取OAuth2.0授权的过程。</p>
 <hr>
 <ol>
-<li>注册新浪微博开发方平台：在<a href="http://open.weibo.com/" target="_blank" rel="external">新浪开放平台</a>注册一个网页应用，在你的邮箱里，可以收到系统发来的 <em>APP key</em> 和 <em>APP secret</em>，将这两个串保存下来。</li>
+<li>注册新浪微博开发方平台：在<a href="http://open.weibo.com/" target="_blank" rel="external">新浪开放平台</a>注册一个网页应用，在你的邮箱里，可以收到系统发来的 _APP key_ 和 _APP secret_，将这两个串保存下来。</li>
 <li><p>下载python SDK：<a href="http://github.liaoxuefeng.com/sinaweibopy/" target="_blank" rel="external">下载地址</a>，或直接打开命令行输入</p>
 <pre><code>pip install sinaweibopy
 </code></pre></li>
@@ -1389,187 +1468,6 @@ api.statuses.update.post(status=u&apos;Test OAuth 2.0 Send a Weibo!&apos;)
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据挖掘/">数据挖掘</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/社交网络分析/">社交网络分析</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-蓝桥杯练习（一）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/26/蓝桥杯练习（一）/" class="article-date">
-      <time datetime="2016-02-26T09:42:55.000Z" itemprop="datePublished">2016-02-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/26/蓝桥杯练习（一）/">蓝桥杯练习（一）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>今天没什么事情，上网找了蓝桥杯2014年 <em>Java b</em> 组 的道题做一做，还是挺有意思的…..</p>
-<ol>
-<li><p><strong>武功秘籍</strong><br>&#160; &#160; &#160; &#160;小明到X山洞探险，捡到一本有破损的武功秘籍（2000多页！当然是伪造的）。他意识到：书的第10页和第11页在同一张纸上，但第11页和第12页不在同一张纸上。 小明只想练习该书的第81页到第92页的武功，又不想带着整本书。请问他至少要撕下多少张纸带走？<br>&#160; &#160; &#160; &#160;<strong>解</strong>： 这是一道送分题，问题是需要拿走多少页。很显然的思想是把起始页和末尾页相减再除2加1，唯一的干扰是，根据题目的信息，书是从偶数页开始的，那么，如果起始页是奇数，将其减1，才能得到正确的页数。<br>代码如下：</p>
-<pre><code>package cmy;
-
-import java.util.Scanner;
-public class B_2014_1 {
-    public static void main(String[] args) {
-    // TODO Auto-generated method stub
-    Scanner in = new Scanner(System.in);
-    int start = in.nextInt();
-    int end = in.nextInt();
-    int sum;
-    while(!(start % 2 == 0)){
-        if (start % 2 == 1){
-            start = start - 1;
-        }
-    }
-    sum = (end - start) / 2 + 1;
-    System.out.println(sum);
-    in.close();
-    }
-}
-</code></pre></li>
-<li><p><strong>切面条</strong><br>&#160; &#160; &#160; &#160;一根高筋拉面，中间切一刀，可以得到2根面条。如果先对折1<br>次，中间切一刀，可以得到3根面条。如果连续对折2次，中间切一刀，可以得到5根面条。那么，连续对折10次，中间切一刀，会得到多少面条呢？<br>&#160; &#160; &#160; &#160;<strong>解</strong>：一道找规律的题，根据观察写出数列，（0，2），（1，3），（2，5），不难得到通项公式<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>$$a_n={2^n+1}$$根据通项公式，就能够很容易的解出答案了。<br>代码如下：</p>
-<pre><code>import java.util.Scanner;
-public class B_2014_2 {
-public static void main(String[] args) {
-    // TODO Auto-generated method stub
-    Scanner in = new Scanner(System.in);
-    int output;
-    int n = in.nextInt();
-    output = (int)Math.pow(2,n) + 1;
-    System.out.println(output);
-    in.close();
-    }
-}
-</code></pre></li>
-<li><p><strong>猜字母</strong><br>&#160; &#160; &#160; &#160;把 a，b，c，d，…，s共19个字母组成的序列重复拼接106次，得到长度为2014的串。接下来删除第1个字母（即开头的字母a），以及第3个，第5个等所有奇数位置的字母。得到的新串再进行删除奇数位置字母的动作。如此下去，最后只剩下一个字母，请写出该字母。<br>&#160; &#160; &#160; &#160;<strong>解</strong>：很简单，先用串A保存拼接后长度为2014的字符串，因为对其进行删除奇数位的操作，保留的就是偶数位，那么就用串B把A中的偶数位保留下来，把A的内容清空以后，把B的内容赋值给A，清空B再重复操作，直到B中只剩一个字母。<br>代码如下：</p>
-<pre><code>package cmy;
-
-import java.util.Scanner;
-public class B_2014_3 {
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
-        //Scanner in = new Scanner(System.in);
-        StringBuilder A = new StringBuilder();
-        StringBuilder B = new StringBuilder();
-        for (int i = 0; i &lt; 106; i++){
-            for (int j = 0; j &lt; 19; j++){
-                A.append(String.format(&quot;%c&quot;, (&apos;a&apos; + j)));
-            }
-        }
-
-        while(A.length() != 1){
-            for(int i = 0;i &lt; A.length(); i++){
-                if((i + 1) % 2 == 0){
-                    B.append(A.charAt(i));
-                }
-            }
-            A.delete(0, A.length());
-            A.append(B);
-            B.delete(0, B.length());
-        }
-
-        System.out.println(A.toString());
-    }
-}
-</code></pre></li>
-<li><p><strong>大衍数列</strong><br>&#160; &#160; &#160; &#160;中国古代文献中，曾记载过“大衍数列”, 主要用于解释中国传统文化中的太极衍生原理。它的前几项是：0、2、4、8、12、18、24、32、40、50 …    其规律是：对偶数项，是序号平方再除2，奇数项，是序号平方减1再除2。以下的代码打印出了大衍数列的前 100 项。 </p>
-<pre><code>for(int i=1; i&lt;100; i++) 
-{ 
-    if( ______ )  //填空
-        System.out.println(i*i/2); 
-    else 
-        System.out.println((i*i-1)/2);
-}    
-</code></pre><p>请填写划线部分缺失的代码。<br>&#160; &#160; &#160; &#160;<strong>解</strong>： 题中给了打印奇数项的代码，所以要求填的是偶数项的判断条件，显然是模2余1。</p>
-<pre><code>if( i % 2 == 0)
-</code></pre></li>
-<li><p><strong>圆周率</strong><br>数学发展历史上，圆周率的计算曾有许多有趣甚至是传奇的故事。其中许多方法都涉及无穷级数。图1.png中所示，就是一种用连分数的形式表示的圆周率求法。下面的程序实现了该求解方法。实际上数列的收敛对x的初始值并不敏感。结果打印出圆周率近似值（保留小数点后4位，并不一定与圆周率真值吻合）。</p>
-<pre><code>double x = 111;  
-for(int n = 10000; n&gt;=0; n--){ 
-    int i = 2 * n + 1; 
-    x = 2 + (i*i / x); 
-} 
-
-System.out.println(String.format(&quot;%.4f&quot;, ______________));
-</code></pre><p>请填写划线部分缺失的代码。<br>&#160; &#160; &#160; &#160;<strong>解</strong>： 因为题资源没有给出图片是什么样子，我也不知道用连分数表示该是怎样的方式所以直接给出答案了。</p>
-<pre><code>4/（x - 1)
-</code></pre></li>
-<li><p><strong>奇怪的分式</strong><br>&#160; &#160; &#160; &#160;上小学的时候，小明经常自己发明新算法。一次，老师出的题目是：<br>1/4乘以 8/5  小明居然把分子拼接在一起，分母拼接在一起，答案是：18/45 。老师刚想批评他，转念一想，这个答案凑巧也对啊，真是见鬼！对于分子、分母都是 1~9 中的一位数的情况，还有哪些算式可以这样计算呢？请写出所有不同算式的个数（包括题中举例的）。 显然，交换分子分母后，例如：4/1 乘以 5/8 是满足要求的，这算做不同的算式。但对于分子分母相同的情况，2/2 乘以 3/3 这样的类型太多了，不在计数之列!<br>注意：答案是个整数（考虑对称性，肯定是偶数）。<br>&#160; &#160; &#160; &#160;<strong>解</strong>：没找到什么规律，所以直接暴力找了。<br>代码如下：</p>
-<pre><code>public class B_2014_6 {
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
-        int a,b,c,d;
-        int x,y;
-        int count = 0;
-        for(int i = 1;i &lt;= 9; i++){
-            a = i;
-            for(int j = 1;j &lt;= 9; j++){
-                b = j;
-                if(a == b)
-                    continue;
-                else{
-                    for(int k = 1;k &lt;= 9; k++){
-                        c = k;
-                        for(int n = 1;n &lt;= 9; n++){
-                            d = n;
-                            if(c == d)
-                                continue;
-                            else{
-                                x = 10*a+c;
-                                y = 10*b+d;
-                                if((double)x/y == (double)(a*c)/(b*d)){
-                                    System.out.println(String.format(&quot;%d/%d,%d/%d&quot;, a,b,c,d));
-                                    count++;}
-                                else
-                                    continue;
-                            }}}}}}
-        System.out.println(&quot;Count:&quot; + count);
-    }
-}
-</code></pre></li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li></ul>
     </div>
 
       
@@ -1627,6 +1525,7 @@ System.out.println(String.format(&quot;%.4f&quot;, ______________));
 </footer>
     </div>
     
+
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="/js/main.js" type="text/javascript"></script>
 
@@ -1649,6 +1548,37 @@ System.out.println(String.format(&quot;%.4f&quot;, ______________));
 
 
 
+    <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 <div class="scroll" id="scroll">
     <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
     <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
@@ -1662,10 +1592,58 @@ System.out.println(String.format(&quot;%.4f&quot;, ______________));
         };
     })
 </script>
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
   </div>
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

@@ -153,7 +153,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/RDF/" style="font-size: 10px;">RDF</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/兴趣模型/" style="font-size: 10px;">兴趣模型</a> <a href="/tags/多源数据/" style="font-size: 10px;">多源数据</a> <a href="/tags/数据挖掘/" style="font-size: 15px;">数据挖掘</a> <a href="/tags/本体论/" style="font-size: 10px;">本体论</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/社交网络分析/" style="font-size: 15px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a>
+                        <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/RDF/" style="font-size: 10px;">RDF</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/兴趣模型/" style="font-size: 10px;">兴趣模型</a> <a href="/tags/多源数据/" style="font-size: 10px;">多源数据</a> <a href="/tags/数据挖掘/" style="font-size: 15px;">数据挖掘</a> <a href="/tags/本体论/" style="font-size: 10px;">本体论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/梯度下降法/" style="font-size: 10px;">梯度下降法</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/监督学习/" style="font-size: 10px;">监督学习</a> <a href="/tags/社交网络分析/" style="font-size: 15px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a>
                     </div>
                 </section>
                 
@@ -241,6 +241,37 @@
           <a href="/archives/2016" class="archive-year">2016</a>
         </div>
         <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a href="/2016/03/14/机器学习0/" class="archive-article-date">
+      <time datetime="2016-03-14T05:46:33.000Z" itemprop="datePublished">03-14</time>
+</a>
+        </div>
+         
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/03/14/机器学习0/">机器学习0</a>
+    </h1>
+  
+
+        <div class="article-info info-on-archive">
+          
+
+          
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/梯度下降法/">梯度下降法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/监督学习/">监督学习</a></li></ul>
+    </div>
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
     
     <article class="archive-article archive-type-post">
   <div class="archive-article-inner">
@@ -519,37 +550,6 @@
   </div>
 </article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016/02/26/蓝桥杯练习（一）/" class="archive-article-date">
-      <time datetime="2016-02-26T09:42:55.000Z" itemprop="datePublished">02-26</time>
-</a>
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/02/26/蓝桥杯练习（一）/">蓝桥杯练习（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
   
     </div></section>
   
@@ -594,6 +594,7 @@
 </footer>
     </div>
     
+
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="/js/main.js" type="text/javascript"></script>
 
@@ -616,6 +617,37 @@
 
 
 
+    <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 <div class="scroll" id="scroll">
     <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
     <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
@@ -628,6 +660,36 @@
             $("#scroll > a:nth-child(2)").hide();
         };
     })
+</script>
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
     <button class="hide-labels">TAG 开关</button>
@@ -645,5 +707,23 @@
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
   </div>
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>
