@@ -158,7 +158,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/RDF/" style="font-size: 10px;">RDF</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/兴趣模型/" style="font-size: 10px;">兴趣模型</a> <a href="/tags/多源数据/" style="font-size: 10px;">多源数据</a> <a href="/tags/数据挖掘/" style="font-size: 15px;">数据挖掘</a> <a href="/tags/本体论/" style="font-size: 10px;">本体论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/梯度下降法/" style="font-size: 10px;">梯度下降法</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/监督学习/" style="font-size: 10px;">监督学习</a> <a href="/tags/社交网络分析/" style="font-size: 15px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a>
+                        <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/RDF/" style="font-size: 10px;">RDF</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/兴趣模型/" style="font-size: 10px;">兴趣模型</a> <a href="/tags/多源数据/" style="font-size: 10px;">多源数据</a> <a href="/tags/推荐系统/" style="font-size: 10px;">推荐系统</a> <a href="/tags/数据挖掘/" style="font-size: 15px;">数据挖掘</a> <a href="/tags/本体论/" style="font-size: 10px;">本体论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/梯度下降法/" style="font-size: 10px;">梯度下降法</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/监督学习/" style="font-size: 10px;">监督学习</a> <a href="/tags/相似度度量/" style="font-size: 10px;">相似度度量</a> <a href="/tags/社交网络分析/" style="font-size: 15px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a>
                     </div>
                 </section>
                 
@@ -235,6 +235,192 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-计算相似度评价值的几种方法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/16/计算相似度评价值的几种方法/" class="article-date">
+      <time datetime="2016-03-16T15:55:21.000Z" itemprop="datePublished">2016-03-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/16/计算相似度评价值的几种方法/">计算相似度评价值的几种方法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>今天介绍几种相似度的计算方法，参考《集体智慧编程》$P_7$ _~_ $P_{14}$</p>
+<p>首先给出测试数据集，一个关于影评的打分集合，包括评价者的名字，及电影评分，评分区间是（0,5），来源于《集体智慧编程》$P_8$：</p>
+<pre><code>critics = {&apos;Lisa Rose&apos;: {&apos;Lady in the Water&apos;:2.5,&apos;Snakes on a Plane&apos;:3.5,
+        &apos;Just My Luck&apos;:3.0,&apos;Superman Returns&apos;:3.5,&apos;You, Me and Dupree&apos;:2.5,
+        &apos;The Night Listener&apos;:3.0},
+        &apos;Gene Seymour&apos;:{&apos;Lady in the Water&apos;:3.0,&apos;Snakes on a Plane&apos;:3.5,
+        &apos;Just My Luck&apos;:1.5,&apos;Superman Returns&apos;:5.0,&apos;You, Me and Dupree&apos;:3.5,
+        &apos;The Night Listener&apos;:3.0},
+        &apos;Michael Phillips&apos;:{&apos;Lady in the water&apos;:2.5,&apos;Snakes on a Plane&apos;:3.0,
+        &apos;Superman Returns&apos;:3.5,&apos;The Night Listener&apos;:4.0},
+        &apos;Claudia Puig&apos;:{&apos;Snakes on a Plane&apos;:3.5,&apos;The Night Listener&apos;:4.5,
+        &apos;Just My Luck&apos;:3.0,&apos;Superman Returns&apos;:4.0,&apos;You, Me and Dupree&apos;:2.5},
+        &apos;Mick LaSalle&apos;:{&apos;Lady in the Water&apos;:3.0,&apos;Snakes on a Plane&apos;:4.0,
+        &apos;Just My Luck&apos;:2.0,&apos;Superman Returns&apos;:3.0,&apos;The Night Listener&apos;:3.0,
+        &apos;You, Me and Dupree&apos;:2.0},
+        &apos;Jack Matthews&apos;:{&apos;Lady in the Water&apos;:3.0,&apos;Snakes on a Plane&apos;:4.0,
+        &apos;The Night Listener&apos;:3.0,&apos;Superman Returns&apos;:5.0,&apos;You, Me and Dupree&apos;:3.5},
+        &apos;Toby&apos;:{&apos;Snakes on a Plane&apos;:4.5,&apos;You, Me and Dupree&apos;:1.0,&apos;Superman Returns&apos;:4.0}}
+</code></pre><p>下面介绍相似度度量：</p>
+<ol>
+<li><p>欧几里得距离（Euclidean metric）：<br>欧几里得距离来源于欧氏空间中的任意两点距离，对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$d = \sqrt{\sum_{k=1}^N(x_{1k}-x_{2k})^2}$$<br>向量表示方法：<br>$$d = \sqrt{(a-b){(a-b)^T}}$$<br>python代码：</p>
+<pre><code>def sim_distance(prefs,person1,person2):
+    si = {}
+    for item in prefs[person1]:
+        if item in prefs[person2]:
+            si[item] = 1
+
+    if len(si) == 0: 
+        return 0
+    sum_of_squares = sum([pow(prefs[person1][item]-prefs[person2][item],2)
+                    for item in prefs[person1] if item in prefs[person2]])
+
+    return 1/(1+sqrt(sum_of_squares))
+</code></pre><p>下面介绍相似度度量：</p>
+</li>
+<li><p>欧几里得距离（Euclidean metric）：<br>欧几里得距离来源于欧氏空间中的任意两点距离，对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$d = \sqrt{\sum_{k=1}^N(x_{1k}-x_{2k})^2}$$<br>向量表示方法：<br>$$d = \sqrt{(a-b){(a-b)^T}}$$<br>python代码：</p>
+<pre><code>def sim_distance(prefs,person1,person2):
+    si = {}
+    for item in prefs[person1]:
+        if item in prefs[person2]:
+            si[item] = 1
+
+    if len(si) == 0: 
+        return 0
+    sum_of_squares = sum([pow(prefs[person1][item]-prefs[person2][item],2)
+                    for item in prefs[person1] if item in prefs[person2]])
+
+    return 1/(1+sqrt(sum_of_squares))
+</code></pre></li>
+<li><p>皮尔逊相关度（Pearson correlation coefficient）<br>样本的简单相关系数一般用 $r$ 表示，其中 $n$ 为样本量， 分别为两个变量的观测值和均值。$r$ 描述的是两个变量间线性相关强弱的程度。$r$ 的取值在-1与+1之间，若 $r&gt;0$，表明两个变量是正相关，即一个变量的值越大，另一个变量的值也会越大；若 $ r&lt;0$ ，表明两个变量是负相关，即一个变量的值越大另一个变量的值反而会越小。对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$\frac{\sum ab^T-\frac{\sum a\sum b}{N}}{\sqrt{(\sum a^2-\frac{\sum a^2}{N})\times(\sum b^2-\frac{\sum b^2}{N})}}$$<br>python代码：</p>
+<pre><code>def sim_pearson(prefs,p1,p2):
+    si = {}
+    for item in prefs[p1]:
+        if item in prefs[p2]:
+            si[item] = 1
+    n = len(si)
+
+    if n == 0:
+        return 0
+
+    sum1 = sum([prefs[p1][it] for it in si])
+    sum2 = sum([prefs[p2][it] for it in si])
+
+    sum1Sq = sum([pow(prefs[p1][it], 2) for it in si])
+    sum2Sq = sum([pow(prefs[p2][it], 2) for it in si])
+
+    pSum = sum([prefs[p1][it] * prefs[p2][it] for it in si])
+
+    num = pSum - (sum1 * sum2 / n)
+    den = sqrt((sum1Sq - pow(sum1, 2) / n)*(sum2Sq - pow(sum2, 2) / n))
+    if den == 0:
+        return 1
+
+    r = num / den
+
+    return r
+</code></pre></li>
+<li><p>杰卡德相似系数(Jaccard similarity coefficient)<br>这部分代码书中没有给出，是自己实现的，广义Jaccard相似度，元素的取值可以是实数。又称为Tanimoto系数，用EJ来表示，对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$EJ = \frac{ab^T}{|a|+|b|-ab^T}$$<br>其中$|a|,|b|$分别代表 $ \vec{a},\vec{b}$的模。<br>python代码实现：</p>
+<pre><code>def sim_jaccard(prefs,p1,p2):
+    si = {}
+    for item in prefs[p1]:
+        if item in prefs[p2]:
+            si[item] = 1
+
+    n = len(si)
+
+    if n == 0:
+        return 0
+
+    times = sum([prefs[p1][item]*prefs[p2][item] for item in si])
+    ma = sum([pow(prefs[p1][item],2) for item in si])
+    mb = sum([pow(prefs[p2][item],2) for item in si])
+    den = times/(ma+mb-times)
+
+    if den == 0:
+        return 1
+
+    r = 1 / (1 + den)
+
+    return r
+</code></pre></li>
+<li><p>曼哈顿距离(Manhattan Distance)<br>想象你在曼哈顿要从一个十字路口开车到另外一个十字路口，驾驶距离是两点间的直线距离吗？显然不是，除非你能穿越大楼。实际驾驶距离就是这个“曼哈顿距离”。而这也是曼哈顿距离名称的来源， 曼哈顿距离也称为城市街区距离(City Block distance)，对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$d = \sum_{k=1}^N\sqrt{x_{1k}-x_{2k}}$$<br>python代码实现</p>
+<pre><code>def sim_manhattan(prefs,p1,p2):
+    si = {}
+    for item in prefs[p1]:
+        if item in prefs[p2]:
+            si[item] = 1
+
+    n = len(si)
+
+    if n == 0:
+        return 0
+
+    den = sum([abs(prefs[p1][item]-prefs[p2][item]) for item in si])
+
+    r = 1/(1+den)
+
+    return r
+</code></pre></li>
+</ol>
+<hr>
+<p>利用上面四种方法对数据集进行操作</p>
+<pre><code>print sim_distance(critics,&apos;Jack Matthews&apos;,&apos;Gene Seymour&apos;)
+print sim_pearson(critics,&apos;Jack Matthews&apos;,&apos;Gene Seymour&apos;)
+print sim_manhattan(critics,&apos;Jack Matthews&apos;,&apos;Gene Seymour&apos;)
+print sim_jaccard(critics,&apos;Jack Matthews&apos;,&apos;Gene Seymour&apos;)
+</code></pre><p>结果如下</p>
+<blockquote>
+<p>0.666666666667<br>0.963795681876<br>0.666666666667<br>0.500900900901</p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/推荐系统/">推荐系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/相似度度量/">相似度度量</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-机器学习0" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1381,93 +1567,6 @@ public class B_2014_6 {
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-社交网站的数据挖掘与分析（一）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/27/社交网站的数据挖掘与分析（一）/" class="article-date">
-      <time datetime="2016-02-27T13:23:21.000Z" itemprop="datePublished">2016-02-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/27/社交网站的数据挖掘与分析（一）/">社交网站的数据挖掘与分析（一）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>这一系列的文章是为了记录我在学习_《社交网站的数据挖掘与分析》第二版 Matthew A. Russell著_ 一书的过程，知识的总结以及思路的梳理，希望通过这本书的学习能够让我初步了解 _社会计算_ 这一领域。</p>
-<h2 id="第一章-挖掘Twitter（微博）"><a href="#第一章-挖掘Twitter（微博）" class="headerlink" title="第一章  挖掘Twitter（微博）"></a>第一章  挖掘Twitter（微博）</h2><p>&#160; &#160; &#160; &#160;第一章主要围绕着Twitter初步介绍了以后会用到的一些工具及基本知识。<br>既然是围绕Twitter的，那么，我们首先要知道Twitter是什么呢？根据书中的解释，_Twitter是通过简短对话，将人与其关注的事物相连的的 <strong>兴趣图谱（interest graph）</strong>以及推文和Twitter的“关注”机制将人们以不同方式联系到一起的社交方式_。有没有觉得和微博很像？<br>&#160; &#160; &#160; &#160;这里提到了一个概念 <strong>兴趣图谱（interest graph ) </strong>，那什么是兴趣图谱呢？兴趣图谱是对人们与他们兴趣之间的关系进行建模的一种方式。兴趣图谱在数据挖掘领域提供了大量的可能性，这些主要涉及测量事物之间的相关性从而进行智能推荐，或涉及机器学习的其他应用。<br>&#160; &#160; &#160; &#160;Twitter相比之前的社交网站还有一个很重要的特征使得它可以被描述为兴趣图谱。Twitter的标签体系，在介绍这一点时，书中用了一个新的名词 <strong>大众分类法</strong>，这只是一种描述去中心化标签领域的绝好方式，当允许人们使用标签分类内容的时候，它可以涌现为集体智慧。<br>&#160; &#160; &#160; &#160;Twitter也是一个 <strong>非对称模型</strong>，非对称模型很好理解，我关注了范冰冰，而很可能（几乎是一定的…）范冰冰并不会关注我，所以，我和范冰冰之间的关注就不是对称的。<br>&#160; &#160; &#160; &#160;推文是Twitter的核心，就像我们刷微博是为了看别人的140字，但这140字本身还捆绑了两种需要特别重要的元数据：实体和地点。实体指的是用户的引用，主题标签，URL以及和推文相关的媒体文件（图片，视频），而地点可能写在推文中，比如我在人民广场吃炸鸡，也可能是用户实际的签到位置。<br>&#160; &#160; &#160; &#160;这是一条实际的微博，原书用的Twitter，我懒得注册，还要翻墙，直接用微博了。<br>&#160; &#160; &#160; &#160;<img src="http://7xrav5.com1.z0.glb.clouddn.com/2016022701.png" alt="enter image description here"><br>&#160; &#160; &#160; &#160;首先是引用了<strong>@TECH2IPO创见</strong>，然后是微博内容，并给出了两个URL。简短的推文可以蕴含大量信息，可以明确引用多个其他的Twitter用户，到网页的链接，使用主题标签相互引用的主题，而这些话题作为聚集点对整个Twitter虚拟空间（Twitterverse）以一种便于搜索的方式进行垂直切分。<br>&#160; &#160; &#160; &#160;了解了以上的基础知识之后就可以尝试利用API对数据进行基本的采集和处理工作了，为了方便，书中关于Twitter的分析尽可能用新浪微博来代替。一下部分讲解利用python获取OAuth2.0授权的过程。</p>
-<hr>
-<ol>
-<li>注册新浪微博开发方平台：在<a href="http://open.weibo.com/" target="_blank" rel="external">新浪开放平台</a>注册一个网页应用，在你的邮箱里，可以收到系统发来的 _APP key_ 和 _APP secret_，将这两个串保存下来。</li>
-<li><p>下载python SDK：<a href="http://github.liaoxuefeng.com/sinaweibopy/" target="_blank" rel="external">下载地址</a>，或直接打开命令行输入</p>
-<pre><code>pip install sinaweibopy
-</code></pre></li>
-<li><p>申请OAuth2.0访问API：因为今天的重点不在于OAuth2.0，所以在这里就不介绍，有时间会仔细研究一下这个东西</p>
-<pre><code>import sys
-import weibo
-import webbrowser
-
-APP_KEY = &apos;你的APP key&apos;
-MY_APP_SECRET = &apos;你的APP  secret&apos;
-#这里的回调地址我写的是自己博客的地址，与在应用控制台-高级应用中填写的地址一致即可
-REDIRECT_URL = &apos;https://chimingyu.com&apos; 
-api = weibo.APIClient(APP_KEY,MY_APP_SECRET,REDIRECT_URL)
-authorize_url = api.get_authorize_url()
-print(authorize_url)
-webbrowser.open_new(authorize_url)
-</code></pre><p>运行后会跳转到我的博客首页，即上面的回调地址，输入要登录的用户名及密码，然后在URL中可以找到code字段<br><code>http://chimingyu.com/?code=e63ec8b7bc1b65698ded0987403aa81c</code><br>4.输入code值模拟认证：代码需要上一步的code字段，模拟登陆，并发送一条微博</p>
-<pre><code>request = api.request_access_token(code, REDIRECT_URL)
-access_token = request.access_token
-expires_in = request.expires_in
-api.set_access_token(access_token, expires_in)
-api.statuses.update.post(status=u&apos;Test OAuth 2.0 Send a Weibo!&apos;)
-</code></pre><p>5.效果：上面的代码需要手动获取code值，说实话…有点傻，优化的部分有时间再做，这一部分主要是为了自己练一练API的调用和OAuth2.0的授权。<br>&#160; &#160; &#160; &#160;<img src="http://7xrav5.com1.z0.glb.clouddn.com/2016022702.png" alt="enter image description here"></p>
-</li>
-</ol>
-<hr>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据挖掘/">数据挖掘</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/社交网络分析/">社交网络分析</a></li></ul>
     </div>
 
       

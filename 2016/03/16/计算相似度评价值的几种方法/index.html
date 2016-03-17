@@ -3,24 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>蓝桥杯练习（一） | 迟没有的回收站</title>
+  <title>计算相似度评价值的几种方法 | 迟没有的回收站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天没什么事情，上网找了蓝桥杯2014年 _Java b_ 组 的道题做一做，还是挺有意思的…..
-
-武功秘籍&amp;#160; &amp;#160; &amp;#160; &amp;#160;小明到X山洞探险，捡到一本有破损的武功秘籍（2000多页！当然是伪造的）。他意识到：书的第10页和第11页在同一张纸上，但第11页和第12页不在同一张纸上。 小明只想练习该书的第81页到第92页的武功，又不想带着整本书。请问他至少要撕下">
+  <meta name="description" content="今天介绍几种相似度的计算方法，参考《集体智慧编程》$P_7$ _~_ $P_{14}$
+首先给出测试数据集，一个关于影评的打分集合，包括评价者的名字，及电影评分，评分区间是（0,5），来源于《集体智慧编程》$P_8$：
+critics = {&amp;apos;Lisa Rose&amp;apos;: {&amp;apos;Lady in the Water&amp;apos;:2.5,&amp;apos;Snakes on a Pla">
 <meta property="og:type" content="article">
-<meta property="og:title" content="蓝桥杯练习（一）">
-<meta property="og:url" content="http://yoursite.com/2016/02/26/蓝桥杯练习（一）/index.html">
+<meta property="og:title" content="计算相似度评价值的几种方法">
+<meta property="og:url" content="http://yoursite.com/2016/03/16/计算相似度评价值的几种方法/index.html">
 <meta property="og:site_name" content="迟没有的回收站">
-<meta property="og:description" content="今天没什么事情，上网找了蓝桥杯2014年 _Java b_ 组 的道题做一做，还是挺有意思的…..
-
-武功秘籍&amp;#160; &amp;#160; &amp;#160; &amp;#160;小明到X山洞探险，捡到一本有破损的武功秘籍（2000多页！当然是伪造的）。他意识到：书的第10页和第11页在同一张纸上，但第11页和第12页不在同一张纸上。 小明只想练习该书的第81页到第92页的武功，又不想带着整本书。请问他至少要撕下">
-<meta property="og:updated_time" content="2016-02-26T10:42:04.184Z">
+<meta property="og:description" content="今天介绍几种相似度的计算方法，参考《集体智慧编程》$P_7$ _~_ $P_{14}$
+首先给出测试数据集，一个关于影评的打分集合，包括评价者的名字，及电影评分，评分区间是（0,5），来源于《集体智慧编程》$P_8$：
+critics = {&amp;apos;Lisa Rose&amp;apos;: {&amp;apos;Lady in the Water&amp;apos;:2.5,&amp;apos;Snakes on a Pla">
+<meta property="og:updated_time" content="2016-03-17T14:54:15.793Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="蓝桥杯练习（一）">
-<meta name="twitter:description" content="今天没什么事情，上网找了蓝桥杯2014年 _Java b_ 组 的道题做一做，还是挺有意思的…..
-
-武功秘籍&amp;#160; &amp;#160; &amp;#160; &amp;#160;小明到X山洞探险，捡到一本有破损的武功秘籍（2000多页！当然是伪造的）。他意识到：书的第10页和第11页在同一张纸上，但第11页和第12页不在同一张纸上。 小明只想练习该书的第81页到第92页的武功，又不想带着整本书。请问他至少要撕下">
+<meta name="twitter:title" content="计算相似度评价值的几种方法">
+<meta name="twitter:description" content="今天介绍几种相似度的计算方法，参考《集体智慧编程》$P_7$ _~_ $P_{14}$
+首先给出测试数据集，一个关于影评的打分集合，包括评价者的名字，及电影评分，评分区间是（0,5），来源于《集体智慧编程》$P_8$：
+critics = {&amp;apos;Lisa Rose&amp;apos;: {&amp;apos;Lady in the Water&amp;apos;:2.5,&amp;apos;Snakes on a Pla">
   
     <link rel="alternative" href="/atom.xml" title="迟没有的回收站" type="application/atom+xml">
   
@@ -236,11 +236,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-蓝桥杯练习（一）" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-计算相似度评价值的几种方法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/02/26/蓝桥杯练习（一）/" class="article-date">
-      <time datetime="2016-02-26T09:42:55.000Z" itemprop="datePublished">2016-02-26</time>
+      <a href="/2016/03/16/计算相似度评价值的几种方法/" class="article-date">
+      <time datetime="2016-03-16T15:55:21.000Z" itemprop="datePublished">2016-03-16</time>
 </a>
     </div>
   
@@ -253,7 +253,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      蓝桥杯练习（一）
+      计算相似度评价值的几种方法
     </h1>
   
 
@@ -264,7 +264,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/推荐系统/">推荐系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/相似度度量/">相似度度量</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -274,131 +274,136 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>今天没什么事情，上网找了蓝桥杯2014年 _Java b_ 组 的道题做一做，还是挺有意思的…..</p>
+        <p>今天介绍几种相似度的计算方法，参考《集体智慧编程》$P_7$ _~_ $P_{14}$</p>
+<p>首先给出测试数据集，一个关于影评的打分集合，包括评价者的名字，及电影评分，评分区间是（0,5），来源于《集体智慧编程》$P_8$：</p>
+<pre><code>critics = {&apos;Lisa Rose&apos;: {&apos;Lady in the Water&apos;:2.5,&apos;Snakes on a Plane&apos;:3.5,
+        &apos;Just My Luck&apos;:3.0,&apos;Superman Returns&apos;:3.5,&apos;You, Me and Dupree&apos;:2.5,
+        &apos;The Night Listener&apos;:3.0},
+        &apos;Gene Seymour&apos;:{&apos;Lady in the Water&apos;:3.0,&apos;Snakes on a Plane&apos;:3.5,
+        &apos;Just My Luck&apos;:1.5,&apos;Superman Returns&apos;:5.0,&apos;You, Me and Dupree&apos;:3.5,
+        &apos;The Night Listener&apos;:3.0},
+        &apos;Michael Phillips&apos;:{&apos;Lady in the water&apos;:2.5,&apos;Snakes on a Plane&apos;:3.0,
+        &apos;Superman Returns&apos;:3.5,&apos;The Night Listener&apos;:4.0},
+        &apos;Claudia Puig&apos;:{&apos;Snakes on a Plane&apos;:3.5,&apos;The Night Listener&apos;:4.5,
+        &apos;Just My Luck&apos;:3.0,&apos;Superman Returns&apos;:4.0,&apos;You, Me and Dupree&apos;:2.5},
+        &apos;Mick LaSalle&apos;:{&apos;Lady in the Water&apos;:3.0,&apos;Snakes on a Plane&apos;:4.0,
+        &apos;Just My Luck&apos;:2.0,&apos;Superman Returns&apos;:3.0,&apos;The Night Listener&apos;:3.0,
+        &apos;You, Me and Dupree&apos;:2.0},
+        &apos;Jack Matthews&apos;:{&apos;Lady in the Water&apos;:3.0,&apos;Snakes on a Plane&apos;:4.0,
+        &apos;The Night Listener&apos;:3.0,&apos;Superman Returns&apos;:5.0,&apos;You, Me and Dupree&apos;:3.5},
+        &apos;Toby&apos;:{&apos;Snakes on a Plane&apos;:4.5,&apos;You, Me and Dupree&apos;:1.0,&apos;Superman Returns&apos;:4.0}}
+</code></pre><p>下面介绍相似度度量：</p>
 <ol>
-<li><p><strong>武功秘籍</strong><br>&#160; &#160; &#160; &#160;小明到X山洞探险，捡到一本有破损的武功秘籍（2000多页！当然是伪造的）。他意识到：书的第10页和第11页在同一张纸上，但第11页和第12页不在同一张纸上。 小明只想练习该书的第81页到第92页的武功，又不想带着整本书。请问他至少要撕下多少张纸带走？<br>&#160; &#160; &#160; &#160;<strong>解</strong>： 这是一道送分题，问题是需要拿走多少页。很显然的思想是把起始页和末尾页相减再除2加1，唯一的干扰是，根据题目的信息，书是从偶数页开始的，那么，如果起始页是奇数，将其减1，才能得到正确的页数。<br>代码如下：</p>
-<pre><code>package cmy;
+<li><p>欧几里得距离（Euclidean metric）：<br>欧几里得距离来源于欧氏空间中的任意两点距离，对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$d = \sqrt{\sum_{k=1}^N(x_{1k}-x_{2k})^2}$$<br>向量表示方法：<br>$$d = \sqrt{(a-b){(a-b)^T}}$$<br>python代码：</p>
+<pre><code>def sim_distance(prefs,person1,person2):
+    si = {}
+    for item in prefs[person1]:
+        if item in prefs[person2]:
+            si[item] = 1
 
-import java.util.Scanner;
-public class B_2014_1 {
-    public static void main(String[] args) {
-    // TODO Auto-generated method stub
-    Scanner in = new Scanner(System.in);
-    int start = in.nextInt();
-    int end = in.nextInt();
-    int sum;
-    while(!(start % 2 == 0)){
-        if (start % 2 == 1){
-            start = start - 1;
-        }
-    }
-    sum = (end - start) / 2 + 1;
-    System.out.println(sum);
-    in.close();
-    }
-}
-</code></pre></li>
-<li><p><strong>切面条</strong><br>&#160; &#160; &#160; &#160;一根高筋拉面，中间切一刀，可以得到2根面条。如果先对折1<br>次，中间切一刀，可以得到3根面条。如果连续对折2次，中间切一刀，可以得到5根面条。那么，连续对折10次，中间切一刀，会得到多少面条呢？<br>&#160; &#160; &#160; &#160;<strong>解</strong>：一道找规律的题，根据观察写出数列，（0，2），（1，3），（2，5），不难得到通项公式<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>$$a_n={2^n+1}$$根据通项公式，就能够很容易的解出答案了。<br>代码如下：</p>
-<pre><code>import java.util.Scanner;
-public class B_2014_2 {
-public static void main(String[] args) {
-    // TODO Auto-generated method stub
-    Scanner in = new Scanner(System.in);
-    int output;
-    int n = in.nextInt();
-    output = (int)Math.pow(2,n) + 1;
-    System.out.println(output);
-    in.close();
-    }
-}
-</code></pre></li>
-<li><p><strong>猜字母</strong><br>&#160; &#160; &#160; &#160;把 a，b，c，d，…，s共19个字母组成的序列重复拼接106次，得到长度为2014的串。接下来删除第1个字母（即开头的字母a），以及第3个，第5个等所有奇数位置的字母。得到的新串再进行删除奇数位置字母的动作。如此下去，最后只剩下一个字母，请写出该字母。<br>&#160; &#160; &#160; &#160;<strong>解</strong>：很简单，先用串A保存拼接后长度为2014的字符串，因为对其进行删除奇数位的操作，保留的就是偶数位，那么就用串B把A中的偶数位保留下来，把A的内容清空以后，把B的内容赋值给A，清空B再重复操作，直到B中只剩一个字母。<br>代码如下：</p>
-<pre><code>package cmy;
+    if len(si) == 0: 
+        return 0
+    sum_of_squares = sum([pow(prefs[person1][item]-prefs[person2][item],2)
+                    for item in prefs[person1] if item in prefs[person2]])
 
-import java.util.Scanner;
-public class B_2014_3 {
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
-        //Scanner in = new Scanner(System.in);
-        StringBuilder A = new StringBuilder();
-        StringBuilder B = new StringBuilder();
-        for (int i = 0; i &lt; 106; i++){
-            for (int j = 0; j &lt; 19; j++){
-                A.append(String.format(&quot;%c&quot;, (&apos;a&apos; + j)));
-            }
-        }
+    return 1/(1+sqrt(sum_of_squares))
+</code></pre><p>下面介绍相似度度量：</p>
+</li>
+<li><p>欧几里得距离（Euclidean metric）：<br>欧几里得距离来源于欧氏空间中的任意两点距离，对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$d = \sqrt{\sum_{k=1}^N(x_{1k}-x_{2k})^2}$$<br>向量表示方法：<br>$$d = \sqrt{(a-b){(a-b)^T}}$$<br>python代码：</p>
+<pre><code>def sim_distance(prefs,person1,person2):
+    si = {}
+    for item in prefs[person1]:
+        if item in prefs[person2]:
+            si[item] = 1
 
-        while(A.length() != 1){
-            for(int i = 0;i &lt; A.length(); i++){
-                if((i + 1) % 2 == 0){
-                    B.append(A.charAt(i));
-                }
-            }
-            A.delete(0, A.length());
-            A.append(B);
-            B.delete(0, B.length());
-        }
+    if len(si) == 0: 
+        return 0
+    sum_of_squares = sum([pow(prefs[person1][item]-prefs[person2][item],2)
+                    for item in prefs[person1] if item in prefs[person2]])
 
-        System.out.println(A.toString());
-    }
-}
+    return 1/(1+sqrt(sum_of_squares))
 </code></pre></li>
-<li><p><strong>大衍数列</strong><br>&#160; &#160; &#160; &#160;中国古代文献中，曾记载过“大衍数列”, 主要用于解释中国传统文化中的太极衍生原理。它的前几项是：0、2、4、8、12、18、24、32、40、50 …    其规律是：对偶数项，是序号平方再除2，奇数项，是序号平方减1再除2。以下的代码打印出了大衍数列的前 100 项。 </p>
-<pre><code>for(int i=1; i&lt;100; i++) 
-{ 
-    if( ______ )  //填空
-        System.out.println(i*i/2); 
-    else 
-        System.out.println((i*i-1)/2);
-}    
-</code></pre><p>请填写划线部分缺失的代码。<br>&#160; &#160; &#160; &#160;<strong>解</strong>： 题中给了打印奇数项的代码，所以要求填的是偶数项的判断条件，显然是模2余1。</p>
-<pre><code>if( i % 2 == 0)
-</code></pre></li>
-<li><p><strong>圆周率</strong><br>数学发展历史上，圆周率的计算曾有许多有趣甚至是传奇的故事。其中许多方法都涉及无穷级数。图1.png中所示，就是一种用连分数的形式表示的圆周率求法。下面的程序实现了该求解方法。实际上数列的收敛对x的初始值并不敏感。结果打印出圆周率近似值（保留小数点后4位，并不一定与圆周率真值吻合）。</p>
-<pre><code>double x = 111;  
-for(int n = 10000; n&gt;=0; n--){ 
-    int i = 2 * n + 1; 
-    x = 2 + (i*i / x); 
-} 
+<li><p>皮尔逊相关度（Pearson correlation coefficient）<br>样本的简单相关系数一般用 $r$ 表示，其中 $n$ 为样本量， 分别为两个变量的观测值和均值。$r$ 描述的是两个变量间线性相关强弱的程度。$r$ 的取值在-1与+1之间，若 $r&gt;0$，表明两个变量是正相关，即一个变量的值越大，另一个变量的值也会越大；若 $ r&lt;0$ ，表明两个变量是负相关，即一个变量的值越大另一个变量的值反而会越小。对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$\frac{\sum ab^T-\frac{\sum a\sum b}{N}}{\sqrt{(\sum a^2-\frac{\sum a^2}{N})\times(\sum b^2-\frac{\sum b^2}{N})}}$$<br>python代码：</p>
+<pre><code>def sim_pearson(prefs,p1,p2):
+    si = {}
+    for item in prefs[p1]:
+        if item in prefs[p2]:
+            si[item] = 1
+    n = len(si)
 
-System.out.println(String.format(&quot;%.4f&quot;, ______________));
-</code></pre><p>请填写划线部分缺失的代码。<br>&#160; &#160; &#160; &#160;<strong>解</strong>： 因为题资源没有给出图片是什么样子，我也不知道用连分数表示该是怎样的方式所以直接给出答案了。</p>
-<pre><code>4/（x - 1)
+    if n == 0:
+        return 0
+
+    sum1 = sum([prefs[p1][it] for it in si])
+    sum2 = sum([prefs[p2][it] for it in si])
+
+    sum1Sq = sum([pow(prefs[p1][it], 2) for it in si])
+    sum2Sq = sum([pow(prefs[p2][it], 2) for it in si])
+
+    pSum = sum([prefs[p1][it] * prefs[p2][it] for it in si])
+
+    num = pSum - (sum1 * sum2 / n)
+    den = sqrt((sum1Sq - pow(sum1, 2) / n)*(sum2Sq - pow(sum2, 2) / n))
+    if den == 0:
+        return 1
+
+    r = num / den
+
+    return r
 </code></pre></li>
-<li><p><strong>奇怪的分式</strong><br>&#160; &#160; &#160; &#160;上小学的时候，小明经常自己发明新算法。一次，老师出的题目是：<br>1/4乘以 8/5  小明居然把分子拼接在一起，分母拼接在一起，答案是：18/45 。老师刚想批评他，转念一想，这个答案凑巧也对啊，真是见鬼！对于分子、分母都是 1~9 中的一位数的情况，还有哪些算式可以这样计算呢？请写出所有不同算式的个数（包括题中举例的）。 显然，交换分子分母后，例如：4/1 乘以 5/8 是满足要求的，这算做不同的算式。但对于分子分母相同的情况，2/2 乘以 3/3 这样的类型太多了，不在计数之列!<br>注意：答案是个整数（考虑对称性，肯定是偶数）。<br>&#160; &#160; &#160; &#160;<strong>解</strong>：没找到什么规律，所以直接暴力找了。<br>代码如下：</p>
-<pre><code>public class B_2014_6 {
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
-        int a,b,c,d;
-        int x,y;
-        int count = 0;
-        for(int i = 1;i &lt;= 9; i++){
-            a = i;
-            for(int j = 1;j &lt;= 9; j++){
-                b = j;
-                if(a == b)
-                    continue;
-                else{
-                    for(int k = 1;k &lt;= 9; k++){
-                        c = k;
-                        for(int n = 1;n &lt;= 9; n++){
-                            d = n;
-                            if(c == d)
-                                continue;
-                            else{
-                                x = 10*a+c;
-                                y = 10*b+d;
-                                if((double)x/y == (double)(a*c)/(b*d)){
-                                    System.out.println(String.format(&quot;%d/%d,%d/%d&quot;, a,b,c,d));
-                                    count++;}
-                                else
-                                    continue;
-                            }}}}}}
-        System.out.println(&quot;Count:&quot; + count);
-    }
-}
+<li><p>杰卡德相似系数(Jaccard similarity coefficient)<br>这部分代码书中没有给出，是自己实现的，广义Jaccard相似度，元素的取值可以是实数。又称为Tanimoto系数，用EJ来表示，对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$EJ = \frac{ab^T}{|a|+|b|-ab^T}$$<br>其中$|a|,|b|$分别代表 $ \vec{a},\vec{b}$的模。<br>python代码实现：</p>
+<pre><code>def sim_jaccard(prefs,p1,p2):
+    si = {}
+    for item in prefs[p1]:
+        if item in prefs[p2]:
+            si[item] = 1
+
+    n = len(si)
+
+    if n == 0:
+        return 0
+
+    times = sum([prefs[p1][item]*prefs[p2][item] for item in si])
+    ma = sum([pow(prefs[p1][item],2) for item in si])
+    mb = sum([pow(prefs[p2][item],2) for item in si])
+    den = times/(ma+mb-times)
+
+    if den == 0:
+        return 1
+
+    r = 1 / (1 + den)
+
+    return r
+</code></pre></li>
+<li><p>曼哈顿距离(Manhattan Distance)<br>想象你在曼哈顿要从一个十字路口开车到另外一个十字路口，驾驶距离是两点间的直线距离吗？显然不是，除非你能穿越大楼。实际驾驶距离就是这个“曼哈顿距离”。而这也是曼哈顿距离名称的来源， 曼哈顿距离也称为城市街区距离(City Block distance)，对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$d = \sum_{k=1}^N\sqrt{x_{1k}-x_{2k}}$$<br>python代码实现</p>
+<pre><code>def sim_manhattan(prefs,p1,p2):
+    si = {}
+    for item in prefs[p1]:
+        if item in prefs[p2]:
+            si[item] = 1
+
+    n = len(si)
+
+    if n == 0:
+        return 0
+
+    den = sum([abs(prefs[p1][item]-prefs[p2][item]) for item in si])
+
+    r = 1/(1+den)
+
+    return r
 </code></pre></li>
 </ol>
+<hr>
+<p>利用上面四种方法对数据集进行操作</p>
+<pre><code>print sim_distance(critics,&apos;Jack Matthews&apos;,&apos;Gene Seymour&apos;)
+print sim_pearson(critics,&apos;Jack Matthews&apos;,&apos;Gene Seymour&apos;)
+print sim_manhattan(critics,&apos;Jack Matthews&apos;,&apos;Gene Seymour&apos;)
+print sim_jaccard(critics,&apos;Jack Matthews&apos;,&apos;Gene Seymour&apos;)
+</code></pre><p>结果如下</p>
+<blockquote>
+<p>0.666666666667<br>0.963795681876<br>0.666666666667<br>0.500900900901</p>
+</blockquote>
 
       
     </div>
@@ -410,16 +415,10 @@ System.out.println(String.format(&quot;%.4f&quot;, ______________));
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/02/27/社交网站的数据挖掘与分析（一）/">
-                    社交网站的数据挖掘与分析（一）
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/02/25/Hello World/">
-                    Hello World
+                <a href="/2016/03/14/机器学习0/">
+                    机器学习0
                 </a>
             </div>
         
@@ -494,7 +493,7 @@ System.out.println(String.format(&quot;%.4f&quot;, ______________));
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/02/26/蓝桥杯练习（一）/" data-title="蓝桥杯练习（一）" data-url="http://yoursite.com/2016/02/26/蓝桥杯练习（一）/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/16/计算相似度评价值的几种方法/" data-title="计算相似度评价值的几种方法" data-url="http://yoursite.com/2016/03/16/计算相似度评价值的几种方法/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -518,15 +517,13 @@ System.out.println(String.format(&quot;%.4f&quot;, ______________));
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/02/27/社交网站的数据挖掘与分析（一）/" title="上一篇: 社交网站的数据挖掘与分析（一）">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/02/25/Hello World/" title="下一篇: Hello World">
+            <a href="/2016/03/14/机器学习0/" title="下一篇: 机器学习0">
                 <i class="fa fa-angle-right"></i>
             </a>
         
