@@ -15,7 +15,7 @@ critics = {&amp;apos;Lisa Rose&amp;apos;: {&amp;apos;Lady in the Water&amp;apos;
 <meta property="og:description" content="今天介绍几种相似度的计算方法，参考《集体智慧编程》$P_{7}$ ~ $P_{14}$
 首先给出测试数据集，一个关于影评的打分集合，包括评价者的名字，及电影评分，评分区间是（0,5），来源于《集体智慧编程》$P_8$：
 critics = {&amp;apos;Lisa Rose&amp;apos;: {&amp;apos;Lady in the Water&amp;apos;:2.5,&amp;apos;Snakes on a Pla">
-<meta property="og:updated_time" content="2016-03-17T14:56:30.380Z">
+<meta property="og:updated_time" content="2016-03-22T03:59:30.726Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算相似度评价值的几种方法">
 <meta name="twitter:description" content="今天介绍几种相似度的计算方法，参考《集体智慧编程》$P_{7}$ ~ $P_{14}$
@@ -294,91 +294,21 @@ critics = {&amp;apos;Lisa Rose&amp;apos;: {&amp;apos;Lady in the Water&amp;apos;
         &apos;Toby&apos;:{&apos;Snakes on a Plane&apos;:4.5,&apos;You, Me and Dupree&apos;:1.0,&apos;Superman Returns&apos;:4.0}}
 </code></pre><p>下面介绍相似度度量：</p>
 <ol>
-<li><p>欧几里得距离（Euclidean metric）：<br>欧几里得距离来源于欧氏空间中的任意两点距离，对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$d = \sqrt{\sum_{k=1}^N(x_{1k}-x_{2k})^2}$$<br>向量表示方法：<br>$$d = \sqrt{(a-b){(a-b)^T}}$$<br>python代码：</p>
-<pre><code>def sim_distance(prefs,person1,person2):
-    si = {}
-    for item in prefs[person1]:
-        if item in prefs[person2]:
-            si[item] = 1
-
-    if len(si) == 0: 
-        return 0
-    sum_of_squares = sum([pow(prefs[person1][item]-prefs[person2][item],2)
-                    for item in prefs[person1] if item in prefs[person2]])
-
-    return 1/(1+sqrt(sum_of_squares))
-</code></pre></li>
-<li><p>皮尔逊相关度（Pearson correlation coefficient）<br>样本的简单相关系数一般用 $r$ 表示，其中 $n$ 为样本量， 分别为两个变量的观测值和均值。$r$ 描述的是两个变量间线性相关强弱的程度。$r$ 的取值在-1与+1之间，若 $r&gt;0$，表明两个变量是正相关，即一个变量的值越大，另一个变量的值也会越大；若 $ r&lt;0$ ，表明两个变量是负相关，即一个变量的值越大另一个变量的值反而会越小。对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$\frac{\sum ab^T-\frac{\sum a\sum b}{N}}{\sqrt{(\sum a^2-\frac{\sum a^2}{N})\times(\sum b^2-\frac{\sum b^2}{N})}}$$<br>python代码：</p>
-<pre><code>def sim_pearson(prefs,p1,p2):
-    si = {}
-    for item in prefs[p1]:
-        if item in prefs[p2]:
-            si[item] = 1
-    n = len(si)
-
-    if n == 0:
-        return 0
-
-    sum1 = sum([prefs[p1][it] for it in si])
-    sum2 = sum([prefs[p2][it] for it in si])
-
-    sum1Sq = sum([pow(prefs[p1][it], 2) for it in si])
-    sum2Sq = sum([pow(prefs[p2][it], 2) for it in si])
-
-    pSum = sum([prefs[p1][it] * prefs[p2][it] for it in si])
-
-    num = pSum - (sum1 * sum2 / n)
-    den = sqrt((sum1Sq - pow(sum1, 2) / n)*(sum2Sq - pow(sum2, 2) / n))
-    if den == 0:
-        return 1
-
-    r = num / den
-
-    return r
-</code></pre></li>
-<li><p>杰卡德相似系数(Jaccard similarity coefficient)<br>这部分代码书中没有给出，是自己实现的，广义Jaccard相似度，元素的取值可以是实数。又称为Tanimoto系数，用EJ来表示，对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$EJ = \frac{ab^T}{|a|+|b|-ab^T}$$<br>其中$|a|,|b|$分别代表 $ \vec{a},\vec{b}$的模。<br>python代码实现：</p>
-<pre><code>def sim_jaccard(prefs,p1,p2):
-    si = {}
-    for item in prefs[p1]:
-        if item in prefs[p2]:
-            si[item] = 1
-
-    n = len(si)
-
-    if n == 0:
-        return 0
-
-    times = sum([prefs[p1][item]*prefs[p2][item] for item in si])
-    ma = sum([pow(prefs[p1][item],2) for item in si])
-    mb = sum([pow(prefs[p2][item],2) for item in si])
-    den = times/(ma+mb-times)
-
-    if den == 0:
-        return 1
-
-    r = 1 / (1 + den)
-
-    return r
-</code></pre></li>
-<li><p>曼哈顿距离(Manhattan Distance)<br>想象你在曼哈顿要从一个十字路口开车到另外一个十字路口，驾驶距离是两点间的直线距离吗？显然不是，除非你能穿越大楼。实际驾驶距离就是这个“曼哈顿距离”。而这也是曼哈顿距离名称的来源， 曼哈顿距离也称为城市街区距离(City Block distance)，对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$d = \sum_{k=1}^N\sqrt{x_{1k}-x_{2k}}$$<br>python代码实现</p>
-<pre><code>def sim_manhattan(prefs,p1,p2):
-    si = {}
-    for item in prefs[p1]:
-        if item in prefs[p2]:
-            si[item] = 1
-
-    n = len(si)
-
-    if n == 0:
-        return 0
-
-    den = sum([abs(prefs[p1][item]-prefs[p2][item]) for item in si])
-
-    r = 1/(1+den)
-
-    return r
-</code></pre></li>
+<li>欧几里得距离（Euclidean metric）：<br>欧几里得距离来源于欧氏空间中的任意两点距离，对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$d = \sqrt{\sum_{k=1}^N(x_{1k}-x_{2k})^2}$$<br>向量表示方法：<br>$$d = \sqrt{(a-b){(a-b)^T}}$$<br>python代码：</li>
 </ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sim_distance</span><span class="params">(prefs,person1,person2)</span>:</span></span><br><span class="line">    si = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> prefs[person1]:</span><br><span class="line">        <span class="keyword">if</span> item <span class="keyword">in</span> prefs[person2]:</span><br><span class="line">            si[item] = <span class="number">1</span></span><br><span class="line">            </span><br><span class="line">    <span class="keyword">if</span> len(si) == <span class="number">0</span>: </span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    sum_of_squares = sum([pow(prefs[person1][item]-prefs[person2][item],<span class="number">2</span>)</span><br><span class="line">                    <span class="keyword">for</span> item <span class="keyword">in</span> prefs[person1] <span class="keyword">if</span> item <span class="keyword">in</span> prefs[person2]])</span><br><span class="line">                        </span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>/(<span class="number">1</span>+sqrt(sum_of_squares))</span><br></pre></td></tr></table></figure>    
+<ol>
+<li>皮尔逊相关度（Pearson correlation coefficient）<br>样本的简单相关系数一般用 $r$ 表示，其中 $n$ 为样本量， 分别为两个变量的观测值和均值。$r$ 描述的是两个变量间线性相关强弱的程度。$r$ 的取值在-1与+1之间，若 $r&gt;0$，表明两个变量是正相关，即一个变量的值越大，另一个变量的值也会越大；若 $ r&lt;0$ ，表明两个变量是负相关，即一个变量的值越大另一个变量的值反而会越小。对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$\frac{\sum ab^T-\frac{\sum a\sum b}{N}}{\sqrt{(\sum a^2-\frac{\sum a^2}{N})\times(\sum b^2-\frac{\sum b^2}{N})}}$$<br>python代码：</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sim_pearson</span><span class="params">(prefs,p1,p2)</span>:</span></span><br><span class="line">    si = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> prefs[p1]:</span><br><span class="line">        <span class="keyword">if</span> item <span class="keyword">in</span> prefs[p2]:</span><br><span class="line">            si[item] = <span class="number">1</span></span><br><span class="line">    n = len(si)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    sum1 = sum([prefs[p1][it] <span class="keyword">for</span> it <span class="keyword">in</span> si])</span><br><span class="line">    sum2 = sum([prefs[p2][it] <span class="keyword">for</span> it <span class="keyword">in</span> si])</span><br><span class="line">    </span><br><span class="line">    sum1Sq = sum([pow(prefs[p1][it], <span class="number">2</span>) <span class="keyword">for</span> it <span class="keyword">in</span> si])</span><br><span class="line">    sum2Sq = sum([pow(prefs[p2][it], <span class="number">2</span>) <span class="keyword">for</span> it <span class="keyword">in</span> si])</span><br><span class="line">    </span><br><span class="line">    pSum = sum([prefs[p1][it] * prefs[p2][it] <span class="keyword">for</span> it <span class="keyword">in</span> si])</span><br><span class="line">    </span><br><span class="line">    num = pSum - (sum1 * sum2 / n)</span><br><span class="line">    den = sqrt((sum1Sq - pow(sum1, <span class="number">2</span>) / n)*(sum2Sq - pow(sum2, <span class="number">2</span>) / n))</span><br><span class="line">    <span class="keyword">if</span> den == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">    r = num / den</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> r</span><br></pre></td></tr></table></figure>
+<ol>
+<li>杰卡德相似系数(Jaccard similarity coefficient)<br>这部分代码书中没有给出，是自己实现的，广义Jaccard相似度，元素的取值可以是实数。又称为Tanimoto系数，用EJ来表示，对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$EJ = \frac{ab^T}{|a|+|b|-ab^T}$$<br>其中$|a|,|b|$分别代表 $ \vec{a},\vec{b}$的模。<br>python代码实现：</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sim_jaccard</span><span class="params">(prefs,p1,p2)</span>:</span></span><br><span class="line">    si = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> prefs[p1]:</span><br><span class="line">        <span class="keyword">if</span> item <span class="keyword">in</span> prefs[p2]:</span><br><span class="line">            si[item] = <span class="number">1</span></span><br><span class="line">            </span><br><span class="line">    n = len(si)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    times = sum([prefs[p1][item]*prefs[p2][item] <span class="keyword">for</span> item <span class="keyword">in</span> si])</span><br><span class="line">    ma = sum([pow(prefs[p1][item],<span class="number">2</span>) <span class="keyword">for</span> item <span class="keyword">in</span> si])</span><br><span class="line">    mb = sum([pow(prefs[p2][item],<span class="number">2</span>) <span class="keyword">for</span> item <span class="keyword">in</span> si])</span><br><span class="line">    den = times/(ma+mb-times)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> den == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    r = <span class="number">1</span> / (<span class="number">1</span> + den)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> r</span><br></pre></td></tr></table></figure>
+<ol>
+<li>曼哈顿距离(Manhattan Distance)<br>想象你在曼哈顿要从一个十字路口开车到另外一个十字路口，驾驶距离是两点间的直线距离吗？显然不是，除非你能穿越大楼。实际驾驶距离就是这个“曼哈顿距离”。而这也是曼哈顿距离名称的来源， 曼哈顿距离也称为城市街区距离(City Block distance)，对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$d = \sum_{k=1}^N\sqrt{x_{1k}-x_{2k}}$$<br>python代码实现</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sim_manhattan</span><span class="params">(prefs,p1,p2)</span>:</span></span><br><span class="line"> si = &#123;&#125;</span><br><span class="line"> <span class="keyword">for</span> item <span class="keyword">in</span> prefs[p1]:</span><br><span class="line">     <span class="keyword">if</span> item <span class="keyword">in</span> prefs[p2]:</span><br><span class="line">         si[item] = <span class="number">1</span></span><br><span class="line">         </span><br><span class="line"> n = len(si)</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">     <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">     </span><br><span class="line"> den = sum([abs(prefs[p1][item]-prefs[p2][item]) <span class="keyword">for</span> item <span class="keyword">in</span> si])</span><br><span class="line"> </span><br><span class="line"> r = <span class="number">1</span>/(<span class="number">1</span>+den)</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">return</span> r</span><br></pre></td></tr></table></figure>
 <hr>
 <p>利用上面四种方法对数据集进行操作</p>
 <pre><code>print sim_distance(critics,&apos;Jack Matthews&apos;,&apos;Gene Seymour&apos;)
