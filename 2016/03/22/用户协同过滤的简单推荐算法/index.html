@@ -3,24 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>计算相似度评价值的几种方法 | 迟没有的回收站</title>
+  <title>用户协同过滤的简单推荐算法 | 迟没有的回收站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天介绍几种相似度的计算方法，参考《集体智慧编程》$P_{7}$ ~ $P_{14}$
-首先给出测试数据集，一个关于影评的打分集合，包括评价者的名字，及电影评分，评分区间是（0,5），来源于《集体智慧编程》$P_8$：
-critics = {&amp;apos;Lisa Rose&amp;apos;: {&amp;apos;Lady in the Water&amp;apos;:2.5,&amp;apos;Snakes on a Pla">
+  <meta name="description" content="今天做了一个简单地推荐系统，是利用基于用户的协同过滤进行推荐的，利用的是一个电影评分的数据集，地址在这里，大致的思路为，通过用户对电影的评分，先计算用户之间的评分相似度，为了得到待推荐用户对电影的评分列表，我们利用待推荐用户与其他用户的相似度，去计算待推荐用户对电影可能的评分，然后从中选出Top-K个进行推荐。相似度度量方式可以用上一篇博文中提到的任何一个，这里我利用的是皮尔逊相似度量，对于评分的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算相似度评价值的几种方法">
-<meta property="og:url" content="http://yoursite.com/2016/03/16/计算相似度评价值的几种方法/index.html">
+<meta property="og:title" content="用户协同过滤的简单推荐算法">
+<meta property="og:url" content="http://yoursite.com/2016/03/22/用户协同过滤的简单推荐算法/index.html">
 <meta property="og:site_name" content="迟没有的回收站">
-<meta property="og:description" content="今天介绍几种相似度的计算方法，参考《集体智慧编程》$P_{7}$ ~ $P_{14}$
-首先给出测试数据集，一个关于影评的打分集合，包括评价者的名字，及电影评分，评分区间是（0,5），来源于《集体智慧编程》$P_8$：
-critics = {&amp;apos;Lisa Rose&amp;apos;: {&amp;apos;Lady in the Water&amp;apos;:2.5,&amp;apos;Snakes on a Pla">
-<meta property="og:updated_time" content="2016-03-17T14:56:30.380Z">
+<meta property="og:description" content="今天做了一个简单地推荐系统，是利用基于用户的协同过滤进行推荐的，利用的是一个电影评分的数据集，地址在这里，大致的思路为，通过用户对电影的评分，先计算用户之间的评分相似度，为了得到待推荐用户对电影的评分列表，我们利用待推荐用户与其他用户的相似度，去计算待推荐用户对电影可能的评分，然后从中选出Top-K个进行推荐。相似度度量方式可以用上一篇博文中提到的任何一个，这里我利用的是皮尔逊相似度量，对于评分的">
+<meta property="og:updated_time" content="2016-03-22T03:46:05.314Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="计算相似度评价值的几种方法">
-<meta name="twitter:description" content="今天介绍几种相似度的计算方法，参考《集体智慧编程》$P_{7}$ ~ $P_{14}$
-首先给出测试数据集，一个关于影评的打分集合，包括评价者的名字，及电影评分，评分区间是（0,5），来源于《集体智慧编程》$P_8$：
-critics = {&amp;apos;Lisa Rose&amp;apos;: {&amp;apos;Lady in the Water&amp;apos;:2.5,&amp;apos;Snakes on a Pla">
+<meta name="twitter:title" content="用户协同过滤的简单推荐算法">
+<meta name="twitter:description" content="今天做了一个简单地推荐系统，是利用基于用户的协同过滤进行推荐的，利用的是一个电影评分的数据集，地址在这里，大致的思路为，通过用户对电影的评分，先计算用户之间的评分相似度，为了得到待推荐用户对电影的评分列表，我们利用待推荐用户与其他用户的相似度，去计算待推荐用户对电影可能的评分，然后从中选出Top-K个进行推荐。相似度度量方式可以用上一篇博文中提到的任何一个，这里我利用的是皮尔逊相似度量，对于评分的">
   
     <link rel="alternative" href="/atom.xml" title="迟没有的回收站" type="application/atom+xml">
   
@@ -236,11 +230,11 @@ critics = {&amp;apos;Lisa Rose&amp;apos;: {&amp;apos;Lady in the Water&amp;apos;
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-计算相似度评价值的几种方法" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-用户协同过滤的简单推荐算法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/16/计算相似度评价值的几种方法/" class="article-date">
-      <time datetime="2016-03-16T15:55:21.000Z" itemprop="datePublished">2016-03-16</time>
+      <a href="/2016/03/22/用户协同过滤的简单推荐算法/" class="article-date">
+      <time datetime="2016-03-22T03:45:16.000Z" itemprop="datePublished">2016-03-22</time>
 </a>
     </div>
   
@@ -253,7 +247,7 @@ critics = {&amp;apos;Lisa Rose&amp;apos;: {&amp;apos;Lady in the Water&amp;apos;
         
   
     <h1 class="article-title" itemprop="name">
-      计算相似度评价值的几种方法
+      用户协同过滤的简单推荐算法
     </h1>
   
 
@@ -264,7 +258,7 @@ critics = {&amp;apos;Lisa Rose&amp;apos;: {&amp;apos;Lady in the Water&amp;apos;
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/推荐系统/">推荐系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/相似度度量/">相似度度量</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/推荐系统/">推荐系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/用户协同过滤/">用户协同过滤</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -274,42 +268,10 @@ critics = {&amp;apos;Lisa Rose&amp;apos;: {&amp;apos;Lady in the Water&amp;apos;
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>今天介绍几种相似度的计算方法，参考《集体智慧编程》$P_{7}$ ~ $P_{14}$</p>
-<p>首先给出测试数据集，一个关于影评的打分集合，包括评价者的名字，及电影评分，评分区间是（0,5），来源于《集体智慧编程》$P_8$：</p>
-<pre><code>critics = {&apos;Lisa Rose&apos;: {&apos;Lady in the Water&apos;:2.5,&apos;Snakes on a Plane&apos;:3.5,
-        &apos;Just My Luck&apos;:3.0,&apos;Superman Returns&apos;:3.5,&apos;You, Me and Dupree&apos;:2.5,
-        &apos;The Night Listener&apos;:3.0},
-        &apos;Gene Seymour&apos;:{&apos;Lady in the Water&apos;:3.0,&apos;Snakes on a Plane&apos;:3.5,
-        &apos;Just My Luck&apos;:1.5,&apos;Superman Returns&apos;:5.0,&apos;You, Me and Dupree&apos;:3.5,
-        &apos;The Night Listener&apos;:3.0},
-        &apos;Michael Phillips&apos;:{&apos;Lady in the water&apos;:2.5,&apos;Snakes on a Plane&apos;:3.0,
-        &apos;Superman Returns&apos;:3.5,&apos;The Night Listener&apos;:4.0},
-        &apos;Claudia Puig&apos;:{&apos;Snakes on a Plane&apos;:3.5,&apos;The Night Listener&apos;:4.5,
-        &apos;Just My Luck&apos;:3.0,&apos;Superman Returns&apos;:4.0,&apos;You, Me and Dupree&apos;:2.5},
-        &apos;Mick LaSalle&apos;:{&apos;Lady in the Water&apos;:3.0,&apos;Snakes on a Plane&apos;:4.0,
-        &apos;Just My Luck&apos;:2.0,&apos;Superman Returns&apos;:3.0,&apos;The Night Listener&apos;:3.0,
-        &apos;You, Me and Dupree&apos;:2.0},
-        &apos;Jack Matthews&apos;:{&apos;Lady in the Water&apos;:3.0,&apos;Snakes on a Plane&apos;:4.0,
-        &apos;The Night Listener&apos;:3.0,&apos;Superman Returns&apos;:5.0,&apos;You, Me and Dupree&apos;:3.5},
-        &apos;Toby&apos;:{&apos;Snakes on a Plane&apos;:4.5,&apos;You, Me and Dupree&apos;:1.0,&apos;Superman Returns&apos;:4.0}}
-</code></pre><p>下面介绍相似度度量：</p>
-<ol>
-<li><p>欧几里得距离（Euclidean metric）：<br>欧几里得距离来源于欧氏空间中的任意两点距离，对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$d = \sqrt{\sum_{k=1}^N(x_{1k}-x_{2k})^2}$$<br>向量表示方法：<br>$$d = \sqrt{(a-b){(a-b)^T}}$$<br>python代码：</p>
-<pre><code>def sim_distance(prefs,person1,person2):
-    si = {}
-    for item in prefs[person1]:
-        if item in prefs[person2]:
-            si[item] = 1
-
-    if len(si) == 0: 
-        return 0
-    sum_of_squares = sum([pow(prefs[person1][item]-prefs[person2][item],2)
-                    for item in prefs[person1] if item in prefs[person2]])
-
-    return 1/(1+sqrt(sum_of_squares))
-</code></pre></li>
-<li><p>皮尔逊相关度（Pearson correlation coefficient）<br>样本的简单相关系数一般用 $r$ 表示，其中 $n$ 为样本量， 分别为两个变量的观测值和均值。$r$ 描述的是两个变量间线性相关强弱的程度。$r$ 的取值在-1与+1之间，若 $r&gt;0$，表明两个变量是正相关，即一个变量的值越大，另一个变量的值也会越大；若 $ r&lt;0$ ，表明两个变量是负相关，即一个变量的值越大另一个变量的值反而会越小。对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$\frac{\sum ab^T-\frac{\sum a\sum b}{N}}{\sqrt{(\sum a^2-\frac{\sum a^2}{N})\times(\sum b^2-\frac{\sum b^2}{N})}}$$<br>python代码：</p>
-<pre><code>def sim_pearson(prefs,p1,p2):
+        <p>今天做了一个简单地推荐系统，是利用基于用户的协同过滤进行推荐的，利用的是一个电影评分的数据集，地址在<a href="http://www.grouplens.org/node/73" target="_blank" rel="external">这里</a>，大致的思路为，通过用户对电影的评分，先计算用户之间的评分相似度，为了得到待推荐用户对电影的评分列表，我们利用待推荐用户与其他用户的相似度，去计算待推荐用户对电影可能的评分，然后从中选出Top-K个进行推荐。相似度度量方式可以用上一篇博文中提到的任何一个，这里我利用的是皮尔逊相似度量，对于评分的，皮尔逊度量会更为准确一些。</p>
+<pre><code>from math import sqrt
+def sim_pearson(prefs,p1,p2):
+    #相似度度量函数
     si = {}
     for item in prefs[p1]:
         if item in prefs[p2]:
@@ -335,61 +297,58 @@ critics = {&amp;apos;Lisa Rose&amp;apos;: {&amp;apos;Lady in the Water&amp;apos;
     r = num / den
 
     return r
-</code></pre></li>
-<li><p>杰卡德相似系数(Jaccard similarity coefficient)<br>这部分代码书中没有给出，是自己实现的，广义Jaccard相似度，元素的取值可以是实数。又称为Tanimoto系数，用EJ来表示，对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$EJ = \frac{ab^T}{|a|+|b|-ab^T}$$<br>其中$|a|,|b|$分别代表 $ \vec{a},\vec{b}$的模。<br>python代码实现：</p>
-<pre><code>def sim_jaccard(prefs,p1,p2):
-    si = {}
-    for item in prefs[p1]:
-        if item in prefs[p2]:
-            si[item] = 1
 
-    n = len(si)
+def getRecommendations(prefs,person,similarity=sim_pearson):
+    #推荐函数
+    totals = {}
+    simSums = {}
+    for other in prefs:
+        #循环遍历其他用户
+        if other == person:
+            continue
+        #计算其他用户与当前用户的相似度
+        sim = similarity(prefs,person,other)
+        if sim &lt;= 0:
+            continue
+        #遍历其他用户看过的影片
+        for item in prefs[other]:
+        #如果当前用户没有看过该影片
+            if item not in prefs[person] or prefs[person][item]==0:
+                #利用相似度计算加权评分
+                totals.setdefault(item,0)
+                totals[item] += prefs[other][item] * sim
+                #计算相似度总和
+                simSums.setdefault(item,0)
+                simSums[item] += sim
 
-    if n == 0:
-        return 0
+        #每个合计评分除以相似度总和，得到平均值
+        rankings = [(total/simSums[item],item) for item, total in totals.items()]
+        #排序之后翻转列表
+        rankings.sort()
+        rankings.reverse()
+    return rankings        
 
-    times = sum([prefs[p1][item]*prefs[p2][item] for item in si])
-    ma = sum([pow(prefs[p1][item],2) for item in si])
-    mb = sum([pow(prefs[p2][item],2) for item in si])
-    den = times/(ma+mb-times)
+def loadMovieLens(path):
+    #构造数据集
+    movies = {}
+    movie_file = open(path+&apos;\\Movies.csv&apos;)
+    for line in movie_file:
+        (id,title) = line.split(&apos;,&apos;)[0:2]
+        movies[id]=title
 
-    if den == 0:
-        return 1
+    prefs = {}
+    user_file = open(path+&apos;\\ratings.csv&apos;)
+    for line in user_file:
+        (user_id,m_id,rating,ts) = line.split(&apos;,&apos;)
+        prefs.setdefault(user_id,{})
+        prefs[user_id][movies[m_id]] = float(rating)
 
-    r = 1 / (1 + den)
+    return prefs
 
-    return r
-</code></pre></li>
-<li><p>曼哈顿距离(Manhattan Distance)<br>想象你在曼哈顿要从一个十字路口开车到另外一个十字路口，驾驶距离是两点间的直线距离吗？显然不是，除非你能穿越大楼。实际驾驶距离就是这个“曼哈顿距离”。而这也是曼哈顿距离名称的来源， 曼哈顿距离也称为城市街区距离(City Block distance)，对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$d = \sum_{k=1}^N\sqrt{x_{1k}-x_{2k}}$$<br>python代码实现</p>
-<pre><code>def sim_manhattan(prefs,p1,p2):
-    si = {}
-    for item in prefs[p1]:
-        if item in prefs[p2]:
-            si[item] = 1
-
-    n = len(si)
-
-    if n == 0:
-        return 0
-
-    den = sum([abs(prefs[p1][item]-prefs[p2][item]) for item in si])
-
-    r = 1/(1+den)
-
-    return r
-</code></pre></li>
-</ol>
-<hr>
-<p>利用上面四种方法对数据集进行操作</p>
-<pre><code>print sim_distance(critics,&apos;Jack Matthews&apos;,&apos;Gene Seymour&apos;)
-print sim_pearson(critics,&apos;Jack Matthews&apos;,&apos;Gene Seymour&apos;)
-print sim_manhattan(critics,&apos;Jack Matthews&apos;,&apos;Gene Seymour&apos;)
-print sim_jaccard(critics,&apos;Jack Matthews&apos;,&apos;Gene Seymour&apos;)
-</code></pre><p>结果如下</p>
-<blockquote>
-<p>0.666666666667<br>0.963795681876<br>0.666666666667<br>0.500900900901</p>
-</blockquote>
-
+prefs = loadMovieLens(&apos;F:\\dataset&apos;)
+for i in getRecommendations(prefs,&apos;51&apos;)[0:10]:
+    print i
+</code></pre>
       
     </div>
     
@@ -400,16 +359,10 @@ print sim_jaccard(critics,&apos;Jack Matthews&apos;,&apos;Gene Seymour&apos;)
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/03/22/用户协同过滤的简单推荐算法/">
-                    用户协同过滤的简单推荐算法
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/03/14/机器学习0/">
-                    机器学习0
+                <a href="/2016/03/16/计算相似度评价值的几种方法/">
+                    计算相似度评价值的几种方法
                 </a>
             </div>
         
@@ -484,7 +437,7 @@ print sim_jaccard(critics,&apos;Jack Matthews&apos;,&apos;Gene Seymour&apos;)
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/03/16/计算相似度评价值的几种方法/" data-title="计算相似度评价值的几种方法" data-url="http://yoursite.com/2016/03/16/计算相似度评价值的几种方法/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/22/用户协同过滤的简单推荐算法/" data-title="用户协同过滤的简单推荐算法" data-url="http://yoursite.com/2016/03/22/用户协同过滤的简单推荐算法/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -508,15 +461,13 @@ print sim_jaccard(critics,&apos;Jack Matthews&apos;,&apos;Gene Seymour&apos;)
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/22/用户协同过滤的简单推荐算法/" title="上一篇: 用户协同过滤的简单推荐算法">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/03/14/机器学习0/" title="下一篇: 机器学习0">
+            <a href="/2016/03/16/计算相似度评价值的几种方法/" title="下一篇: 计算相似度评价值的几种方法">
                 <i class="fa fa-angle-right"></i>
             </a>
         
