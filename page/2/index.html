@@ -158,7 +158,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/RDF/" style="font-size: 10px;">RDF</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/兴趣模型/" style="font-size: 10px;">兴趣模型</a> <a href="/tags/多源数据/" style="font-size: 10px;">多源数据</a> <a href="/tags/密码学/" style="font-size: 10px;">密码学</a> <a href="/tags/推荐系统/" style="font-size: 13.33px;">推荐系统</a> <a href="/tags/数据挖掘/" style="font-size: 16.67px;">数据挖掘</a> <a href="/tags/本体论/" style="font-size: 10px;">本体论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/梯度下降法/" style="font-size: 10px;">梯度下降法</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/用户协同过滤/" style="font-size: 10px;">用户协同过滤</a> <a href="/tags/监督学习/" style="font-size: 10px;">监督学习</a> <a href="/tags/相似度度量/" style="font-size: 10px;">相似度度量</a> <a href="/tags/社交网络分析/" style="font-size: 16.67px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 16.67px;">蓝桥杯</a>
+                        <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/RDF/" style="font-size: 10px;">RDF</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/兴趣模型/" style="font-size: 10px;">兴趣模型</a> <a href="/tags/多源数据/" style="font-size: 10px;">多源数据</a> <a href="/tags/密码学/" style="font-size: 10px;">密码学</a> <a href="/tags/推荐系统/" style="font-size: 13.33px;">推荐系统</a> <a href="/tags/数据挖掘/" style="font-size: 16.67px;">数据挖掘</a> <a href="/tags/本体论/" style="font-size: 10px;">本体论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/梯度下降法/" style="font-size: 10px;">梯度下降法</a> <a href="/tags/模拟登录/" style="font-size: 10px;">模拟登录</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/用户协同过滤/" style="font-size: 10px;">用户协同过滤</a> <a href="/tags/监督学习/" style="font-size: 10px;">监督学习</a> <a href="/tags/相似度度量/" style="font-size: 10px;">相似度度量</a> <a href="/tags/社交网络分析/" style="font-size: 16.67px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 16.67px;">蓝桥杯</a>
                     </div>
                 </section>
                 
@@ -235,6 +235,162 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-社交网站的数据挖掘与分析（三）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/02/社交网站的数据挖掘与分析（三）/" class="article-date">
+      <time datetime="2016-03-02T06:23:58.000Z" itemprop="datePublished">2016-03-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/02/社交网站的数据挖掘与分析（三）/">社交网站的数据挖掘与分析（三）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#160; &#160; &#160; &#160;今天尝试着利用了新浪微博的api做一些简单的分析，分析结果还是很有意思的。主要的分析想法是根据《社交网站的数据挖掘与分析》一书中第一章关于对Twitter分析的内容引申而来的，由于众所周知的原因，Twitter在国内无法访问，所以，我就借鉴同样的思路，利用新浪微博，完成了相似的分析。书中先是寻找了Twitter上的热门话题，然后分析了热门话题下面的评论内容，给出了直观的分析结果，我就利用了同样的思路进行分析，一步一步来。<br>&#160; &#160; &#160; &#160;首先，书中根据Twitter的api直接获得了热门话题下面的评论，因为新浪微博的该功能需要认证，所以，为了简单，我选取了一条评论量很大的参与了话题的微博进行分析。首先现在热门话题中找到你感兴趣的微博，随便看了一下24小时内最热的话题，发现前三个都没听过……只有第四个《夏至未至》小说看过，果断就选取了这个初中时候的回忆。<br>&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;<img src="http://7xrav5.com1.z0.glb.clouddn.com/2016030201.png" alt="enter image description here"><br>&#160; &#160; &#160; &#160;点进话题选一条热门的微博，找到了置顶的郭敬明同学的微博，恩，决定就是他了。<br>&#160; &#160; &#160; &#160;  &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;<img src="http://7xrav5.com1.z0.glb.clouddn.com/2016030202.png" alt="enter image description here"><br>&#160; &#160; &#160; &#160;紧接着找到获取某条微博评论的api</p>
+<blockquote>
+<p>comments/show</p>
+</blockquote>
+<p>&#160; &#160; &#160; &#160;看一下需要的参数<br>&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;<img src="http://7xrav5.com1.z0.glb.clouddn.com/2016030203.png" alt="enter image description here"><br>&#160; &#160; &#160; &#160;发现必选的参数中有一个id，但是这个字段并不知道啊，然后找了找其他api，发现有可以获取id的api，于是利用了这个</p>
+<blockquote>
+<p>favorites/ids</p>
+</blockquote>
+<p>&#160; &#160; &#160; &#160;先把要查找id的微博收藏一下，然后调用这个api就可以看到你收藏的微博的id了，如果你收藏了多个微博，找到时间点契合的那条就可以了。先把上述代码贴上：</p>
+<pre><code># -*- coding: utf-8 -*-
+&quot;&quot;&quot;
+Created on Wed Mar 02 10:30:21 2016
+
+@author: chi
+&quot;&quot;&quot;
+
+import weibo
+import json
+
+
+APP_KEY = &apos;901650003&apos;
+MY_APP_SECRET = &apos;f409c63a1fd8dc5482a4d1c070327149&apos;
+REDIRECT_URL = &apos;http://chimingyu.com&apos; 
+access = open(&apos;login.txt&apos;,&apos;r&apos;)
+access_str = access.readline()
+access.close()
+access_token = access_str.split(&apos; &apos;)[0]
+expires_in = access_str.split(&apos; &apos;)[1]
+api = weibo.APIClient(APP_KEY,MY_APP_SECRET,REDIRECT_URL)
+api.set_access_token(access_token, expires_in)
+favorites_id = api.favorites__ids()
+print json.dumps(favorites_id,indent=1)
+</code></pre><p>&#160; &#160; &#160; &#160;这里要说一下json包，这个包是用来解析json的，可以把json结果打印成很漂亮的格式，起码能看懂，输出结果是这样的</p>
+<pre><code>{
+     &quot;favorites&quot;: [
+      {
+       &quot;status&quot;: &quot;3948308718114434&quot;, 
+       &quot;favorited_time&quot;: &quot;Wed Mar 02 11:41:30 +0800 2016&quot;, 
+       &quot;tags&quot;: []
+      }
+     ], 
+     &quot;total_number&quot;: 1
+}
+</code></pre><p>&#160; &#160; &#160; &#160;可以很明显的看到，我的收藏里只有这一条微博，id就是上面的status字段，用这个id就可以去获取评论了，下面的操作直接在命令行里的。</p>
+<pre><code>comments_json = api.comments__show(id=3948308718114434)    #根据返回结果得知评论内容在comments字段
+comments = comments_json[&apos;comments&apos;]
+len(comments)    #获取一下长度，发现只有50，然后注意到默认一页是返回50条记录的，这里给改成200了，200是上限
+comments_json = api.comments__show(id=3948308718114434,count=200)
+comments = comments_json[&apos;comments&apos;]
+</code></pre><p>&#160; &#160; &#160; &#160;接下来，我们要把获得的评论里的评论内容，评论者的信息等一下我们感兴趣的因素提取出来。</p>
+<pre><code>comments_text = [comment[&apos;text&apos;] for comment in comments]    #提取评论文本
+user_info = [comment[&apos;user&apos;] for comment in comments]    #获得评论者的信息
+#这里我选取了我感兴趣的两个字段，年龄和省份来统计
+user_province = [user[&apos;province&apos;] for user in user_info]
+user_gender = [user[&apos;gender&apos;] for user in user_info]
+</code></pre><p>&#160; &#160; &#160; &#160;做好了数据采集工作，我们可以进行一定程度的分析了，实际上，几乎所有的分析都可以归结为某种程度的计数行为。从经验来看，对观察到的事物计数是一切的出发点，因此它也是任何试图从噪声数据中寻找微弱信号的统计滤波或处理的出发点，前面，我们仅仅从每个未排序的列表提取了一些数据的大致内容，现在，我们通过计算频率分布来对数据有更深的认识。<br>&#160; &#160; &#160; &#160;截止至Python2.7，collections模块提供了一个计数器，使得计算频率分布变得异常容易，我们可以用Counter来计算频率分布得到排过序的元素列表，挖掘微博数据的原因很多，其中一个就是知道，人们在谈论什么。在进行统计之前我们还要有一个工作要做，对我们提取到的中文句子进行分词。<br>&#160; &#160; &#160; &#160;书中是分析Twitter的推文，因为推文是英文的，而在英语中，词与词之间有自然地空格作为分割，但是中文的分词方式要比英文的复杂的多，很方便的是，有一些开源的中文分词工具能够很好的帮我们完成这个复杂的工作。比如结巴分词就是一款很优秀的开源工具，下载戳<a href="https://github.com/fxsjy/jieba" target="_blank" rel="external">这里</a>。我们先将我们提取的句子分词，然后将分词结果放在一个列表中。</p>
+<pre><code>for comment_text in comments_text:
+    seg_list = jieba.cut(comment_text)
+        for i in seg_list:
+            word.append(i)
+</code></pre><p>&#160; &#160; &#160; &#160;分词过后我们就可以把结果进行统计了，用的是collections.Counter()方法。</p>
+<pre><code>from collections import Counter
+for item in [word, user_gender,user_province]:
+    c = Counter(item)
+    print c.most_common()[:10]
+</code></pre><p>&#160; &#160; &#160; &#160;输出结果：</p>
+<pre><code>[(u&apos;\uff0c&apos;, 167), (u&apos;\u7684&apos;, 166), (u&apos; &apos;, 139), (u&apos;[&apos;, 139), (u&apos;]&apos;, 139), (u&apos;\u6211&apos;, 84), (u&apos;@&apos;, 83), (u&apos;\uff01&apos;, 61), (u&apos;\u4e86&apos;, 60), (u&apos;\u3002&apos;, 54)]
+[(u&apos;f&apos;, 170), (u&apos;m&apos;, 26)]
+[(u&apos;100&apos;, 23), (u&apos;32&apos;, 17), (u&apos;51&apos;, 15), (u&apos;42&apos;, 11), (u&apos;41&apos;, 11), (u&apos;400&apos;, 11), (u&apos;34&apos;, 11), (u&apos;44&apos;, 10), (u&apos;31&apos;, 9), (u&apos;37&apos;, 9)]
+</code></pre><p>&#160; &#160; &#160; &#160;频率分析的结果是对应元素以其频率的键/值对映射，因此让我们用表格的形式是结果更加直观，易读，在命令行输入</p>
+<pre><code>pip install prettytable
+</code></pre><p>&#160; &#160; &#160; &#160;安装一个叫做prettytable的包，这个包提供了便于将结果格式化固定宽度的表格格式的方法，这样可以很容易的复制粘贴。</p>
+<pre><code>for label,data in ((&apos;Word&apos;,word),(&apos;Gender&apos;,user_gender),(&apos;Province&apos;,user_province)):
+    pt = PrettyTable(field_names=[label,&apos;Count&apos;])
+    c = Counter(data)
+    [pt.add_row(kv) for kv in c.most_common()[:10]]
+    pt.align[label],pt.align[&apos;Count&apos;] = &apos;1&apos;,&apos;r&apos;
+    print pt
+</code></pre><p>&#160; &#160; &#160; &#160;结果发现输出结果中，词语这一部分是乱码，可能是由于编码问题导致的，其他两项都正常。</p>
+<pre><code>+--------+-------+
+| Gender | Count |
++--------+-------+
+|   f    |   170 |
+|   m    |    26 |
++--------+-------+
++----------+-------+
+| Province | Count |
++----------+-------+
+|   100    |    23 |
+|    32    |    17 |
+|    51    |    15 |
+|    42    |    11 |
+|    41    |    11 |
+|   400    |    11 |
+|    34    |    11 |
+|    44    |    10 |
+|    31    |     9 |
+|    37    |     9 |
++----------+-------+
+</code></pre><p>重新编码之后发现词语统计的前几项都是“的”，“就”，以及符号这种没有意义的字符，说明在分词的部分，还是欠考虑，没有忽略掉无意义的词语。这一部分留作日后改进吧。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据挖掘/">数据挖掘</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/社交网络分析/">社交网络分析</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-社交网站的数据挖掘与分析（二）" class="article article-type-post" itemscope itemprop="blogPost">
   
