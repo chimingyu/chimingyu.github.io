@@ -3,30 +3,40 @@
 <head>
   <meta charset="utf-8">
   
-  <title>经典密码学（一） | 迟没有的回收站</title>
+  <title>密码学（二） | 迟没有的回收站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="经典密码学（一）今天整理了学习过的一些经典加密方法，也叫作古典加密法。
-一. 经典单码加密法1. 关键词加密法(keyword cipher)step 1：选定关键词，并去除关键词中重复的字母。step 2：将关键词写在字母表下方，其余部分按顺序填充。step 3：进行逐一替换，得到密文。示例：
+  <meta name="description" content="经典多码加密法
 
-选定关键词 success，进行去重，得到 suce。
-将 suce 写到字母表下方，进行填充">
+Vigenere加密法step 1：选取一个关键字，去除重复字母。step 2：将关键字写在明文上方，并反复书写。step 3：利用明文和密钥构成的字母对，在Vigenere表中找到对应位置的字母进行替换。示例：
+
+
+假设我们的明文为 wwwchimingyucom，密钥为hold，
+按照step 2 操作，得到字母对
+查表进行替换，最终的密文为 dkhfowxluujxjcu|">
 <meta property="og:type" content="article">
-<meta property="og:title" content="经典密码学（一）">
-<meta property="og:url" content="http://yoursite.com/2016/04/04/经典密码学（一）/index.html">
+<meta property="og:title" content="密码学（二）">
+<meta property="og:url" content="http://yoursite.com/2016/04/10/密码学（二）/index.html">
 <meta property="og:site_name" content="迟没有的回收站">
-<meta property="og:description" content="经典密码学（一）今天整理了学习过的一些经典加密方法，也叫作古典加密法。
-一. 经典单码加密法1. 关键词加密法(keyword cipher)step 1：选定关键词，并去除关键词中重复的字母。step 2：将关键词写在字母表下方，其余部分按顺序填充。step 3：进行逐一替换，得到密文。示例：
+<meta property="og:description" content="经典多码加密法
 
-选定关键词 success，进行去重，得到 suce。
-将 suce 写到字母表下方，进行填充">
-<meta property="og:updated_time" content="2016-04-04T14:59:35.333Z">
+Vigenere加密法step 1：选取一个关键字，去除重复字母。step 2：将关键字写在明文上方，并反复书写。step 3：利用明文和密钥构成的字母对，在Vigenere表中找到对应位置的字母进行替换。示例：
+
+
+假设我们的明文为 wwwchimingyucom，密钥为hold，
+按照step 2 操作，得到字母对
+查表进行替换，最终的密文为 dkhfowxluujxjcu|">
+<meta property="og:image" content="http://7xrav5.com1.z0.glb.clouddn.com/2016041001.jpg">
+<meta property="og:updated_time" content="2016-04-10T14:48:54.141Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="经典密码学（一）">
-<meta name="twitter:description" content="经典密码学（一）今天整理了学习过的一些经典加密方法，也叫作古典加密法。
-一. 经典单码加密法1. 关键词加密法(keyword cipher)step 1：选定关键词，并去除关键词中重复的字母。step 2：将关键词写在字母表下方，其余部分按顺序填充。step 3：进行逐一替换，得到密文。示例：
+<meta name="twitter:title" content="密码学（二）">
+<meta name="twitter:description" content="经典多码加密法
 
-选定关键词 success，进行去重，得到 suce。
-将 suce 写到字母表下方，进行填充">
+Vigenere加密法step 1：选取一个关键字，去除重复字母。step 2：将关键字写在明文上方，并反复书写。step 3：利用明文和密钥构成的字母对，在Vigenere表中找到对应位置的字母进行替换。示例：
+
+
+假设我们的明文为 wwwchimingyucom，密钥为hold，
+按照step 2 操作，得到字母对
+查表进行替换，最终的密文为 dkhfowxluujxjcu|">
   
     <link rel="alternative" href="/atom.xml" title="迟没有的回收站" type="application/atom+xml">
   
@@ -166,7 +176,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/RDF/" style="font-size: 10px;">RDF</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/兴趣模型/" style="font-size: 10px;">兴趣模型</a> <a href="/tags/多源数据/" style="font-size: 10px;">多源数据</a> <a href="/tags/密码学/" style="font-size: 10px;">密码学</a> <a href="/tags/推荐系统/" style="font-size: 13.33px;">推荐系统</a> <a href="/tags/数据挖掘/" style="font-size: 16.67px;">数据挖掘</a> <a href="/tags/本体论/" style="font-size: 10px;">本体论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/梯度下降法/" style="font-size: 10px;">梯度下降法</a> <a href="/tags/模拟登录/" style="font-size: 10px;">模拟登录</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/用户协同过滤/" style="font-size: 10px;">用户协同过滤</a> <a href="/tags/监督学习/" style="font-size: 10px;">监督学习</a> <a href="/tags/相似度度量/" style="font-size: 10px;">相似度度量</a> <a href="/tags/社交网络分析/" style="font-size: 16.67px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 16.67px;">蓝桥杯</a>
+                        <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/RDF/" style="font-size: 10px;">RDF</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/兴趣模型/" style="font-size: 10px;">兴趣模型</a> <a href="/tags/多源数据/" style="font-size: 10px;">多源数据</a> <a href="/tags/密码学/" style="font-size: 13.33px;">密码学</a> <a href="/tags/推荐系统/" style="font-size: 13.33px;">推荐系统</a> <a href="/tags/数据挖掘/" style="font-size: 16.67px;">数据挖掘</a> <a href="/tags/本体论/" style="font-size: 10px;">本体论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/梯度下降法/" style="font-size: 10px;">梯度下降法</a> <a href="/tags/模拟登录/" style="font-size: 10px;">模拟登录</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/用户协同过滤/" style="font-size: 10px;">用户协同过滤</a> <a href="/tags/监督学习/" style="font-size: 10px;">监督学习</a> <a href="/tags/相似度度量/" style="font-size: 10px;">相似度度量</a> <a href="/tags/社交网络分析/" style="font-size: 16.67px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 16.67px;">蓝桥杯</a>
                     </div>
                 </section>
                 
@@ -242,11 +252,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-经典密码学（一）" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-密码学（二）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/04/经典密码学（一）/" class="article-date">
-      <time datetime="2016-04-04T14:53:16.000Z" itemprop="datePublished">2016-04-04</time>
+      <a href="/2016/04/10/密码学（二）/" class="article-date">
+      <time datetime="2016-04-10T14:46:48.000Z" itemprop="datePublished">2016-04-10</time>
 </a>
     </div>
   
@@ -259,7 +269,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      经典密码学（一）
+      密码学（二）
     </h1>
   
 
@@ -280,137 +290,22 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="经典密码学（一）"><a href="#经典密码学（一）" class="headerlink" title="经典密码学（一）"></a>经典密码学（一）</h1><p>今天整理了学习过的一些经典加密方法，也叫作古典加密法。</p>
-<h2 id="一-经典单码加密法"><a href="#一-经典单码加密法" class="headerlink" title="一. 经典单码加密法"></a>一. 经典单码加密法</h2><h3 id="1-关键词加密法-keyword-cipher"><a href="#1-关键词加密法-keyword-cipher" class="headerlink" title="1. 关键词加密法(keyword cipher)"></a>1. 关键词加密法(keyword cipher)</h3><p>step 1：选定关键词，并去除关键词中重复的字母。<br>step 2：将关键词写在字母表下方，其余部分按顺序填充。<br>step 3：进行逐一替换，得到密文。<br>示例：</p>
+        <p>经典多码加密法</p>
+<ol>
+<li>Vigenere加密法<br>step 1：选取一个关键字，去除重复字母。<br>step 2：将关键字写在明文上方，并反复书写。<br>step 3：利用明文和密钥构成的字母对，在Vigenere表中找到对应位置的字母进行替换。<br><img src="http://7xrav5.com1.z0.glb.clouddn.com/2016041001.jpg" alt="Vigenere表"><br>示例：</li>
+</ol>
 <ul>
-<li>选定关键词 success，进行去重，得到 suce。</li>
-<li>将 suce 写到字母表下方，进行填充</li>
+<li>假设我们的明文为 wwwchimingyucom，密钥为hold，</li>
+<li>按照step 2 操作，得到字母对</li>
+<li>查表进行替换，最终的密文为 dkhfowxluujxjcu<br>|h|o|l|d|h|o|l|d|h|o|l|d|h|o|l|<br>|—|<br>|w|w|w|c|h|i|m|i|n|g|y|u|c|o|m|<br>|d|k|h|f|o|w|x|l|u|u|j|x|j|c|u|</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>a</th>
-<th>b</th>
-<th>c</th>
-<th>d</th>
-<th>e</th>
-<th>f</th>
-<th>g</th>
-<th>h</th>
-<th>i</th>
-<th>j</th>
-<th>k</th>
-<th>l</th>
-<th>m</th>
-<th>n</th>
-<th>o</th>
-<th>p</th>
-<th>q</th>
-<th>r</th>
-<th>s</th>
-<th>t</th>
-<th>u</th>
-<th>v</th>
-<th>w</th>
-<th>x</th>
-<th>y</th>
-<th>z</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>s</td>
-<td>u</td>
-<td>c</td>
-<td>e</td>
-<td>a</td>
-<td>b</td>
-<td>d</td>
-<td>f</td>
-<td>g</td>
-<td>h</td>
-<td>i</td>
-<td>j</td>
-<td>k</td>
-<td>l</td>
-<td>m</td>
-<td>n</td>
-<td>o</td>
-<td>p</td>
-<td>q</td>
-<td>r</td>
-<td>t</td>
-<td>v</td>
-<td>w</td>
-<td>x</td>
-<td>y</td>
-<td>z</td>
-</tr>
-</tbody>
-</table>
+<ol>
+<li>自动密钥加密法<br>自动密钥加密法是Vigenere加密法的一种改进方法，它的密钥不仅仅是一个关键词，而是可以根据加密内容生成新的密钥。<br>step 1：选取关键字，去重。<br>step 2：将关键字写在明文上方，仅书写一次，其余的空缺部分利用明文/密文替代作为密钥。<br>step 3：利用明文和密钥构成的字母对，在Vigenere表中找到对应位置的字母进行替换。<br>示例：</li>
+</ol>
 <ul>
-<li>假设我们的明文为 wwwchimingyucom，经过替换，我们得到密文 wwwcfgkgldytcmk<h3 id="2-仿射加密法-affine-cipher"><a href="#2-仿射加密法-affine-cipher" class="headerlink" title="2. 仿射加密法(affine cipher)"></a>2. 仿射加密法(affine cipher)</h3>step 1：选取密钥为（a，b），其中，a满足 $gcd(a,26)=1$<br>step 2：p表示明文数字，c为密文数字，按照如下方式进行加密<br>$$c = (ap+b)\;mod\;26$$<br>$$p = a^{-1}(c-b)\;mod\;26$$<br>其中 $a^{-1}$ 为乘法逆元<br>示例：</li>
-<li>选取密钥（7，3），因为$gcd(7,26)=1$所以符合条件。</li>
-<li>假设我们的密文为 <strong>HOT</strong>，进行计算得到密文为 <strong>axg</strong><br>$$c（H） = 7\times 7 + 3 ) \;mod \;26 = 52 \;mod \;26 = 0–a$$<br>$$c（O） = 7\times 14 + 3 ) \;mod \;26 =  101\;mod \;26 = 23–x$$<br>$$c（T） = 7\times 19 + 3 ) \;mod \;26 = 136 \;mod \;26 = 6–g$$<h3 id="3-多文字加密法（multilateral-cipher）"><a href="#3-多文字加密法（multilateral-cipher）" class="headerlink" title="3. 多文字加密法（multilateral cipher）"></a>3. 多文字加密法（multilateral cipher）</h3>step 1：选取长度为5，且不重复的关键字作为密钥，构造一个 $5\times5$ 的矩阵。<br>step 2：把j用i替代，将25个字母顺次填入矩阵中。<br>step 3：用明文在字母表中对应的行列，每两个密文替换一个明文。<br>示例：</li>
-<li>选取密钥为 codes</li>
-<li>构造矩阵</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>&amp;</th>
-<th>c</th>
-<th>o</th>
-<th>d</th>
-<th>e</th>
-<th>s</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>c</td>
-<td>a</td>
-<td>b</td>
-<td>c</td>
-<td>d</td>
-<td>e</td>
-</tr>
-<tr>
-<td>o</td>
-<td>f</td>
-<td>g</td>
-<td>h</td>
-<td>i</td>
-<td>k</td>
-</tr>
-<tr>
-<td>d</td>
-<td>l</td>
-<td>m</td>
-<td>n</td>
-<td>o</td>
-<td>p</td>
-</tr>
-<tr>
-<td>e</td>
-<td>q</td>
-<td>r</td>
-<td>s</td>
-<td>t</td>
-<td>u</td>
-</tr>
-<tr>
-<td>s</td>
-<td>v</td>
-<td>w</td>
-<td>x</td>
-<td>y</td>
-<td>z</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>假设我们的密文为 <strong>hat</strong>，h对应的密文为od，以同样的方式对所有明文加密后得到的结果为 <strong>odccee</strong>。</li>
+<li>假设我们的明文为 wwwchimingyucom，密钥为hold，</li>
+<li>按照step 2 操作，得到字母对，在这里，我们选取密文作为自动生成的密钥，明文密钥与之相同。</li>
+<li>查表进行替换，最终的密文为 dkhfkstnxyrhzmd<br>|h|o|l|d|d|k|h|f|k|s|t|n|x|y|r|<br>|—|<br>|w|w|w|c|h|i|m|i|n|g|y|u|c|o|m|<br>|d|k|h|f|k|s|t|n|x|y|r|h|z|m|d|</li>
 </ul>
 
       
@@ -423,16 +318,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/04/08/模拟登录饿了么/">
-                    模拟登陆饿了么
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/03/22/用户协同过滤的简单推荐算法/">
-                    用户协同过滤的简单推荐算法
+                <a href="/2016/04/08/模拟登录饿了么/">
+                    模拟登陆饿了么
                 </a>
             </div>
         
@@ -443,7 +332,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#经典密码学（一）"><span class="toc-number">1.</span> <span class="toc-text">经典密码学（一）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-经典单码加密法"><span class="toc-number">1.1.</span> <span class="toc-text">一. 经典单码加密法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-关键词加密法-keyword-cipher"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. 关键词加密法(keyword cipher)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-仿射加密法-affine-cipher"><span class="toc-number">1.1.2.</span> <span class="toc-text">2. 仿射加密法(affine cipher)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-多文字加密法（multilateral-cipher）"><span class="toc-number">1.1.3.</span> <span class="toc-text">3. 多文字加密法（multilateral cipher）</span></a></li></ol></li></ol></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -507,7 +396,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/04/04/经典密码学（一）/" data-title="经典密码学（一）" data-url="http://yoursite.com/2016/04/04/经典密码学（一）/"></div>
+    <div class="ds-thread" data-thread-key="2016/04/10/密码学（二）/" data-title="密码学（二）" data-url="http://yoursite.com/2016/04/10/密码学（二）/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -531,21 +420,19 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/04/08/模拟登录饿了么/" title="上一篇: 模拟登陆饿了么">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/03/22/用户协同过滤的简单推荐算法/" title="下一篇: 用户协同过滤的简单推荐算法">
+            <a href="/2016/04/08/模拟登录饿了么/" title="下一篇: 模拟登陆饿了么">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/08/模拟登录饿了么/">模拟登陆饿了么</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/经典密码学（一）/">经典密码学（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/22/用户协同过滤的简单推荐算法/">用户协同过滤的简单推荐算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/计算相似度评价值的几种方法/">计算相似度评价值的几种方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/14/机器学习0/">机器学习0</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/社交网站的数据挖掘与分析（四）/">社交网站的数据挖掘与分析（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/（译）基于多源数据的用户兴趣模型/">（译）基于多源数据的用户兴趣模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/蓝桥杯练习（四）/">蓝桥杯练习（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/04/蓝桥杯练习（三）/">蓝桥杯练习（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/03/Python练习册（一）/">Python练习册（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/社交网站的数据挖掘与分析（三）/">社交网站的数据挖掘与分析（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/01/社交网站的数据挖掘与分析（二）/">社交网站的数据挖掘与分析（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/29/蓝桥杯练习（二）/">蓝桥杯练习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/27/社交网站的数据挖掘与分析（一）/">社交网站的数据挖掘与分析（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/26/蓝桥杯练习（一）/">蓝桥杯练习（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/25/Hello World/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/10/密码学（二）/">密码学（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/08/模拟登录饿了么/">模拟登陆饿了么</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/密码学（一）/">密码学（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/22/用户协同过滤的简单推荐算法/">用户协同过滤的简单推荐算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/计算相似度评价值的几种方法/">计算相似度评价值的几种方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/14/机器学习0/">机器学习0</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/社交网站的数据挖掘与分析（四）/">社交网站的数据挖掘与分析（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/（译）基于多源数据的用户兴趣模型/">（译）基于多源数据的用户兴趣模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/蓝桥杯练习（四）/">蓝桥杯练习（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/04/蓝桥杯练习（三）/">蓝桥杯练习（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/03/Python练习册（一）/">Python练习册（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/社交网站的数据挖掘与分析（三）/">社交网站的数据挖掘与分析（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/01/社交网站的数据挖掘与分析（二）/">社交网站的数据挖掘与分析（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/29/蓝桥杯练习（二）/">蓝桥杯练习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/27/社交网站的数据挖掘与分析（一）/">社交网站的数据挖掘与分析（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/26/蓝桥杯练习（一）/">蓝桥杯练习（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/25/Hello World/">Hello World</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
