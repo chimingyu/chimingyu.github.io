@@ -158,7 +158,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/RDF/" style="font-size: 10px;">RDF</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/兴趣模型/" style="font-size: 10px;">兴趣模型</a> <a href="/tags/多源数据/" style="font-size: 10px;">多源数据</a> <a href="/tags/密码学/" style="font-size: 13.33px;">密码学</a> <a href="/tags/推荐系统/" style="font-size: 13.33px;">推荐系统</a> <a href="/tags/数据挖掘/" style="font-size: 16.67px;">数据挖掘</a> <a href="/tags/本体论/" style="font-size: 10px;">本体论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/梯度下降法/" style="font-size: 10px;">梯度下降法</a> <a href="/tags/模拟登录/" style="font-size: 10px;">模拟登录</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/用户协同过滤/" style="font-size: 10px;">用户协同过滤</a> <a href="/tags/监督学习/" style="font-size: 10px;">监督学习</a> <a href="/tags/相似度度量/" style="font-size: 10px;">相似度度量</a> <a href="/tags/社交网络分析/" style="font-size: 16.67px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 16.67px;">蓝桥杯</a>
+                        <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/RDF/" style="font-size: 10px;">RDF</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/兴趣模型/" style="font-size: 10px;">兴趣模型</a> <a href="/tags/多源数据/" style="font-size: 10px;">多源数据</a> <a href="/tags/密码学/" style="font-size: 15px;">密码学</a> <a href="/tags/推荐系统/" style="font-size: 12.5px;">推荐系统</a> <a href="/tags/数据挖掘/" style="font-size: 17.5px;">数据挖掘</a> <a href="/tags/本体论/" style="font-size: 10px;">本体论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/梯度下降法/" style="font-size: 10px;">梯度下降法</a> <a href="/tags/模拟登录/" style="font-size: 10px;">模拟登录</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/用户协同过滤/" style="font-size: 10px;">用户协同过滤</a> <a href="/tags/监督学习/" style="font-size: 10px;">监督学习</a> <a href="/tags/相似度度量/" style="font-size: 10px;">相似度度量</a> <a href="/tags/社交网络分析/" style="font-size: 17.5px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 17.5px;">蓝桥杯</a>
                     </div>
                 </section>
                 
@@ -235,6 +235,266 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-蓝桥杯练习（三）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/04/蓝桥杯练习（三）/" class="article-date">
+      <time datetime="2016-03-04T07:22:51.000Z" itemprop="datePublished">2016-03-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/04/蓝桥杯练习（三）/">蓝桥杯练习（三）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>今天继续蓝桥杯的练习，题目是<a href="http://wenku.baidu.com/link?url=4KZYlK9WKqjhC1CuuhsGt4v4-PQVihHYmciH7vZPpwv7S8xS3jK34Xzy1tYgz_16xJ64zA6BkcmTUF69uqc4ouNIqxVFiXDQXRJ8yAxTCSq" target="_blank" rel="external">2014年第五届蓝桥杯预赛题目JAVA软件开发本科A组</a></p>
+<ol>
+<li><p><strong>猜年龄</strong><br>&#160; &#160; &#160; &#160;小明带两个妹妹参加元宵灯会。别人问她们多大了，她们调皮地说：“我们俩的年龄之积是年龄之和的6倍”。小明又补充说：“她们可不是双胞胎，年龄差肯定也不超过8岁啊。”<br>&#160; &#160; &#160; &#160;请你写出：小明的较小的妹妹的年龄。<br>&#160; &#160; &#160; &#160;<strong>解</strong>：直接遍历找解，小的年龄a，大的年龄b，找到的条件为a_b = 6_(a+b)，限制条件b-a&lt;=8，解出来妹妹是10岁。</p>
+<pre><code>public class A_2014_1 {
+    public static void main(String args[]){
+        int a=0;
+        int flag = 0;
+        while(true){
+            a++;
+            for (int i = 0;i &lt;= 8; i++){
+                if(6*(a+i+a) == a*(a+i)){
+                    System.out.println(a);
+                    flag = 1;
+                    break;
+                }
+            }
+            if(flag == 1)
+                break;
+        }
+    }
+} 
+</code></pre></li>
+<li><p><strong>李白打酒</strong><br>&#160; &#160; &#160; &#160; 话说大诗人李白，一生好饮。幸好他从不开车。 一天，他提着酒壶，从家里出来，酒壶有酒2斗。他边走边唱：无事街上走，提壶去打酒。 逢店加一倍，遇花喝一斗。这一路上，他一共遇到店5次，遇到花10次，已知最后一次遇到的是花，他正好把酒喝光了。请你计算李白遇到店和花的次序，可以把遇店记为a，遇花记为b。则：babaabbabbabbbb 就是合理的次序。像这样的答案一共有多少呢？请你计算出所有可能方案的个数（包含题目给出的）。<br>&#160; &#160; &#160; &#160;<strong>解</strong>：这道题和之前的扑克牌非常像，把代码改一改就能用了，因为最后一次要求是b，也就是说在第十四步之后，酒壶里应该只有1斗酒，那么就可以知道，第十四步肯定是遇花，这样才能保证只剩一斗酒，那么最后两个肯定都是b，这样判断前13位就好。解出来是14种。</p>
+<pre><code>public class A_2014_2 {
+    public static int count = 0; 
+    public static void main(String [] args){
+        char [] num = new char[13];
+        f(num,0);
+        System.out.println(count);
+    }
+
+    public static void f(char []num,int i){
+        if(i &gt;= num.length){
+            if(judge(num)){
+                show(num);
+                count++;
+            }
+        }else{
+            for(int j=1;j&lt;=2;j++){
+                num[i] = (char)(j + &apos;a&apos; - 1);
+                f(num,i+1);
+            }
+        }
+     }
+
+    public static void show(char [] num){
+        for(int i = 0;i&lt;num.length;i++){
+            System.out.print(num[i]);
+        }
+        System.out.println();
+    }
+
+    public static boolean judge(char num[]){
+        int countnum = 2;
+        int numa=0,numb=0;
+        for (char c:num){
+            if(c == &apos;a&apos;){
+                numa++;
+                countnum *= 2;
+            }else{
+                numb++;
+                countnum--;
+            }
+        }
+
+        return countnum == 2 &amp;&amp; numa == 5 &amp;&amp; numb == 8;
+    }
+}
+</code></pre></li>
+<li><p><strong>神奇算式  </strong><br>由4个不同的数字，组成的一个乘法算式，它们的乘积仍然由这4个数字组成。<br>比如：   210 x 6 = 1260  8 x 473 = 3784 27 x 81 = 2187   都符合要求。如果满足乘法交换律的算式算作同一种情况，那么，包含上边已列出的3种情况，一共有多少种满足要求的算式<br>&#160; &#160; &#160; &#160;<strong>解</strong>：直接遍历找解，解出来答案是12种（别忘记除2）。</p>
+<pre><code>public class A_2014_3 {
+    public static int count = 0; 
+    public static void main(String [] args){
+        for(int i = 2; i &lt;= 999; i++){
+            for(int j = 2; j &lt;= 999; j++){
+                if(judge(i,j)){
+                    /*System.out.print(i);
+                    System.out.print(&quot; &quot;);
+                    System.out.print(j);
+                    System.out.print(&quot; &quot;);
+                    System.out.println(i*j);*/
+                    count++;
+                }
+            }
+        }
+        System.out.println(count/2);
+    }
+
+    public static boolean judge(int num1, int num2){
+        int num = num1 * num2;
+        String numStr1 = String.format(&quot;%d&quot;, num);            
+        String numStr2 = String.format(&quot;%d&quot;, num2) + String.format(&quot;%d&quot;, num1);
+        if(judgediff(num) &amp;&amp; judgediff(num1) &amp;&amp; judgediff(num2) &amp;&amp; numStr1.length() == 4 &amp;&amp; numStr2.length() == 4){
+
+            for (int i = 0; i &lt; 4; i++){
+                if(numStr2.indexOf(numStr1.charAt(i)) == -1){
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+
+    }
+
+    public static boolean judgediff(int num){
+        String numStr = String.format(&quot;%d&quot;, num);
+        String temp = new String(&quot;&quot;);
+        for(int i = 0; i &lt; numStr.length();i++){          
+            if(temp.indexOf(numStr.charAt(i)) == -1){
+                temp = temp + numStr.charAt(i);
+            }else
+                return false;
+        }
+
+        return true;
+    }
+}  
+</code></pre></li>
+<li><p><strong>写日志</strong><br>&#160; &#160; &#160; &#160;写日志是程序的常见任务。现在要求在 t1.log, t2.log, t3.log 三个文件间轮流写入日志。也就是说第一次写入t1.log，第二次写入t2.log，… 第四次仍然写入t1.log，如此反复。<br> 下面的代码模拟了这种轮流写入不同日志文件的逻辑。  </p>
+<pre><code>public class A {  
+    private static int n = 1;   
+    public static void write(String msg)  {   
+        String filename = &quot;t&quot; + n + &quot;.log&quot;;   
+        n = ____________; 
+        System.out.println(&quot;write to file: &quot; + filename + &quot; &quot; + msg); 
+    } 
+} 
+</code></pre><p>请填写划线部分缺失的代码。<br>&#160; &#160; &#160; &#160;<strong>解</strong>：既然是循环写，肯定要用到模运算了,填写的答案是。</p>
+<pre><code>n % 3 + 1;
+</code></pre></li>
+<li><p><strong>锦标赛</strong><br>&#160; &#160; &#160; &#160;如果要在n个数据中挑选出第一大和第二大的数据（要求输出数据所在位置和值），使用什么方法比较的次数最少？我们可以从体育锦标赛中受到启发。如图【1.png】所示，8个选手的锦标赛，先两两捉对比拼，淘汰一半。优胜者再两两比拼…直到决出第一名。第一名输出后，只要对黄色标示的位置重新比赛即可。<br>下面的代码实现了这个算法(假设数据中没有相同值)。<br> 代码中需要用一个数组来表示图中的树（注意，这是个满二叉树, 不足需要补齐）。它不是存储数据本身，而是存储了数据的下标。第一个数据输出后，它所在的位置被标识为-1  </p>
+<pre><code>class A{ 
+    //a 表示待处理的数据，长度如果不是2的次幂，则不足位置补为-1  
+    static void pick(int[] a)  {   
+        int n = 1; 
+        while(n&lt;a.length) 
+            n *= 2;       
+        int[] b = new int[2*n-1];  
+        for(int i=0; i&lt;n; i++){     
+            if(i&lt;a.length)      
+                b[n-1+i] = i;    
+            else     
+                b[n-1+i] = -1;   
+        }    
+         //从最后一个向前处理 
+        for(int i=b.length-1; i&gt;0; i-=2){    
+            if(b[i]&lt;0){     
+                if(b[i-1]&gt;=0)      
+                    b[(i-1)/2] = b[i-1];      
+                else              
+                    b[(i-1)/2] = -1;    
+            }    
+            else{     
+                if(a[b[i]]&gt;a[b[i-1]])      
+                    b[(i-1)/2] = b[i];     
+                else              
+                    b[(i-1)/2] = b[i-1];    
+            } 
+        }    
+        //输出树根 
+        System.out.println(b[0] + &quot;: &quot; + a[b[0]]);    
+        //值等于根元素的位置需要重新pk   
+        pk(a,b,0,b[0]);  
+        //再次输出树根 
+        System.out.println(b[0] + &quot;: &quot; + a[b[0]]); 
+     } 
+  // a 表示待处理数据，b 二叉树，k 当前要重新比拼的位置，v 已经决胜出的值      
+  static void pk(int[] a, int[] b, int k, int v) {    
+      int k1 = k*2+1;   
+      int k2 = k1 + 1;    
+      if(k1&gt;=b.length || k2&gt;=b.length){    
+          b[k] = -1;    
+          return; 
+      }    
+      if(b[k1]==v)     
+          pk(a,b,k1,v);   
+      else 
+          pk(a,b,k2,v);       
+      //重新比较   
+      if(b[k1]&lt;0){    
+          if(b[k2]&gt;=0)     
+              b[k] = b[k2];     
+          else     
+            b[k] = -1;    
+        return;   
+       }    
+      if(b[k2]&lt;0){    
+          if(b[k1]&gt;=0)     
+              b[k] = b[k1];     
+          else     
+              b[k] = -1;    
+          return;   
+       }    
+      if(__________________________)  //填空    
+          b[k] = b[k1];   
+      else 
+          b[k] = b[k2];  
+    } 
+}   
+</code></pre><p>请仔细分析流程，填写缺失的代码。<br>&#160; &#160; &#160; &#160;<strong>解</strong>：题代码挺复杂，但模拟一遍很快就能出结果。</p>
+<pre><code>b[k1] &gt; b[k2]
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-Python练习册（一）" class="article article-type-post" itemscope itemprop="blogPost">
   

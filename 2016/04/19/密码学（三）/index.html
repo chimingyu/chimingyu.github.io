@@ -3,40 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>密码学（二） | 迟没有的回收站</title>
+  <title>密码学（三） | 迟没有的回收站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="经典多码加密法
-
-Vigenere加密法step 1：选取一个关键字，去除重复字母。step 2：将关键字写在明文上方，并反复书写。step 3：利用明文和密钥构成的字母对，在Vigenere表中找到对应位置的字母进行替换。示例：
-
-
-假设我们的明文为 wwwchimingyucom，密钥为hold，
-按照step 2 操作，得到字母对
-查表进行替换，最终的密文为 dkhfowxluujxjcu">
+  <meta name="description" content="经典多图加密法在单码加密中，每个字符是由另一个字符所替代；在多码加密法中，每一个明文字符可以用多个密文字符替代。但是，单码和多码加密都是作用于单个字符。凡是一次加密一个字母的加密法都称为单图加密法。多图加密法则是作用于字符组。明文的n个字符组合被密文的n个字母组合替换。
+1. Playfair加密法Playfair 加密法不仅比之前的标准单码和多码加密法更具挑战性，而且他的实现非常简单。该加密法是">
 <meta property="og:type" content="article">
-<meta property="og:title" content="密码学（二）">
-<meta property="og:url" content="http://yoursite.com/2016/04/10/密码学（二）/index.html">
+<meta property="og:title" content="密码学（三）">
+<meta property="og:url" content="http://yoursite.com/2016/04/19/密码学（三）/index.html">
 <meta property="og:site_name" content="迟没有的回收站">
-<meta property="og:description" content="经典多码加密法
-
-Vigenere加密法step 1：选取一个关键字，去除重复字母。step 2：将关键字写在明文上方，并反复书写。step 3：利用明文和密钥构成的字母对，在Vigenere表中找到对应位置的字母进行替换。示例：
-
-
-假设我们的明文为 wwwchimingyucom，密钥为hold，
-按照step 2 操作，得到字母对
-查表进行替换，最终的密文为 dkhfowxluujxjcu">
-<meta property="og:image" content="http://7xrav5.com1.z0.glb.clouddn.com/2016041001.jpg">
-<meta property="og:updated_time" content="2016-04-19T13:26:29.127Z">
+<meta property="og:description" content="经典多图加密法在单码加密中，每个字符是由另一个字符所替代；在多码加密法中，每一个明文字符可以用多个密文字符替代。但是，单码和多码加密都是作用于单个字符。凡是一次加密一个字母的加密法都称为单图加密法。多图加密法则是作用于字符组。明文的n个字符组合被密文的n个字母组合替换。
+1. Playfair加密法Playfair 加密法不仅比之前的标准单码和多码加密法更具挑战性，而且他的实现非常简单。该加密法是">
+<meta property="og:updated_time" content="2016-04-19T14:49:14.824Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="密码学（二）">
-<meta name="twitter:description" content="经典多码加密法
-
-Vigenere加密法step 1：选取一个关键字，去除重复字母。step 2：将关键字写在明文上方，并反复书写。step 3：利用明文和密钥构成的字母对，在Vigenere表中找到对应位置的字母进行替换。示例：
-
-
-假设我们的明文为 wwwchimingyucom，密钥为hold，
-按照step 2 操作，得到字母对
-查表进行替换，最终的密文为 dkhfowxluujxjcu">
+<meta name="twitter:title" content="密码学（三）">
+<meta name="twitter:description" content="经典多图加密法在单码加密中，每个字符是由另一个字符所替代；在多码加密法中，每一个明文字符可以用多个密文字符替代。但是，单码和多码加密都是作用于单个字符。凡是一次加密一个字母的加密法都称为单图加密法。多图加密法则是作用于字符组。明文的n个字符组合被密文的n个字母组合替换。
+1. Playfair加密法Playfair 加密法不仅比之前的标准单码和多码加密法更具挑战性，而且他的实现非常简单。该加密法是">
   
     <link rel="alternative" href="/atom.xml" title="迟没有的回收站" type="application/atom+xml">
   
@@ -252,11 +233,11 @@ Vigenere加密法step 1：选取一个关键字，去除重复字母。step 2：
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-密码学（二）" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-密码学（三）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/10/密码学（二）/" class="article-date">
-      <time datetime="2016-04-10T14:46:48.000Z" itemprop="datePublished">2016-04-10</time>
+      <a href="/2016/04/19/密码学（三）/" class="article-date">
+      <time datetime="2016-04-19T14:45:14.000Z" itemprop="datePublished">2016-04-19</time>
 </a>
     </div>
   
@@ -269,7 +250,7 @@ Vigenere加密法step 1：选取一个关键字，去除重复字母。step 2：
         
   
     <h1 class="article-title" itemprop="name">
-      密码学（二）
+      密码学（三）
     </h1>
   
 
@@ -290,137 +271,216 @@ Vigenere加密法step 1：选取一个关键字，去除重复字母。step 2：
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>经典多码加密法</p>
-<ol>
-<li>Vigenere加密法<br>step 1：选取一个关键字，去除重复字母。<br>step 2：将关键字写在明文上方，并反复书写。<br>step 3：利用明文和密钥构成的字母对，在Vigenere表中找到对应位置的字母进行替换。<br><img src="http://7xrav5.com1.z0.glb.clouddn.com/2016041001.jpg" alt="Vigenere表"><br>示例：</li>
-</ol>
-<ul>
-<li>假设我们的明文为 wwwchimingyucom，密钥为hold，</li>
-<li>按照step 2 操作，得到字母对</li>
-<li>查表进行替换，最终的密文为 dkhfowxluujxjcu</li>
-</ul>
+        <h1 id="经典多图加密法"><a href="#经典多图加密法" class="headerlink" title="经典多图加密法"></a>经典多图加密法</h1><p>在单码加密中，每个字符是由另一个字符所替代；在多码加密法中，每一个明文字符可以用多个密文字符替代。但是，单码和多码加密都是作用于单个字符。凡是一次加密一个字母的加密法都称为单图加密法。多图加密法则是作用于字符组。明文的n个字符组合被密文的n个字母组合替换。</p>
+<h2 id="1-Playfair加密法"><a href="#1-Playfair加密法" class="headerlink" title="1. Playfair加密法"></a>1. Playfair加密法</h2><p>Playfair 加密法不仅比之前的标准单码和多码加密法更具挑战性，而且他的实现非常简单。该加密法是基于一个关键词的，该关键词写在一个$5\times5$的矩阵中（去除重复字母和j）。字母表中其他未用到的字母按顺序填写在正方形剩下的空位中。利于，关键词”telegram”可构成如下的正方形：</p>
 <table>
 <thead>
 <tr>
-<th>h</th>
-<th>o</th>
-<th>l</th>
-<th>d</th>
-<th>h</th>
-<th>o</th>
-<th>l</th>
-<th>d</th>
-<th>h</th>
-<th>o</th>
-<th>l</th>
-<th>d</th>
-<th>h</th>
-<th>o</th>
-<th>l</th>
+<th style="text-align:center">t</th>
+<th style="text-align:center">e</th>
+<th style="text-align:center">l</th>
+<th style="text-align:center">g</th>
+<th style="text-align:center">r</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>w</td>
-<td>w</td>
-<td>w</td>
-<td>c</td>
-<td>h</td>
-<td>i</td>
-<td>m</td>
-<td>i</td>
-<td>n</td>
-<td>g</td>
-<td>y</td>
-<td>u</td>
-<td>c</td>
-<td>o</td>
-<td>m</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">m</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">d</td>
 </tr>
 <tr>
-<td>d</td>
-<td>k</td>
-<td>h</td>
-<td>f</td>
-<td>o</td>
-<td>w</td>
-<td>x</td>
-<td>l</td>
-<td>u</td>
-<td>u</td>
-<td>j</td>
-<td>x</td>
-<td>j</td>
-<td>c</td>
-<td>u</td>
+<td style="text-align:center">f</td>
+<td style="text-align:center">h</td>
+<td style="text-align:center">i</td>
+<td style="text-align:center">k</td>
+<td style="text-align:center">n</td>
+</tr>
+<tr>
+<td style="text-align:center">o</td>
+<td style="text-align:center">p</td>
+<td style="text-align:center">q</td>
+<td style="text-align:center">s</td>
+<td style="text-align:center">u</td>
+</tr>
+<tr>
+<td style="text-align:center">v</td>
+<td style="text-align:center">w</td>
+<td style="text-align:center">x</td>
+<td style="text-align:center">y</td>
+<td style="text-align:center">z</td>
 </tr>
 </tbody>
 </table>
-<ol>
-<li>自动密钥加密法<br>自动密钥加密法是Vigenere加密法的一种改进方法，它的密钥不仅仅是一个关键词，而是可以根据加密内容生成新的密钥。<br>step 1：选取关键字，去重。<br>step 2：将关键字写在明文上方，仅书写一次，其余的空缺部分利用明文/密文替代作为密钥。<br>step 3：利用明文和密钥构成的字母对，在Vigenere表中找到对应位置的字母进行替换。<br>示例：</li>
-</ol>
+<p>通过在正方形中查找明文对，并根据一下三个规则之一来选取密文，从而将明文字母对转换成密文对：</p>
 <ul>
-<li>假设我们的明文为 wwwchimingyucom，密钥为hold，</li>
-<li>按照step 2 操作，得到字母对，在这里，我们选取密文作为自动生成的密钥，明文密钥与之相同。</li>
-<li>查表进行替换，最终的密文为 dkhfkstnxyrhzmd</li>
+<li>如果两个明文字符出现在正方形的同一行，选取右边的字符作为密文。</li>
+<li>如果两个明文字符出现在正方形的同一列，选取下方的字符作为密文。</li>
+<li>如果两个明文字符出现在不同行，不同列，那么他们就形成了包含这两点的正方形，选用在这个正方形上的另外两个点的字符作为密文。</li>
+</ul>
+<p>在使用上述规则之前，需要对我们的明文进行一定的预处理。</p>
+<ul>
+<li>用 i 代替所有的 j 。</li>
+<li>在双子母之间直接插入一个等效字母（通常是“x” 或“q”）。</li>
+<li>若明文字符数为奇数，则在木为添加一个等效字母，使得字母数为偶数。</li>
+</ul>
+<p>示例：</p>
+<ul>
+<li>我们选用“telegram”作为关键字，明文为 “ next time, jay try something different ”。</li>
+<li>将字母“j”改为“i”，明文变为 “ next time, iay, try something different”。</li>
+<li>在双子母中插入“q”，明文变成了“ next qtime, iay, try something difqferent”。</li>
+<li>由于明文现在有 34 个字母，不需要补位了。当然，明文现在看起来有点奇怪，但是还是可读的。</li>
+<li>对于明文的第一对字母“ne”，在上面的正方形中查找，用这两个字母所在的点画一个四方形，该四方形另两个角上的字母就是这个明文对应的密文，即“hr”。这里应用的是同行原则，即明文被替换成和它同行的那一个字符。</li>
+<li>重复该过程完成加密，最终的密文为“hrvlo lhblh cvetg ypale ikkrb nioht tlfr”。<h2 id="2-Double-Playfair"><a href="#2-Double-Playfair" class="headerlink" title="2. Double Playfair"></a>2. Double Playfair</h2>如果 Playfair 加密的安全性不能满足我们的需求，那么最简单实用的办法就是再<strong>double</strong> 但是这种二次加密并不是简单的对密文再加密一次，而是有他的特定规则。 </li>
+<li>选取两个关键字形成两个$5\times5$的矩阵。</li>
+<li>将明文分成等长的若干组。</li>
+<li>对分组后的每一组明文进行ij替换。</li>
+<li>将每一个分组写成一行。</li>
+<li>将上面的一行与下面的一行对应的明文构成加密字符对，上面的明文在第一个矩阵中，下面的明文在第二个矩阵中，应用如下加密规则<ul>
+<li>如果两个字符不同行，不同列，则使用两个字符构成的矩阵的另外两个对角的字符根据同行规则进行加密。 </li>
+<li>如果两个字符同行，则使用每个字符在另一个矩阵中的右边的字母进行加密。</li>
+</ul>
+</li>
+<li>得到的密文对再次应用如上规则，得到最终的密文。<br>示例： </li>
+</ul>
+<ul>
+<li>我们选取“software”和“computer”作为关键字密钥。得到的两个矩阵如下：</li>
 </ul>
 <table>
 <thead>
 <tr>
-<th>h</th>
-<th>o</th>
-<th>l</th>
-<th>d</th>
-<th>d</th>
-<th>k</th>
-<th>h</th>
-<th>f</th>
-<th>k</th>
-<th>s</th>
-<th>t</th>
-<th>n</th>
-<th>x</th>
-<th>y</th>
-<th>r</th>
+<th style="text-align:center">s</th>
+<th style="text-align:center">o</th>
+<th style="text-align:center">f</th>
+<th style="text-align:center">t</th>
+<th style="text-align:center">w</th>
+<th></th>
+<th style="text-align:center">c</th>
+<th style="text-align:center">o</th>
+<th style="text-align:center">m</th>
+<th style="text-align:center">p</th>
+<th style="text-align:center">u</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>w</td>
-<td>w</td>
-<td>w</td>
-<td>c</td>
-<td>h</td>
-<td>i</td>
-<td>m</td>
-<td>i</td>
-<td>n</td>
-<td>g</td>
-<td>y</td>
-<td>u</td>
-<td>c</td>
-<td>o</td>
-<td>m</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">r</td>
+<td style="text-align:center">e</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td></td>
+<td style="text-align:center">t</td>
+<td style="text-align:center">e</td>
+<td style="text-align:center">r</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
 </tr>
 <tr>
-<td>d</td>
-<td>k</td>
-<td>h</td>
-<td>f</td>
-<td>k</td>
-<td>s</td>
-<td>t</td>
-<td>n</td>
-<td>x</td>
-<td>y</td>
-<td>r</td>
-<td>h</td>
-<td>z</td>
-<td>m</td>
-<td>d</td>
+<td style="text-align:center">d</td>
+<td style="text-align:center">g</td>
+<td style="text-align:center">h</td>
+<td style="text-align:center">i</td>
+<td style="text-align:center">k</td>
+<td></td>
+<td style="text-align:center">d</td>
+<td style="text-align:center">f</td>
+<td style="text-align:center">g</td>
+<td style="text-align:center">h</td>
+<td style="text-align:center">i</td>
+</tr>
+<tr>
+<td style="text-align:center">l</td>
+<td style="text-align:center">m</td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">p</td>
+<td style="text-align:center">q</td>
+<td></td>
+<td style="text-align:center">k</td>
+<td style="text-align:center">l</td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">q</td>
+<td style="text-align:center">s</td>
+</tr>
+<tr>
+<td style="text-align:center">u</td>
+<td style="text-align:center">v</td>
+<td style="text-align:center">x</td>
+<td style="text-align:center">y</td>
+<td style="text-align:center">z</td>
+<td></td>
+<td style="text-align:center">v</td>
+<td style="text-align:center">w</td>
+<td style="text-align:center">x</td>
+<td style="text-align:center">y</td>
+<td style="text-align:center">z</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li>我们的密文为“this is a diffcult but not an impossible cipher”，每十个字符一组进行变换得到分组为</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">t</th>
+<th style="text-align:center">h</th>
+<th style="text-align:center">i</th>
+<th style="text-align:center">s</th>
+<th style="text-align:center">i</th>
+<th style="text-align:center">s</th>
+<th style="text-align:center">a</th>
+<th style="text-align:center">d</th>
+<th style="text-align:center">i</th>
+<th style="text-align:center">f</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">f</td>
+<td style="text-align:center">i</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">u</td>
+<td style="text-align:center">l</td>
+<td style="text-align:center">t</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">u</td>
+<td style="text-align:center">t</td>
+<td style="text-align:center">n</td>
+</tr>
+<tr>
+<td style="text-align:center">o</td>
+<td style="text-align:center">t</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">i</td>
+<td style="text-align:center">m</td>
+<td style="text-align:center">p</td>
+<td style="text-align:center">o</td>
+<td style="text-align:center">s</td>
+<td style="text-align:center">s</td>
+</tr>
+<tr>
+<td style="text-align:center">i</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">l</td>
+<td style="text-align:center">e</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">i</td>
+<td style="text-align:center">p</td>
+<td style="text-align:center">h</td>
+<td style="text-align:center">e</td>
+<td style="text-align:center">r</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>首先对明文对“tf”进行加密，在第一个矩阵中找到“t”，第二个矩阵中找到“f”，利用他们另一个对角的字母，根据同行规则的到密文为“oi”，在进行一次相同操作，得到最终密文为“ug”</li>
+<li>对于第二的明文对“hi”，发现他们两个在同一行，找到另一个矩阵中的右边字符，二矩阵h的右边为i，一矩阵i的右边为d。得到密文为“id”，再次应用规则，二矩阵i的右边为d，一矩阵d的右边为g，则最后加密结果为，“dg”。</li>
+<li>对所有明文应用规则，就可以的到密文了。 </li>
+</ul>
 
       
     </div>
@@ -432,16 +492,10 @@ Vigenere加密法step 1：选取一个关键字，去除重复字母。step 2：
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/04/19/密码学（三）/">
-                    密码学（三）
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/04/08/模拟登录饿了么/">
-                    模拟登陆饿了么
+                <a href="/2016/04/10/密码学（二）/">
+                    密码学（二）
                 </a>
             </div>
         
@@ -452,7 +506,7 @@ Vigenere加密法step 1：选取一个关键字，去除重复字母。step 2：
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#经典多图加密法"><span class="toc-number">1.</span> <span class="toc-text">经典多图加密法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Playfair加密法"><span class="toc-number">1.1.</span> <span class="toc-text">1. Playfair加密法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Double-Playfair"><span class="toc-number">1.2.</span> <span class="toc-text">2. Double Playfair</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -516,7 +570,7 @@ Vigenere加密法step 1：选取一个关键字，去除重复字母。step 2：
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/04/10/密码学（二）/" data-title="密码学（二）" data-url="http://yoursite.com/2016/04/10/密码学（二）/"></div>
+    <div class="ds-thread" data-thread-key="2016/04/19/密码学（三）/" data-title="密码学（三）" data-url="http://yoursite.com/2016/04/19/密码学（三）/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -540,15 +594,13 @@ Vigenere加密法step 1：选取一个关键字，去除重复字母。step 2：
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/04/19/密码学（三）/" title="上一篇: 密码学（三）">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/04/08/模拟登录饿了么/" title="下一篇: 模拟登陆饿了么">
+            <a href="/2016/04/10/密码学（二）/" title="下一篇: 密码学（二）">
                 <i class="fa fa-angle-right"></i>
             </a>
         
