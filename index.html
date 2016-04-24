@@ -158,7 +158,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/RDF/" style="font-size: 10px;">RDF</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/兴趣模型/" style="font-size: 10px;">兴趣模型</a> <a href="/tags/多源数据/" style="font-size: 10px;">多源数据</a> <a href="/tags/密码学/" style="font-size: 15px;">密码学</a> <a href="/tags/推荐系统/" style="font-size: 12.5px;">推荐系统</a> <a href="/tags/数据挖掘/" style="font-size: 17.5px;">数据挖掘</a> <a href="/tags/本体论/" style="font-size: 10px;">本体论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/梯度下降法/" style="font-size: 10px;">梯度下降法</a> <a href="/tags/模拟登录/" style="font-size: 10px;">模拟登录</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/用户协同过滤/" style="font-size: 10px;">用户协同过滤</a> <a href="/tags/监督学习/" style="font-size: 10px;">监督学习</a> <a href="/tags/相似度度量/" style="font-size: 10px;">相似度度量</a> <a href="/tags/社交网络分析/" style="font-size: 17.5px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 17.5px;">蓝桥杯</a>
+                        <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/RDF/" style="font-size: 10px;">RDF</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/兴趣模型/" style="font-size: 10px;">兴趣模型</a> <a href="/tags/多源数据/" style="font-size: 10px;">多源数据</a> <a href="/tags/密码学/" style="font-size: 16.67px;">密码学</a> <a href="/tags/推荐系统/" style="font-size: 13.33px;">推荐系统</a> <a href="/tags/数据挖掘/" style="font-size: 16.67px;">数据挖掘</a> <a href="/tags/本体论/" style="font-size: 10px;">本体论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/梯度下降法/" style="font-size: 10px;">梯度下降法</a> <a href="/tags/模拟登录/" style="font-size: 10px;">模拟登录</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/用户协同过滤/" style="font-size: 10px;">用户协同过滤</a> <a href="/tags/监督学习/" style="font-size: 10px;">监督学习</a> <a href="/tags/相似度度量/" style="font-size: 10px;">相似度度量</a> <a href="/tags/社交网络分析/" style="font-size: 16.67px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 16.67px;">蓝桥杯</a>
                     </div>
                 </section>
                 
@@ -235,6 +235,147 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-密码学（四）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/24/密码学（四）/" class="article-date">
+      <time datetime="2016-04-24T13:24:56.000Z" itemprop="datePublished">2016-04-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/24/密码学（四）/">密码学（四）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="经典换位加密法"><a href="#经典换位加密法" class="headerlink" title="经典换位加密法"></a>经典换位加密法</h1><h2 id="1-置换加密法"><a href="#1-置换加密法" class="headerlink" title="1. 置换加密法"></a>1. 置换加密法</h2><p>换位密码最简单的一种实现应该就是置换加密法了，置换加密法就像是洗扑克牌。在这种方法中，明文先被分割成大小相等的块，如长度为d，置换函数 $f$ 从1~d中选取一个整数，然后，每个块中的字母根据 f 重新排列。这种加密法的密钥就是(d, f)。</p>
+<ul>
+<li>step 1：将明文按照长度 d 分为 n 个块。</li>
+<li>step 2：选取置换函数$f$，生成密钥$(d, f)$。</li>
+<li>step 3：根据生成的密钥对明文每一个组进行重新排列，生成密文。<br>示例：</li>
+</ul>
+<ul>
+<li>首先我们假设我们的明文为 wwwchimingyucom 。明文一共15位，我们按照3个字母为一组，进行划分。</li>
+<li>我们将$f$ 给定为（2,3,1），意思是将第一个字符放到位置2，第二个字符放到位置三，第三个字符放到位置1.</li>
+<li>对每一个组进行置换，得到密文为， www ich nmi ugy mco。</li>
+</ul>
+<h2 id="2-列置换加密法"><a href="#2-列置换加密法" class="headerlink" title="2. 列置换加密法"></a>2. 列置换加密法</h2><p>列置换加密法是对简单的置换加密的一种改进方法，首将明文按行填写在一个矩阵中，而密文则是以预定的顺序按列读取生成的。</p>
+<ul>
+<li>step 1：选取一个长度为 d 的keyword。</li>
+<li>step 2：根据keyword生成读取顺序。</li>
+<li>step 3：将明文写入矩阵，不足补’q’, ‘x’等字母。</li>
+<li>step 4：根据生成的读取顺序重新读取明文。按行输出，即为密文。</li>
+<li>密钥生成规则：字母的顺序大小就是密钥，如果有相同的字母，则第一个出现的字母小，要保证keyword长度和列数一致。</li>
+</ul>
+<p>示例：</p>
+<ul>
+<li>假设我们的明文为 wwwchimingyucom，我们选取一个长度为5的keyword，“hello”。</li>
+<li>根据规则，我们的生成密钥为（2，1，3，4，5）</li>
+<li>将明文构造成矩阵为</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">w</th>
+<th style="text-align:center">w</th>
+<th style="text-align:center">w</th>
+<th style="text-align:center">c</th>
+<th style="text-align:center">h</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">i</td>
+<td style="text-align:center">m</td>
+<td style="text-align:center">i</td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">g</td>
+</tr>
+<tr>
+<td style="text-align:center">y</td>
+<td style="text-align:center">u</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">o</td>
+<td style="text-align:center">m</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>根据规则进行置换，得到新矩阵</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">w</th>
+<th style="text-align:center">w</th>
+<th style="text-align:center">w</th>
+<th style="text-align:center">c</th>
+<th style="text-align:center">h</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">m</td>
+<td style="text-align:center">i</td>
+<td style="text-align:center">i</td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">g</td>
+</tr>
+<tr>
+<td style="text-align:center">u</td>
+<td style="text-align:center">y</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">o</td>
+<td style="text-align:center">m</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>输出密文 wwwch miing uycom。</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/密码学/">密码学</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-密码学（三）" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1361,122 +1502,6 @@ wiki/index.php/Web&quot;&gt;
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RDF/">RDF</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/兴趣模型/">兴趣模型</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多源数据/">多源数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/本体论/">本体论</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-蓝桥杯练习（四）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/05/蓝桥杯练习（四）/" class="article-date">
-      <time datetime="2016-03-05T07:57:53.000Z" itemprop="datePublished">2016-03-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/05/蓝桥杯练习（四）/">蓝桥杯练习（四）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <ol>
-<li><p><strong>标题</strong>：六角填数  </p>
-<pre><code>如图【1.png】所示六角形中，填入1~12的数字。使得每条直线上的数字之和都相同。  图中，已经替你填好了3个数字，请你计算星号位置所代表的数字是多少？
-</code></pre><p> <img src="http://7xrav5.com1.z0.glb.clouddn.com/2016030501.png" alt="enter image description here"><br>&#160; &#160; &#160; &#160;<strong>解</strong>：很像小学生的题目啊，就是一个全排列的问题，结果是10。</p>
-<pre><code>public class A_2014_6 {
-    public static int total = 0;  
-    public static void swap(int[] num, int i, int j)  
-    {  
-        int temp;  
-        temp = num[i];  
-        num[i] = num[j];  
-        num[j] = temp;  
-    }  
-    public static void arrange (int[] num, int st, int len)  
-    {  
-        if (st == len - 1)  
-        {  
-            if(judge(num)){
-                System.out.println(num[2]);  
-                total++;  
-            }
-        }  
-        else  
-        {  
-            for (int i = st; i &lt; len; i ++)  
-            {  
-                swap(num, st, i);  
-                arrange(num, st + 1, len);  
-                swap(num,st, i);  
-            }  
-        }  
-
-    }  
-    /** 
-     * @param args 
-     */  
-    public static void main(String[] args) {  
-        // TODO Auto-generated method stub  
-         int [] num = {0,2,4,5,6,7,9,10,11,12};  
-         arrange(num, 0, num.length);  
-         System.out.println(total);  
-    }  
-
-    public static void show(int [] num){
-        for(int i = 0;i&lt;num.length;i++){
-            System.out.print(num[i]);
-        }
-        System.out.println();
-    }
-
-    public static boolean judge(int num[]){
-        int x=8+num[0]+num[3]+num[6];
-
-        return x == (8+num[1]+num[7]+3) &amp;&amp; x == (3+num[8]+num[4]+num[6]) &amp;&amp; x==  (1+num[0]+num[1]+num[2]) &amp;&amp; x== (1+num[3]+num[4]+num[5]) &amp;&amp; x == (num[2]+num[7]+num[5]+num[8]);
-    }
-}
-</code></pre></li>
-<li><p><strong>绳圈  </strong><br>&#160; &#160; &#160; &#160;今有 100 根绳子，当然会有 200 个绳头。如果任意取绳头两两配对，把所有绳头都打结连接起来。最后会形成若干个绳圈（不考虑是否套在一起）。 我们的问题是：请计算最后将形成多少个绳圈的概率最大？</p>
-</li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li></ul>
     </div>
 
       
