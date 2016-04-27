@@ -3,30 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>密码学（四） | 迟没有的回收站</title>
+  <title>libsvm入门级使用 | 迟没有的回收站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="经典换位加密法1. 置换加密法换位密码最简单的一种实现应该就是置换加密法了，置换加密法就像是洗扑克牌。在这种方法中，明文先被分割成大小相等的块，如长度为d，置换函数 $f$ 从1~d中选取一个整数，然后，每个块中的字母根据 f 重新排列。这种加密法的密钥就是(d, f)。
-
-step 1：将明文按照长度 d 分为 n 个块。
-step 2：选取置换函数$f$，生成密钥$(d, f)$。
-step">
+  <meta name="description" content="LIBSVM入门级使用有关svm的理论部分不在本文讨论范围以内。
+1. libsvm简介LIBSVM是台湾大学林智仁(Lin Chih-Jen)教授等开发设计的一个简单、易于使用和快速有效的SVM模式识别与回归的软件包，优点是SVM所涉及的参数调节相对比较少，提供了很多的默认参数，利用这些默认参数可以解决很多问题；并提供了交互检验的功能。该软件可以解决C-SVM、ν-SVM、ε-SVR和ν-SVR">
 <meta property="og:type" content="article">
-<meta property="og:title" content="密码学（四）">
-<meta property="og:url" content="http://yoursite.com/2016/04/24/密码学（四）/index.html">
+<meta property="og:title" content="libsvm入门级使用">
+<meta property="og:url" content="http://yoursite.com/2016/04/27/libsvm入门级使用/index.html">
 <meta property="og:site_name" content="迟没有的回收站">
-<meta property="og:description" content="经典换位加密法1. 置换加密法换位密码最简单的一种实现应该就是置换加密法了，置换加密法就像是洗扑克牌。在这种方法中，明文先被分割成大小相等的块，如长度为d，置换函数 $f$ 从1~d中选取一个整数，然后，每个块中的字母根据 f 重新排列。这种加密法的密钥就是(d, f)。
-
-step 1：将明文按照长度 d 分为 n 个块。
-step 2：选取置换函数$f$，生成密钥$(d, f)$。
-step">
-<meta property="og:updated_time" content="2016-04-24T13:25:20.727Z">
+<meta property="og:description" content="LIBSVM入门级使用有关svm的理论部分不在本文讨论范围以内。
+1. libsvm简介LIBSVM是台湾大学林智仁(Lin Chih-Jen)教授等开发设计的一个简单、易于使用和快速有效的SVM模式识别与回归的软件包，优点是SVM所涉及的参数调节相对比较少，提供了很多的默认参数，利用这些默认参数可以解决很多问题；并提供了交互检验的功能。该软件可以解决C-SVM、ν-SVM、ε-SVR和ν-SVR">
+<meta property="og:updated_time" content="2016-04-27T14:39:49.087Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="密码学（四）">
-<meta name="twitter:description" content="经典换位加密法1. 置换加密法换位密码最简单的一种实现应该就是置换加密法了，置换加密法就像是洗扑克牌。在这种方法中，明文先被分割成大小相等的块，如长度为d，置换函数 $f$ 从1~d中选取一个整数，然后，每个块中的字母根据 f 重新排列。这种加密法的密钥就是(d, f)。
-
-step 1：将明文按照长度 d 分为 n 个块。
-step 2：选取置换函数$f$，生成密钥$(d, f)$。
-step">
+<meta name="twitter:title" content="libsvm入门级使用">
+<meta name="twitter:description" content="LIBSVM入门级使用有关svm的理论部分不在本文讨论范围以内。
+1. libsvm简介LIBSVM是台湾大学林智仁(Lin Chih-Jen)教授等开发设计的一个简单、易于使用和快速有效的SVM模式识别与回归的软件包，优点是SVM所涉及的参数调节相对比较少，提供了很多的默认参数，利用这些默认参数可以解决很多问题；并提供了交互检验的功能。该软件可以解决C-SVM、ν-SVM、ε-SVR和ν-SVR">
   
     <link rel="alternative" href="/atom.xml" title="迟没有的回收站" type="application/atom+xml">
   
@@ -242,11 +233,11 @@ step">
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-密码学（四）" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-libsvm入门级使用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/24/密码学（四）/" class="article-date">
-      <time datetime="2016-04-24T13:24:56.000Z" itemprop="datePublished">2016-04-24</time>
+      <a href="/2016/04/27/libsvm入门级使用/" class="article-date">
+      <time datetime="2016-04-27T14:31:38.000Z" itemprop="datePublished">2016-04-27</time>
 </a>
     </div>
   
@@ -259,7 +250,7 @@ step">
         
   
     <h1 class="article-title" itemprop="name">
-      密码学（四）
+      libsvm入门级使用
     </h1>
   
 
@@ -270,7 +261,7 @@ step">
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/密码学/">密码学</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/libsvm/">libsvm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svm/">svm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/支持向量机/">支持向量机</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -280,91 +271,36 @@ step">
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="经典换位加密法"><a href="#经典换位加密法" class="headerlink" title="经典换位加密法"></a>经典换位加密法</h1><h2 id="1-置换加密法"><a href="#1-置换加密法" class="headerlink" title="1. 置换加密法"></a>1. 置换加密法</h2><p>换位密码最简单的一种实现应该就是置换加密法了，置换加密法就像是洗扑克牌。在这种方法中，明文先被分割成大小相等的块，如长度为d，置换函数 $f$ 从1~d中选取一个整数，然后，每个块中的字母根据 f 重新排列。这种加密法的密钥就是(d, f)。</p>
-<ul>
-<li>step 1：将明文按照长度 d 分为 n 个块。</li>
-<li>step 2：选取置换函数$f$，生成密钥$(d, f)$。</li>
-<li>step 3：根据生成的密钥对明文每一个组进行重新排列，生成密文。<br>示例：</li>
-</ul>
-<ul>
-<li>首先我们假设我们的明文为 wwwchimingyucom 。明文一共15位，我们按照3个字母为一组，进行划分。</li>
-<li>我们将$f$ 给定为（2,3,1），意思是将第一个字符放到位置2，第二个字符放到位置三，第三个字符放到位置1.</li>
-<li>对每一个组进行置换，得到密文为， www ich nmi ugy mco。</li>
-</ul>
-<h2 id="2-列置换加密法"><a href="#2-列置换加密法" class="headerlink" title="2. 列置换加密法"></a>2. 列置换加密法</h2><p>列置换加密法是对简单的置换加密的一种改进方法，首将明文按行填写在一个矩阵中，而密文则是以预定的顺序按列读取生成的。</p>
-<ul>
-<li>step 1：选取一个长度为 d 的keyword。</li>
-<li>step 2：根据keyword生成读取顺序。</li>
-<li>step 3：将明文写入矩阵，不足补’q’, ‘x’等字母。</li>
-<li>step 4：根据生成的读取顺序重新读取明文。按行输出，即为密文。</li>
-<li>密钥生成规则：字母的顺序大小就是密钥，如果有相同的字母，则第一个出现的字母小，要保证keyword长度和列数一致。</li>
-</ul>
-<p>示例：</p>
-<ul>
-<li>假设我们的明文为 wwwchimingyucom，我们选取一个长度为5的keyword，“hello”。</li>
-<li>根据规则，我们的生成密钥为（2，1，3，4，5）</li>
-<li>将明文构造成矩阵为</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">w</th>
-<th style="text-align:center">w</th>
-<th style="text-align:center">w</th>
-<th style="text-align:center">c</th>
-<th style="text-align:center">h</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">i</td>
-<td style="text-align:center">m</td>
-<td style="text-align:center">i</td>
-<td style="text-align:center">n</td>
-<td style="text-align:center">g</td>
-</tr>
-<tr>
-<td style="text-align:center">y</td>
-<td style="text-align:center">u</td>
-<td style="text-align:center">c</td>
-<td style="text-align:center">o</td>
-<td style="text-align:center">m</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>根据规则进行置换，得到新矩阵</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">w</th>
-<th style="text-align:center">w</th>
-<th style="text-align:center">w</th>
-<th style="text-align:center">c</th>
-<th style="text-align:center">h</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">m</td>
-<td style="text-align:center">i</td>
-<td style="text-align:center">i</td>
-<td style="text-align:center">n</td>
-<td style="text-align:center">g</td>
-</tr>
-<tr>
-<td style="text-align:center">u</td>
-<td style="text-align:center">y</td>
-<td style="text-align:center">c</td>
-<td style="text-align:center">o</td>
-<td style="text-align:center">m</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>输出密文 wwwch miing uycom。</li>
-</ul>
+        <h1 id="LIBSVM入门级使用"><a href="#LIBSVM入门级使用" class="headerlink" title="LIBSVM入门级使用"></a>LIBSVM入门级使用</h1><p>有关svm的理论部分不在本文讨论范围以内。</p>
+<h2 id="1-libsvm简介"><a href="#1-libsvm简介" class="headerlink" title="1. libsvm简介"></a>1. libsvm简介</h2><p>LIBSVM是台湾大学林智仁(Lin Chih-Jen)教授等开发设计的一个简单、易于使用和快速有效的SVM模式识别与回归的软件包，优点是SVM所涉及的参数调节相对比较少，提供了很多的默认参数，利用这些默认参数可以解决很多问题；并提供了交互检验的功能。该软件可以解决C-SVM、ν-SVM、ε-SVR和ν-SVR等问题，包括基于一对一算法的多类模式识别问题。</p>
+<h2 id="2-libsvm下载与安装"><a href="#2-libsvm下载与安装" class="headerlink" title="2. libsvm下载与安装"></a>2. libsvm下载与安装</h2><p>软件包的下载地址在<a href="http://www.csie.ntu.edu.tw/~cjlin/libsvm/" target="_blank" rel="external">这里</a>，本文写作时的最新版本是3.21，我的操作系统是win10， 基于python 2.7.9 32位进行的安装，其他版本如python 64位 或者 python 3 的请自行百度。<br>首先将 _libsvm-3.21\python_ 文件夹下的 svm.py 以及 svmutil.py 复制到 python 第三方包目录下，我的地址是 _C:\\python27\Lib\site-packages_ 。这个时候，因为缺少DLL文件，还不能使用，需要到<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="external">这里</a>下载扩展，找到对应系统的libsvm扩展，下载后将 whl 后缀改为 zip ，解压后，找到文件里的DLL，将其放到刚才的目录下，安装就完成了。</p>
+<h2 id="3-设计概述"><a href="#3-设计概述" class="headerlink" title="3. 设计概述"></a>3. 设计概述</h2><h3 id="1-文件内容"><a href="#1-文件内容" class="headerlink" title="1. 文件内容"></a>1. 文件内容</h3><p>libsvm包含了两个文件 svm.py 和 svmutil.py，前者作为基本的使用功能，后者提供了一些高级复杂的功能实现。在 svm.py 中，采用了 python 内建的用来直接访问 C 数据结构和接口的 Ctypes 库，当然，我们可以直接使用由 svm.py 提供的特殊数据结构和函数来完成我们想要的功能，在 svmuitil.py 中，同样也提供了很多易于使用的函数。</p>
+<h3 id="2-数据结构"><a href="#2-数据结构" class="headerlink" title="2. 数据结构"></a>2. 数据结构</h3><p>在 svm.py 中提供了四种数据结构，svm_node, svm_problem, svm_parameter和svm_model。在访问这些结构的时候要格外小心，因为他们使用的是 C 的结构而不是 python 的对象。一般不建议直接访问 svm_model ，程序应该尽量的使用函数或者 svm_model类的方法来访问它的值。</p>
+<h3 id="3-svm-py-中的类及其方法"><a href="#3-svm-py-中的类及其方法" class="headerlink" title="3. svm.py 中的类及其方法"></a>3. svm.py 中的类及其方法</h3><h4 id="1-类-svm-node"><a href="#1-类-svm-node" class="headerlink" title="1. 类 svm_node"></a>1. 类 svm_node</h4><p>这个类是最基础的类，用来构造一个最基本的数据结构，一个 svm 节点。构造形式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>node = svm_node(idx, val)</span><br></pre></td></tr></table></figure>
+<p>idx：特征索引，整型。<br>val：特征的值，浮点型。<br>利用 print 函数可以输出该节点的值<br>Example：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> svm <span class="keyword">import</span> * </span><br><span class="line">node = svm_node(<span class="number">1</span>, <span class="number">3.2</span>)</span><br><span class="line"><span class="keyword">print</span> node  </span><br><span class="line"></span><br><span class="line"><span class="string">'''</span><br><span class="line">output:</span><br><span class="line">1:3.2</span><br><span class="line">'''</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="2-方法-gen-svm-nodearray-xi-feature-max-None-isKernel-False"><a href="#2-方法-gen-svm-nodearray-xi-feature-max-None-isKernel-False" class="headerlink" title="2. 方法 gen_svm_nodearray(xi [,feature_max=None [,isKernel=False]])"></a>2. 方法 gen_svm_nodearray(xi [,feature_max=None [,isKernel=False]])</h4><p>这个方法是用来将 python 中的列表，元组或者字典生成一个向量用的。用法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xl, max_idx = gen_svm_nodearray(xi [,feature_max=<span class="keyword">None</span> [,isKernel=<span class="keyword">False</span>]])</span><br></pre></td></tr></table></figure>
+<p>返回值：<br>xl：生成的向量数组，类型是 libsvm 自带的 svm_node_Array类型。<br>max_idx：svm节点中值最大的索引值，整型。<br>参数值：<br>xi：需要转换为svm_node_Array的列表，元组或字典。<br>feature_max：如果这个参数被传入一个值，那么索引值比这个值大的节点会被移除<br>isKernel：如果设置为真，则计算索引从0开始的核函数值，否则，计算的索引值从1开始。</p>
+<h4 id="3-类svm-problem"><a href="#3-类svm-problem" class="headerlink" title="3. 类svm_problem"></a>3. 类svm_problem</h4><p>这个类可以构造一个 svm 问题实例，用法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>prob = svm_problem(y, x)</span><br></pre></td></tr></table></figure>
+<p>y：包含 l 个标签的 python 列表或元组，类型必须是整型或浮点型。<br>x：包含 l 个数据点的 python 列表或元组，每一个 x 元素必须是 python 的一个列表，元组，或者字典。<br>注意：如果 x 为稀疏数据类型，即字典，那么内部 ctypes 数据格式仍然是稀疏的。<br>对于预先计算核函数来说，isKernel 标志需要被设置为 True。如</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>prob = svm_problem(y, x, isKernel=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="4-类svm-parameter"><a href="#4-类svm-parameter" class="headerlink" title="4. 类svm_parameter"></a>4. 类svm_parameter</h4><p>这个类用来构造 svm 的参数实例。如</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>param = svm_parameter(<span class="string">'training_options'</span>)</span><br></pre></td></tr></table></figure>
+<p>如果 training_options 为空，那么将会自动调用默认的参数。<br>设置缺省参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>param.set_to_default_values()</span><br></pre></td></tr></table></figure>
+<p>解析一个字符串的选项</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>param.parse_options(<span class="string">'training_options'</span>)</span><br></pre></td></tr></table></figure>
+<p>打印参数的值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> param</span><br></pre></td></tr></table></figure>
+<h4 id="4-类svm-model"><a href="#4-类svm-model" class="headerlink" title="4. 类svm_model"></a>4. 类svm_model</h4><p>有两种方法来实例化一个svm_model</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>model = svm_train(y, x)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>model = svm_load_model(<span class="string">'model_file_name'</span>)</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，libsvm.svm_train 和 libsvm.svm_load_model返回的都是一个指向 svm_model 的指针，这个方法和在 svmutil.py 中的 svm_train 和 svm_load_model 是不一样的，后者返回的是一个 svm_model 对象，在软件包中，提供了一个 toPyModel 来完成这两种类型的转换。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>model_ptr = libsvm.svm_train(prob, param)</span><br><span class="line">   &gt;&gt;&gt; model = toPyModel(model_ptr)</span><br></pre></td></tr></table></figure>
+<p>如果通过了以上两种方法以外的手段，获得了一个模型，一定要小心操作，来避开内存泄漏和段错误。<br>一些访问 LIBSVM 模型的函数被封装成了类的成员以供使用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>svm_type = model.get_svm_type()</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>nr_class = model.get_nr_class()</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>svr_probability = model.get_svr_probability()</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>class_labels = model.get_labels()</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>sv_indices = model.get_sv_indices()</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>nr_sv = model.get_nr_sv()</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>is_prob_model = model.is_probability_model()</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>support_vector_coefficients = model.get_sv_coef()</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>support_vectors = model.get_SV()</span><br></pre></td></tr></table></figure>
+<p>以上是对于基本的 svm.py 的简单介绍，已经可以满足大部分的 svm 问题需要。实际应用例子和 svmutil.py 中更多的内容将会在日后介绍。</p>
 
       
     </div>
@@ -376,16 +312,10 @@ step">
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/04/27/libsvm入门级使用/">
-                    libsvm入门级使用
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/04/19/密码学（三）/">
-                    密码学（三）
+                <a href="/2016/04/24/密码学（四）/">
+                    密码学（四）
                 </a>
             </div>
         
@@ -396,7 +326,7 @@ step">
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#经典换位加密法"><span class="toc-number">1.</span> <span class="toc-text">经典换位加密法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-置换加密法"><span class="toc-number">1.1.</span> <span class="toc-text">1. 置换加密法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-列置换加密法"><span class="toc-number">1.2.</span> <span class="toc-text">2. 列置换加密法</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#LIBSVM入门级使用"><span class="toc-number">1.</span> <span class="toc-text">LIBSVM入门级使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-libsvm简介"><span class="toc-number">1.1.</span> <span class="toc-text">1. libsvm简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-libsvm下载与安装"><span class="toc-number">1.2.</span> <span class="toc-text">2. libsvm下载与安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-设计概述"><span class="toc-number">1.3.</span> <span class="toc-text">3. 设计概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-文件内容"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. 文件内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-数据结构"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. 数据结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-svm-py-中的类及其方法"><span class="toc-number">1.3.3.</span> <span class="toc-text">3. svm.py 中的类及其方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-类-svm-node"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">1. 类 svm_node</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-方法-gen-svm-nodearray-xi-feature-max-None-isKernel-False"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">2. 方法 gen_svm_nodearray(xi [,feature_max=None [,isKernel=False]])</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-类svm-problem"><span class="toc-number">1.3.3.3.</span> <span class="toc-text">3. 类svm_problem</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-类svm-parameter"><span class="toc-number">1.3.3.4.</span> <span class="toc-text">4. 类svm_parameter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-类svm-model"><span class="toc-number">1.3.3.5.</span> <span class="toc-text">4. 类svm_model</span></a></li></ol></li></ol></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -460,7 +390,7 @@ step">
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/04/24/密码学（四）/" data-title="密码学（四）" data-url="http://yoursite.com/2016/04/24/密码学（四）/"></div>
+    <div class="ds-thread" data-thread-key="2016/04/27/libsvm入门级使用/" data-title="libsvm入门级使用" data-url="http://yoursite.com/2016/04/27/libsvm入门级使用/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -484,15 +414,13 @@ step">
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/04/27/libsvm入门级使用/" title="上一篇: libsvm入门级使用">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/04/19/密码学（三）/" title="下一篇: 密码学（三）">
+            <a href="/2016/04/24/密码学（四）/" title="下一篇: 密码学（四）">
                 <i class="fa fa-angle-right"></i>
             </a>
         

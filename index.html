@@ -158,7 +158,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/RDF/" style="font-size: 10px;">RDF</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/兴趣模型/" style="font-size: 10px;">兴趣模型</a> <a href="/tags/多源数据/" style="font-size: 10px;">多源数据</a> <a href="/tags/密码学/" style="font-size: 16.67px;">密码学</a> <a href="/tags/推荐系统/" style="font-size: 13.33px;">推荐系统</a> <a href="/tags/数据挖掘/" style="font-size: 16.67px;">数据挖掘</a> <a href="/tags/本体论/" style="font-size: 10px;">本体论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/梯度下降法/" style="font-size: 10px;">梯度下降法</a> <a href="/tags/模拟登录/" style="font-size: 10px;">模拟登录</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/用户协同过滤/" style="font-size: 10px;">用户协同过滤</a> <a href="/tags/监督学习/" style="font-size: 10px;">监督学习</a> <a href="/tags/相似度度量/" style="font-size: 10px;">相似度度量</a> <a href="/tags/社交网络分析/" style="font-size: 16.67px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 16.67px;">蓝桥杯</a>
+                        <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/RDF/" style="font-size: 10px;">RDF</a> <a href="/tags/libsvm/" style="font-size: 10px;">libsvm</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/svm/" style="font-size: 10px;">svm</a> <a href="/tags/兴趣模型/" style="font-size: 10px;">兴趣模型</a> <a href="/tags/多源数据/" style="font-size: 10px;">多源数据</a> <a href="/tags/密码学/" style="font-size: 16.67px;">密码学</a> <a href="/tags/推荐系统/" style="font-size: 13.33px;">推荐系统</a> <a href="/tags/支持向量机/" style="font-size: 10px;">支持向量机</a> <a href="/tags/数据挖掘/" style="font-size: 16.67px;">数据挖掘</a> <a href="/tags/本体论/" style="font-size: 10px;">本体论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/梯度下降法/" style="font-size: 10px;">梯度下降法</a> <a href="/tags/模拟登录/" style="font-size: 10px;">模拟登录</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/用户协同过滤/" style="font-size: 10px;">用户协同过滤</a> <a href="/tags/监督学习/" style="font-size: 10px;">监督学习</a> <a href="/tags/相似度度量/" style="font-size: 10px;">相似度度量</a> <a href="/tags/社交网络分析/" style="font-size: 16.67px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 16.67px;">蓝桥杯</a>
                     </div>
                 </section>
                 
@@ -235,6 +235,92 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-libsvm入门级使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/27/libsvm入门级使用/" class="article-date">
+      <time datetime="2016-04-27T14:31:38.000Z" itemprop="datePublished">2016-04-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/27/libsvm入门级使用/">libsvm入门级使用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="LIBSVM入门级使用"><a href="#LIBSVM入门级使用" class="headerlink" title="LIBSVM入门级使用"></a>LIBSVM入门级使用</h1><p>有关svm的理论部分不在本文讨论范围以内。</p>
+<h2 id="1-libsvm简介"><a href="#1-libsvm简介" class="headerlink" title="1. libsvm简介"></a>1. libsvm简介</h2><p>LIBSVM是台湾大学林智仁(Lin Chih-Jen)教授等开发设计的一个简单、易于使用和快速有效的SVM模式识别与回归的软件包，优点是SVM所涉及的参数调节相对比较少，提供了很多的默认参数，利用这些默认参数可以解决很多问题；并提供了交互检验的功能。该软件可以解决C-SVM、ν-SVM、ε-SVR和ν-SVR等问题，包括基于一对一算法的多类模式识别问题。</p>
+<h2 id="2-libsvm下载与安装"><a href="#2-libsvm下载与安装" class="headerlink" title="2. libsvm下载与安装"></a>2. libsvm下载与安装</h2><p>软件包的下载地址在<a href="http://www.csie.ntu.edu.tw/~cjlin/libsvm/" target="_blank" rel="external">这里</a>，本文写作时的最新版本是3.21，我的操作系统是win10， 基于python 2.7.9 32位进行的安装，其他版本如python 64位 或者 python 3 的请自行百度。<br>首先将 _libsvm-3.21\python_ 文件夹下的 svm.py 以及 svmutil.py 复制到 python 第三方包目录下，我的地址是 _C:\\python27\Lib\site-packages_ 。这个时候，因为缺少DLL文件，还不能使用，需要到<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="external">这里</a>下载扩展，找到对应系统的libsvm扩展，下载后将 whl 后缀改为 zip ，解压后，找到文件里的DLL，将其放到刚才的目录下，安装就完成了。</p>
+<h2 id="3-设计概述"><a href="#3-设计概述" class="headerlink" title="3. 设计概述"></a>3. 设计概述</h2><h3 id="1-文件内容"><a href="#1-文件内容" class="headerlink" title="1. 文件内容"></a>1. 文件内容</h3><p>libsvm包含了两个文件 svm.py 和 svmutil.py，前者作为基本的使用功能，后者提供了一些高级复杂的功能实现。在 svm.py 中，采用了 python 内建的用来直接访问 C 数据结构和接口的 Ctypes 库，当然，我们可以直接使用由 svm.py 提供的特殊数据结构和函数来完成我们想要的功能，在 svmuitil.py 中，同样也提供了很多易于使用的函数。</p>
+<h3 id="2-数据结构"><a href="#2-数据结构" class="headerlink" title="2. 数据结构"></a>2. 数据结构</h3><p>在 svm.py 中提供了四种数据结构，svm_node, svm_problem, svm_parameter和svm_model。在访问这些结构的时候要格外小心，因为他们使用的是 C 的结构而不是 python 的对象。一般不建议直接访问 svm_model ，程序应该尽量的使用函数或者 svm_model类的方法来访问它的值。</p>
+<h3 id="3-svm-py-中的类及其方法"><a href="#3-svm-py-中的类及其方法" class="headerlink" title="3. svm.py 中的类及其方法"></a>3. svm.py 中的类及其方法</h3><h4 id="1-类-svm-node"><a href="#1-类-svm-node" class="headerlink" title="1. 类 svm_node"></a>1. 类 svm_node</h4><p>这个类是最基础的类，用来构造一个最基本的数据结构，一个 svm 节点。构造形式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>node = svm_node(idx, val)</span><br></pre></td></tr></table></figure>
+<p>idx：特征索引，整型。<br>val：特征的值，浮点型。<br>利用 print 函数可以输出该节点的值<br>Example：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> svm <span class="keyword">import</span> * </span><br><span class="line">node = svm_node(<span class="number">1</span>, <span class="number">3.2</span>)</span><br><span class="line"><span class="keyword">print</span> node  </span><br><span class="line"></span><br><span class="line"><span class="string">'''</span><br><span class="line">output:</span><br><span class="line">1:3.2</span><br><span class="line">'''</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="2-方法-gen-svm-nodearray-xi-feature-max-None-isKernel-False"><a href="#2-方法-gen-svm-nodearray-xi-feature-max-None-isKernel-False" class="headerlink" title="2. 方法 gen_svm_nodearray(xi [,feature_max=None [,isKernel=False]])"></a>2. 方法 gen_svm_nodearray(xi [,feature_max=None [,isKernel=False]])</h4><p>这个方法是用来将 python 中的列表，元组或者字典生成一个向量用的。用法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xl, max_idx = gen_svm_nodearray(xi [,feature_max=<span class="keyword">None</span> [,isKernel=<span class="keyword">False</span>]])</span><br></pre></td></tr></table></figure>
+<p>返回值：<br>xl：生成的向量数组，类型是 libsvm 自带的 svm_node_Array类型。<br>max_idx：svm节点中值最大的索引值，整型。<br>参数值：<br>xi：需要转换为svm_node_Array的列表，元组或字典。<br>feature_max：如果这个参数被传入一个值，那么索引值比这个值大的节点会被移除<br>isKernel：如果设置为真，则计算索引从0开始的核函数值，否则，计算的索引值从1开始。</p>
+<h4 id="3-类svm-problem"><a href="#3-类svm-problem" class="headerlink" title="3. 类svm_problem"></a>3. 类svm_problem</h4><p>这个类可以构造一个 svm 问题实例，用法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>prob = svm_problem(y, x)</span><br></pre></td></tr></table></figure>
+<p>y：包含 l 个标签的 python 列表或元组，类型必须是整型或浮点型。<br>x：包含 l 个数据点的 python 列表或元组，每一个 x 元素必须是 python 的一个列表，元组，或者字典。<br>注意：如果 x 为稀疏数据类型，即字典，那么内部 ctypes 数据格式仍然是稀疏的。<br>对于预先计算核函数来说，isKernel 标志需要被设置为 True。如</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>prob = svm_problem(y, x, isKernel=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="4-类svm-parameter"><a href="#4-类svm-parameter" class="headerlink" title="4. 类svm_parameter"></a>4. 类svm_parameter</h4><p>这个类用来构造 svm 的参数实例。如</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>param = svm_parameter(<span class="string">'training_options'</span>)</span><br></pre></td></tr></table></figure>
+<p>如果 training_options 为空，那么将会自动调用默认的参数。<br>设置缺省参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>param.set_to_default_values()</span><br></pre></td></tr></table></figure>
+<p>解析一个字符串的选项</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>param.parse_options(<span class="string">'training_options'</span>)</span><br></pre></td></tr></table></figure>
+<p>打印参数的值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> param</span><br></pre></td></tr></table></figure>
+<h4 id="4-类svm-model"><a href="#4-类svm-model" class="headerlink" title="4. 类svm_model"></a>4. 类svm_model</h4><p>有两种方法来实例化一个svm_model</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>model = svm_train(y, x)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>model = svm_load_model(<span class="string">'model_file_name'</span>)</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，libsvm.svm_train 和 libsvm.svm_load_model返回的都是一个指向 svm_model 的指针，这个方法和在 svmutil.py 中的 svm_train 和 svm_load_model 是不一样的，后者返回的是一个 svm_model 对象，在软件包中，提供了一个 toPyModel 来完成这两种类型的转换。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>model_ptr = libsvm.svm_train(prob, param)</span><br><span class="line">   &gt;&gt;&gt; model = toPyModel(model_ptr)</span><br></pre></td></tr></table></figure>
+<p>如果通过了以上两种方法以外的手段，获得了一个模型，一定要小心操作，来避开内存泄漏和段错误。<br>一些访问 LIBSVM 模型的函数被封装成了类的成员以供使用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>svm_type = model.get_svm_type()</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>nr_class = model.get_nr_class()</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>svr_probability = model.get_svr_probability()</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>class_labels = model.get_labels()</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>sv_indices = model.get_sv_indices()</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>nr_sv = model.get_nr_sv()</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>is_prob_model = model.is_probability_model()</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>support_vector_coefficients = model.get_sv_coef()</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>support_vectors = model.get_SV()</span><br></pre></td></tr></table></figure>
+<p>以上是对于基本的 svm.py 的简单介绍，已经可以满足大部分的 svm 问题需要。实际应用例子和 svmutil.py 中更多的内容将会在日后介绍。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/libsvm/">libsvm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svm/">svm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/支持向量机/">支持向量机</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-密码学（四）" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1409,99 +1495,6 @@ print json.dumps(content, indent=1)
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据挖掘/">数据挖掘</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/社交网络分析/">社交网络分析</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-（译）基于多源数据的用户兴趣模型" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/06/（译）基于多源数据的用户兴趣模型/" class="article-date">
-      <time datetime="2016-03-06T08:17:26.000Z" itemprop="datePublished">2016-03-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/06/（译）基于多源数据的用户兴趣模型/">（译）基于多源数据的用户兴趣模型</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1.    Introduction"></a>1.    Introduction</h1><p>&#160; &#160; &#160; &#160;用户兴趣在推动发展的个性化的Web服务和以用户为中心的应用程序表现的越来越重要。现有的研究着重在于分析用户兴趣关注浏览行为(如时间)和浏览内容(比如浏览网页)[1,2]。这些方法只能得到用户以前的兴趣。与此同时,获得用户的兴趣是局限于网页的浏览内容。获取用户兴趣的另一个方向是要求用户直接输入或提供反馈(如评估资源,或添加标签)[3],但有时用户没有积极的态度参加这些活动。此外, 因为兴趣通常是分布在不同的环境中，许多用户无法提供一个关于他兴趣的相对完整的列表。<br>&#160; &#160; &#160; &#160;在本文中,我们将注意力集中于直接从用户生成的内容中发现用户兴趣。用户兴趣可能会分布在不同的，来源分散的网络平台(如微博、社交网站(SNS)、主页,等等)。因此,我们建议整合这些不同来源的用户兴趣。我们由此产生了信息融合的思想和方法并以此来从这些异构的信息资源中获得用户的兴趣。考虑到这些不同来源的特点,我们提出一种加权融合多源的用户兴趣建模方法。<br>&#160; &#160; &#160; &#160;用户兴趣分为显性兴趣和隐性兴趣[4]。显性兴趣被定义通过某些方法由用户显式声明的兴趣。隐性兴趣由显性兴趣推断而来[5]。文本挖掘是一个常用的方法来推断用户的兴趣, 然而,这种方法很难推断出准确的兴趣之间的层次关系。为了解决这个问题,在本文中,我们利用与领域本体的语义推理, 从用户的显式兴趣推断出隐性的兴趣。用户兴趣特征域概念和内隐推理获得的兴趣与超类和子类关系。使用这种方法，可以获得用户的显性兴趣。通过使用这两种方法,可以得到相对完整有关特定用户的兴趣的理解,并为他们生产更多的个性化服务。</p>
-<h1 id="2-多源个人信息的融合框架及用户兴趣建模"><a href="#2-多源个人信息的融合框架及用户兴趣建模" class="headerlink" title="2.    多源个人信息的融合框架及用户兴趣建模"></a>2.    多源个人信息的融合框架及用户兴趣建模</h1><h2 id="2-1-多源的用户兴趣建模的工作流"><a href="#2-1-多源的用户兴趣建模的工作流" class="headerlink" title="2.1    多源的用户兴趣建模的工作流"></a>2.1    多源的用户兴趣建模的工作流</h2><p>&#160; &#160; &#160; &#160;在网络时代，用户兴趣不同的网络平台。每个用户可能拥有几个账户,而每一个账号包含一些独特的用户利益相关数据，为了让用户兴趣建模过程更准确和完整,需要设计一个工作流，以及需要考虑几个主要步骤。这里我们简要地讨论每一个步骤。<br>&#160; &#160; &#160; &#160;步骤1：信息来源选择和用户数据提取。在这个步骤中, 需要选择与用户兴趣相关的不同来源的信息。选择资源后,在用户授权的情况下,提取与用户兴趣发现相关的数据。<br>&#160; &#160; &#160; &#160;步骤2：单源用户兴趣的发现。在这个步骤中,对每个单源信息进行关键词提取和分析。不同的关键词分析方法可以应用,如累积累加兴趣数据（cumulative interests statistics）,保留兴趣（retained interests）,兴趣的持续时间（interests durations）等[6]。<br>&#160; &#160; &#160; &#160;步骤3：兴趣多源融合。在这一步中,从步骤2中发掘的兴趣以信息融合策略集成在一起，产生一个指定用户的相对完整的兴趣排名列表。<br>&#160; &#160; &#160; &#160;步骤4：用户兴趣和本体描述。在这个步骤中,用户兴趣需要用知识表示语言（knowledge representation languages）来描述，用户的兴趣本体需要依据这个描述来产生。<br>&#160; &#160; &#160; &#160;步骤5：对现有兴趣进行语义推理（Semantic reasoning）在这一步中,推理技术用来发掘基于现有兴趣的隐性兴趣。通过这种方式,能够理解用户兴趣上下文（in contexts）和隐性兴趣，也有助于完善用户兴趣本体。<br><img src="http://7xrav5.com1.z0.glb.clouddn.com/2016030601.png" alt="enter image description here"></p>
-<h2 id="2-2-多源的用户兴趣建模的信息提取"><a href="#2-2-多源的用户兴趣建模的信息提取" class="headerlink" title="2.2    多源的用户兴趣建模的信息提取"></a>2.2    多源的用户兴趣建模的信息提取</h2><p>&#160; &#160; &#160; &#160;正如上面提到的,我们计划将不同的来源的用户的个人信息整合。在当前的网络环境,我们选择从各种社交网站 (SNS),主页,专业网站等获得用户信息。不同类型的SNS记录着用户的不同信息。例如,Twitter用140个字符记录的实时状态和最近感兴趣的事件,而Facebook存储了相对更长一点的文本，点赞和分享资源。而主页和专业网站包含用户的教育信息,工作经历,公开的言论和长期兴趣(例如Linked-in在一起),等等。<br>&#160; &#160; &#160; &#160;因此,我们选择Twitter,Facebook,和主页作为多源个人信息提取渠道。这些选择最大程度的覆盖了能公开获取的个人信息。开放api的Web平台确保相关用户数据的可访问性。(Twitter,Facebook,和Linked-in在提供自己的API下载用户相关数据,而主页信息可以通过Google Web API爬取)。我们应该强调我们选择的信息源可以根据特定用户的实际情况调整。例如,如果用户可能没有Twitter帐户,但有一个新浪微博(类似Twitter的中国微博)账户,那么我们还应该添加这个网站作为一个信息来源。<br>&#160; &#160; &#160; &#160;一般来说,用户兴趣可以用关键词代表。因此,关键字提取用户兴趣建模至关重要。一个兴趣可能需要用单词型术语（single-word term）或者短语型术语（multi-word term）来代表。如果我们只考虑单词型术语，词与词之间的空白可以用来作为兴趣的分割。如果我们考虑短语型术语,我们需要更复杂的术语抽取算法和工具。在我们的研究中,我们使用Alchemy API关键词提取1。</p>
-<h2 id="2-3-动态和静态的用户兴趣"><a href="#2-3-动态和静态的用户兴趣" class="headerlink" title="2.3    动态和静态的用户兴趣"></a>2.3    动态和静态的用户兴趣</h2><p>&#160; &#160; &#160; &#160;多个来源的用户相关信息大致可以分为两种类型,动态和静态信息。动态信息指具有创建或更新时间的信息(如推特、Facebook、Linked-in相关信息)。而静态信息是指那些没有时间标记(如专业兴趣、信仰、和教育信息)。这两种不同类型的信息应该分开考虑,因为我们可以提取不同类型的兴趣。动态信息包含动态兴趣与标记时间槽,和静态信息包含静态兴趣。在大多数情况下,静态兴趣可以视为长期兴趣,否则,用户不会在静态的资源主页进行声明。<br>&#160; &#160; &#160; &#160;动态和静态兴趣在特定的应用中有不同的用法。尽管他们有时会出现重叠(如“语义网”可以找到作者弗兰克·范·Harmelen的Twitter上找到，也会在他的主页上找到)，但是他们应该分别对待。在我们的研究中,对动态兴趣进行了分析统计并用他们的值进行了排列,而静态兴趣被单独组织在一个兴趣集合中,他们将不会与动态兴趣排在一起。在个性化的Web应用程序中,在静态兴趣中，如关系网（aﬃliation）和位置，作为了指定用户的额外上下文信息（additional contextual information），而动态兴趣代表的隐性兴趣对用户的行为产生了约束。</p>
-<h1 id="3-User-Interests-Fusion-Strategies"><a href="#3-User-Interests-Fusion-Strategies" class="headerlink" title="3.    User Interests Fusion Strategies"></a>3.    User Interests Fusion Strategies</h1><h2 id="3-1-基于决策级融合（Decision-Level-Fusion）的用户兴趣建模"><a href="#3-1-基于决策级融合（Decision-Level-Fusion）的用户兴趣建模" class="headerlink" title="3.1 基于决策级融合（Decision Level Fusion）的用户兴趣建模"></a>3.1 基于决策级融合（Decision Level Fusion）的用户兴趣建模</h2><p>&#160; &#160; &#160; &#160;虽然微博、社交网站、专业网站,和主页是不同类型的基于web的系统,他们可以被认为是各种传感器,从不同的角度提供用户相关数据。因此,基于多个web的系统的用户兴趣集成可以被认为是多传感器信息融合。<br>&#160; &#160; &#160; &#160;基于信息融合理论,融合策略可以分为三种类型,即数据级融合、特征级融合和决策级融合[7]。Twitter、Facebook和Linked-in等可以被认为是不同类型的传感器。从它们从不同方面捕获用户兴趣,数据级融合可能不合适。在这篇文章中,我们考虑用决策级融合用户兴趣,因为我们想要比较产生于不同的单源数据的用户兴趣和由不同的融合策略而产生的兴趣集之间的区别。在决策级融合的用户兴趣过程中,一些兴趣排名列表的生成是基于每个单独的来源,融合过程执行基于一种特定的融合策略。</p>
-<h2 id="3-2-基于加权融合法的多源用户兴趣模型"><a href="#3-2-基于加权融合法的多源用户兴趣模型" class="headerlink" title="3.2 基于加权融合法的多源用户兴趣模型"></a>3.2 基于加权融合法的多源用户兴趣模型</h2><p>&#160; &#160; &#160; &#160;兴趣排名列表的产生可以基于不同的兴趣排名策略[6]. 在本文中,我们选择兴趣累积函数(cumulative interest function)来给兴趣排名和显示用户的偏好。在兴趣累积函数中，每一个兴趣被分配了一个值，这个值由他们在一定时间槽内的单词频率表示[6]。在关键词提取的步骤和以兴趣累计值排名后，我们得到了一个根据不同源数据的兴趣排名列表。<br>&#160; &#160; &#160; &#160;为了得到更完整且整体的用户兴趣理解，我们需要从多个数据源整合这些兴趣列表。在本文中,我们提出一种加权融合多源的用户兴趣建模方法。融合方程可以表示如下:<br>I(i)”=” ∑_(n=1)^m▒〖w_n×〖I(i)〗_n 〗<br>&#160; &#160; &#160; &#160;i 代表了一个特定的兴趣，〖I(i)〗_n代表了从第n个单源的第i个兴趣值。w_n代表了第n个单源的权重值，可根据不同的特定策略来确定。〖I(i)〗_n代表了在我们融合之后得到的用户兴趣。这里我们给出两种具体的策略，一种是平均融合策略，一种是时间敏感融合策略（time-sensitive fusion strategy）。在平均融合中， w_n=1⁄n ，它代表着每个数据源被分配了相同的权重。在时间敏感融合中，w_n被下列等式决定：<br>w_1:w_2:…:w_n=f_1:f_2:…f_n<br>w_1+w_2+⋯+w_n=1<br>&#160; &#160; &#160; &#160;f_n是第n个信息源更新的频率（特定用户每天发布信息的平均数量），等式表示了融合权重与信息更新频率呈正相关。然而，大多数的个人主页不会维护更新时间信息，所以，试验中，我们只考虑把从Twitter，Facebook，以及Linked-in中提取的兴趣进行融合。</p>
-<h2 id="3-3-实验结果与分析"><a href="#3-3-实验结果与分析" class="headerlink" title="3.3 实验结果与分析"></a>3.3 实验结果与分析</h2><p>&#160; &#160; &#160; &#160;在这里我们选择“Frank Van Harmelen”(一个人工智能研究员)为例,比较研究不同的融合策略，对时间敏感的融合,经计算，我们得到他信息更新频率为的Twitter（f_1=2.5）,Facebook（f_2=0.2），Linked-in（f_3=0.0004），因此，w_1=0.9258，w_2=0.0741，w_3=0.0001，时间敏感的兴趣函数表达为：<br>I(i)=0.9258×〖I(i)〗_1×0.0741×〖I(i)〗_2×0.0001×〖I(i)〗_3<br>&#160; &#160; &#160; &#160;我们选择在一定时间间隔内，关键词排名前十的兴趣来说明融合过程(兴趣是降序排名值)。<br><img src="http://7xrav5.com1.z0.glb.clouddn.com/2016030602.png" alt="enter image description here"><br><img src="http://7xrav5.com1.z0.glb.clouddn.com/2016030603.png" alt="enter image description here"><br>&#160; &#160; &#160; &#160;从单一来源的信息，如图2所示。我们可以观察到不同来源的兴趣可能重叠（e.g. “Semantic Web”, “Lar KC”, and “RDFa” 来自 Twitter和Facebook）。然而他们可能也有许多差异(如，Twitter和Linked-in之间只有一个共同兴趣即“Lar KC”)。<br>&#160; &#160; &#160; &#160;结果基于平均融合策略和时间敏感融合策略如图3所示。平均融合策略的结果列表包含7个从Twitter分析而来的兴趣,7个从Facebook分析而来的兴趣以及2个从Linked-in而来的兴趣。对时间敏感的融合策略的结果列表包含与Twitter相同的兴趣,而兴趣的值与在Twitter的兴趣呈正相关。除了重叠的兴趣项目，融合后的列表并没有包含仅仅出现在Facebook和Linked-in中的兴趣。<br>&#160; &#160; &#160; &#160;通过对图3的观察，时间敏感融合的结果同Twitter的排名列表呈现高度的正相关，因为Frank更新Twitter的频率远远高于更新Facebook。另一方面, 在Twitter相同兴趣的序列和时间敏感融合列表并不完全相同（“Web”和“Open Data”交换了他们的位置，“RDFa”和“SPARQL”也是，这主要是由来自Facebook的兴趣导致的）。因此,如果我们想要更实时的融合结果,我们应该应用时间敏感的融合策略。如果时间不是一个非常重要的因素,并且每个来源需要被考虑到,平均融合策略会更好。此外,我们可以开发自己的策略来决定这些多个来源的权重。</p>
-<h1 id="4-Semantic-Reasoning-to-Infer-Implicit-Interests"><a href="#4-Semantic-Reasoning-to-Infer-Implicit-Interests" class="headerlink" title="4.    Semantic Reasoning to Infer Implicit Interests"></a>4.    Semantic Reasoning to Infer Implicit Interests</h1><p>&#160; &#160; &#160; &#160;用户兴趣不是孤立的文本，他们可能从语义角度彼此相关。为了深层次的使用用户兴趣，它们需要用知识表达语言（knowledge representation languages）来表达。此外,语义推理可用于表示用户兴趣,这样可以发现隐性兴趣。</p>
-<h2 id="4-1-用户兴趣的RDF表示"><a href="#4-1-用户兴趣的RDF表示" class="headerlink" title="4.1    用户兴趣的RDF表示"></a>4.1    用户兴趣的RDF表示</h2><p>&#160; &#160; &#160; &#160;当表示多源的用户兴趣时，静态和动态的兴趣需要被分开表示。对于动态兴趣，在本文中用排名表的形式组织。每一个兴趣被分配了一个值。我们采用e-FOAF：兴趣列表去表示动态兴趣[8]。在这里，我们给出Frank van Harmelen’s基于时间敏感的兴趣画像的一部分。</p>
-<pre><code>&lt;rdf:Description rdf:about=&quot;http://www.wici-lab.org/wici/
-wiki/index.php/Web&quot;&gt;
-&lt;dc:title&gt;Web&lt;/dc:title&gt;
-&lt;e-foaf:cumulative_interest_value rdf:parse Type=&quot;Resource&quot;&gt;
-&lt;rdf:value rdf:datatype=&quot;&amp;xsd;number&quot;&gt;34.922&lt;/rdf:value&gt;
-&lt;/e-foaf:cumulative_interest_value&gt;
-&lt;/rdf:Description&gt;
-&lt;/e-foaf:interest&gt;
-...
-&lt;/foaf:Person&gt;
-</code></pre><p>&#160; &#160; &#160; &#160;对于静态的兴趣，他们用一个兴趣集合存储。在兴趣的表示中，每一个兴趣值的性质将会被忽略。可以将动态兴趣和静态兴趣的表示放到同一个RDF文件里。他们可以用是否有值的描述来区分。或者,他们也可以表示为两个单独的文件中,这样他们可以选择性地加载不同的需求。</p>
-<pre><code>&lt;foaf:Person rdf:about=&quot;http://www.cs.vu.nl/~frankh/&quot;&gt;
-&lt;foaf:name&gt;Frank van Harmelen&lt;/foaf:name&gt;
-&lt;foaf:topic_interest&gt;AI Department&lt;/foaf:topic_interest&gt;
-&lt;foaf:topic_interest&gt;Semantic Web&lt;/foaf:topic_interest&gt;
-&lt;foaf:topic_interest&gt;The Netherlands&lt;/foaf:topic_interest&gt;
-...
-&lt;/foaf:Person&gt;
-</code></pre><p>&#160; &#160; &#160; &#160;通过使用FOAF词汇表,上面的片段是Frank van Harmelen’s静态兴趣的一个佐证。如这个例子所示,只有提供了兴趣项,他们没有一个严格的顺序。</p>
-<h2 id="4-2-通过推理的兴趣层次结构查找隐式兴趣"><a href="#4-2-通过推理的兴趣层次结构查找隐式兴趣" class="headerlink" title="4.2    通过推理的兴趣层次结构查找隐式兴趣"></a>4.2    通过推理的兴趣层次结构查找隐式兴趣</h2><p>&#160; &#160; &#160; &#160;推理可以帮助找到基于现有事实的隐式知识。在我们的研究中，为了拥有一个上下关联的和对用户兴趣的更详细理解，我们需要通过对隐式用户兴趣列表的进一步推理拓展显式用户兴趣列表。<br>许多领域的知识，可以组织成一个层次化本体，以及该领域的每一项可以以不同粒度分布在不同的层面 [9,10]。最感兴趣项可以被认为是来自某个特定的域，因此，层次本体可以帮助得到一个以不同的粒度区分的特定兴趣的上下文。<br>从显式兴趣出发，我们可以近似地预测用户的主要研究领域。图 4用领域本体的一个片段呈现了”人工智能”3。我们在接下来引入了相同的方法代表RDF中的此本体。</p>
-<pre><code>&lt;rdfs: Class rdf: ID=&quot;Semantic Web&quot;&gt;
-&lt;rdfs:sub Class Of rdf: resource=&quot;Artificial Intelligence&quot;/&gt;
-&lt;/rdfs:Class&gt;
-&lt;rdfs: Class rdf: ID=&quot;RDF&quot;&gt;
-&lt;rdfs:sub Class Of rdf: resource=&quot;Semantic Web&quot;/&gt;
-&lt;/rdfs:Class&gt;
-</code></pre><p><img src="http://7xrav5.com1.z0.glb.clouddn.com/2016030604.png" alt="enter image description here"><br>&#160; &#160; &#160; &#160;发现基于领域本体的隐性兴趣的方法，可以描述如下：<br>&#160; &#160; &#160; &#160;第1步：查找指定明确的兴趣领域本体。<br>&#160; &#160; &#160; &#160;第2步：通过某种推理进行推断。（如用 rdfs:sub Class Of或rdfs:super Class Of关系推理）<br>&#160; &#160; &#160; &#160;第3步：通过推理获得的兴趣扩展兴趣列表。<br>&#160; &#160; &#160; &#160;如果我们想要得到比显式兴趣粗略等级粒度的兴趣，我们试图弄明白现有的父类，如果我们想要得到相比显式兴趣精细等级粒度的兴趣，我们尝试推断出显式兴趣的子类。因此可以获得显式兴趣的一个层次上下文并且原始兴趣列表可以延伸。由于领域术语通常被组织在几个层次上，如果所有的层次都被认识扩张可能不是实际有效的。我们认为延伸兴趣列表比显式兴趣粗略或精细一个层次会更好。<br>&#160; &#160; &#160; &#160;例如，“Semantic Web”是Frank van Harmelen的时间敏感兴趣融合列表中的兴趣，如图3所示。我们在图 4 中的分层本体上找到此关键字。通过应用推理规则查找父类，我们就可以得出结论：Frank感兴趣的是“知识表示”。这一事实在LinkedIn的兴趣列表中，虽然它在时间敏感兴趣融合列表中不是显式的，但它仍可以从这个列表中被推测出来。我们还可以了解到Frank大概对人工智能感兴趣。</p>
-<h1 id="5-结论与展望"><a href="#5-结论与展望" class="headerlink" title="5.    结论与展望"></a>5.    结论与展望</h1><p>&#160; &#160; &#160; &#160;在本文中，我们提出了多源个人兴趣融合框架。描述了该方法的工作流程并且说明了方法的不同步骤。多源兴趣融合与语义推理扩展兴趣列表这两个步骤都至关重要。我们针对兴趣融合我们提出了一个加权融合功能与两个具体策略（即平均融合和时间敏感融合）。基于Twitter、Facebook、Linden-in等多个数据来源我们提供了几个例证。我们需要声明，对于一些用户而言他们在这些平台上的个人信息是非公开的，而且该方法仅对于不介意分享个人数据的用户有效。<br>今后，我们将继续增强所提出的方法。本文中，我们主要关注动态兴趣融合。在后续研究中，我们要探讨如何整合动态兴趣和静态兴趣，并且同时实现两者的区分。其次，除了提到的平均融合策略和时间敏感融合策略，我们还要研究其他基于多源数据的兴趣融合策略的可能性。本文中，我们只介绍了等级关系的推理。而其他的需要考虑的用于产生隐式兴趣的方法，如通过语义相似度延伸兴趣列表，则需要进一步研究。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RDF/">RDF</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/兴趣模型/">兴趣模型</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多源数据/">多源数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/本体论/">本体论</a></li></ul>
     </div>
 
       
