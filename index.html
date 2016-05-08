@@ -158,7 +158,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/RDF/" style="font-size: 10px;">RDF</a> <a href="/tags/libsvm/" style="font-size: 10px;">libsvm</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/svm/" style="font-size: 10px;">svm</a> <a href="/tags/兴趣模型/" style="font-size: 10px;">兴趣模型</a> <a href="/tags/多源数据/" style="font-size: 10px;">多源数据</a> <a href="/tags/密码学/" style="font-size: 16.67px;">密码学</a> <a href="/tags/推荐系统/" style="font-size: 13.33px;">推荐系统</a> <a href="/tags/支持向量机/" style="font-size: 10px;">支持向量机</a> <a href="/tags/数据挖掘/" style="font-size: 16.67px;">数据挖掘</a> <a href="/tags/本体论/" style="font-size: 10px;">本体论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/梯度下降法/" style="font-size: 10px;">梯度下降法</a> <a href="/tags/模拟登录/" style="font-size: 10px;">模拟登录</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/用户协同过滤/" style="font-size: 10px;">用户协同过滤</a> <a href="/tags/监督学习/" style="font-size: 10px;">监督学习</a> <a href="/tags/相似度度量/" style="font-size: 10px;">相似度度量</a> <a href="/tags/社交网络分析/" style="font-size: 16.67px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 16.67px;">蓝桥杯</a>
+                        <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/RDF/" style="font-size: 10px;">RDF</a> <a href="/tags/libsvm/" style="font-size: 10px;">libsvm</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/svm/" style="font-size: 10px;">svm</a> <a href="/tags/vigenere密码/" style="font-size: 10px;">vigenere密码</a> <a href="/tags/兴趣模型/" style="font-size: 10px;">兴趣模型</a> <a href="/tags/多源数据/" style="font-size: 10px;">多源数据</a> <a href="/tags/密码学/" style="font-size: 17.5px;">密码学</a> <a href="/tags/推荐系统/" style="font-size: 12.5px;">推荐系统</a> <a href="/tags/支持向量机/" style="font-size: 10px;">支持向量机</a> <a href="/tags/数据挖掘/" style="font-size: 15px;">数据挖掘</a> <a href="/tags/本体论/" style="font-size: 10px;">本体论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/梯度下降法/" style="font-size: 10px;">梯度下降法</a> <a href="/tags/模拟登录/" style="font-size: 10px;">模拟登录</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/用户协同过滤/" style="font-size: 10px;">用户协同过滤</a> <a href="/tags/监督学习/" style="font-size: 10px;">监督学习</a> <a href="/tags/相似度度量/" style="font-size: 10px;">相似度度量</a> <a href="/tags/社交网络分析/" style="font-size: 15px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a>
                     </div>
                 </section>
                 
@@ -235,6 +235,63 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Vigenere加密与解密c语言代码" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/08/Vigenere加密与解密c语言代码/" class="article-date">
+      <time datetime="2016-05-08T13:27:05.000Z" itemprop="datePublished">2016-05-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/08/Vigenere加密与解密c语言代码/">Vigenere加密与解密c语言代码</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>用c语言实现了一下 vigenere 加密和解密，密钥长度为4，一次加密的最大字符长度为100，可在头文件中修改，代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ConsoleApplication1.cpp : 定义控制台应用程序的入口点。</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> keyLen <span class="number">4</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> MaxLenOfStr <span class="number">100</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> tableLen <span class="number">26</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"stdafx.h"</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">Decode</span><span class="params">(<span class="keyword">char</span> *cipherText, <span class="keyword">char</span> *keyword)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">Encode</span><span class="params">(<span class="keyword">char</span> *plainText, <span class="keyword">char</span> *keyword)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MainMenu</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DecodeMenu</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">EncodeMenu</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	MainMenu();</span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//加密函数</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">Encode</span><span class="params">(<span class="keyword">char</span> *plainText, <span class="keyword">char</span> *keyword)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">char</span> vig[tableLen][tableLen];</span><br><span class="line">	<span class="keyword">char</span> cipherText[MaxLenOfStr];</span><br><span class="line">	<span class="keyword">int</span> len;</span><br><span class="line">	<span class="keyword">int</span> i, j;</span><br><span class="line">	<span class="comment">//初始化vigenere表</span></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; tableLen; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (j = i; j &lt; tableLen + i; j++) &#123;</span><br><span class="line">			vig[i][j - i] = <span class="string">'a'</span> + j % <span class="number">26</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	len = <span class="built_in">strlen</span>(plainText);</span><br><span class="line">	<span class="comment">//加密过程</span></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">		cipherText[i] = vig[plainText[i]-<span class="string">'a'</span>][keyword[i%keyLen]-<span class="string">'a'</span>];</span><br><span class="line">	&#125;</span><br><span class="line">	cipherText[len] = <span class="string">'\0'</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"The ciphertext is as following.\n"</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s\n"</span>, cipherText);</span><br><span class="line">	<span class="keyword">return</span> cipherText;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//解密函数</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">Decode</span><span class="params">(<span class="keyword">char</span> *cipherText, <span class="keyword">char</span> *keyword)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">char</span> vig[tableLen][tableLen];</span><br><span class="line">	<span class="keyword">char</span> plainText[MaxLenOfStr];</span><br><span class="line">	<span class="keyword">int</span> len;</span><br><span class="line">	<span class="keyword">int</span> i, j;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; tableLen; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (j = i; j &lt; tableLen + i; j++) &#123;</span><br><span class="line">			vig[i][j - i] = <span class="string">'a'</span> + j % tableLen;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	len = <span class="built_in">strlen</span>(cipherText);</span><br><span class="line">	<span class="comment">//解密过程</span></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; tableLen; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (cipherText[i] == vig[keyword[i%keyLen] - <span class="string">'a'</span>][j]) &#123;</span><br><span class="line">				plainText[i] = <span class="string">'a'</span> + j;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	plainText[len+<span class="number">1</span>] = <span class="string">'\0'</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"The plaintext is as following.\n"</span>);</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%c "</span>, plainText[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> plainText;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//主菜单</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MainMenu</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> choice;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Make a choice:\n1. Encode in Vigenere Cipher.\n2. Decode in Vigenere Cipher.\nThe length of keyword is 4.\nThe string length must less than 50.\nYour choice(1/2):"</span>);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;choice);</span><br><span class="line">	getchar();</span><br><span class="line">	<span class="keyword">switch</span> (choice)</span><br><span class="line">	&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">1</span>:EncodeMenu(); <span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">2</span>: DecodeMenu(); <span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Invalid input.\n"</span>);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//加密菜单</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">EncodeMenu</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">char</span> keyword[keyLen+<span class="number">1</span>];</span><br><span class="line">	<span class="keyword">char</span> plaintext[MaxLenOfStr];</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Please input the keyword(4).\n"</span>);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>, keyword);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Please input the plaintext.\n"</span>);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>, plaintext);</span><br><span class="line">	Encode(plaintext, keyword);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Encode successfully!\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//解密菜单</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DecodeMenu</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">char</span> keyword[keyLen+<span class="number">1</span>];</span><br><span class="line">	<span class="keyword">char</span> ciphertext[MaxLenOfStr];</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Please input the keyword(4).\n"</span>);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>, keyword);</span><br><span class="line">	getchar();</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Please input the ciphertext.\n"</span>);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>, ciphertext);</span><br><span class="line">	Decode(ciphertext, keyword);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vigenere密码/">vigenere密码</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/密码学/">密码学</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-libsvm入门级使用" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1400,122 +1457,9 @@ print sim_jaccard(critics,&apos;Jack Matthews&apos;,&apos;Gene Seymour&apos;)
 
 
   
-    <article id="post-社交网站的数据挖掘与分析（四）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/08/社交网站的数据挖掘与分析（四）/" class="article-date">
-      <time datetime="2016-03-08T14:52:43.000Z" itemprop="datePublished">2016-03-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/08/社交网站的数据挖掘与分析（四）/">社交网站的数据挖掘与分析（四）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>上一章节对微博做了简单的挖掘动作，主要是练习了API的使用，和几个工具包的操作。这一章，我们会对Facebook进行挖掘，来分析粉丝页面，查看好友关系。</p>
-<h2 id="第二章-挖掘Facebook"><a href="#第二章-挖掘Facebook" class="headerlink" title="第二章 挖掘Facebook"></a>第二章 挖掘Facebook</h2><p>这一章，我们将利用社交图谱API进军到Facebook平台，来探索其中的巨大可能性。有一点很有意思，尽管Facebook一直自称为一种社交图谱，但是它也在转型为兴趣图谱，因为他的页面和点赞的特性中，维护了人与其感兴趣事物直接的关系。<br>这一张涉及到的知识有：</p>
-<ul>
-<li>Facebook的社交图谱API以及如何发起API请求。</li>
-<li>开放图协议（Open Graph protocol）以及它与Facebook社交图谱（Social Graph）的关系。</li>
-<li>从Facebook页面和Facebook好友中分析“赞”。</li>
-<li>用来分析社交图谱的团分析（clique analysis）等技术。</li>
-<li>使用D3 JavaScript库对社交图谱进行可视化</li>
-</ul>
-<p>首先让我们对Facebook的API进行一下探索。<br>Facebook平台是一个成熟的，健壮的并且文档详尽的门户网站，通过它我们可以接触到有史以来积累的最全面并且经系统化组织的信息存储。在Twitter上的好友模型是非对称的，而Facebook的好友模型是对称的，并且需要用户之间相互同意才能查看对方的交互和活动。此外，Twitter中用户间所有的交互，除了私人消息之外，几乎都是公共状态，而Facebook允许更多细粒度的隐私控制。<br>Facebook的社交图谱是一个大规模图数据结构，包含了社会交互并且包含了节点和节点之间的连接。图谱API提供了与社交图谱交互的主要方法，熟悉API的方法自然是用一下图谱API的管理工具（Graph API Explorer）。所谓的图谱API管理工具除了能够载入事先保存的访问令牌和调试它们外，和其他的应用程序一样，都是调用了开发者API。<br><strong>访问令牌</strong></p>
-<blockquote>
-<p>出现在应用程序中的访问令牌是一个由登录用户授权的OAuth令牌，他和你的应用程序访问数据时所需要的OAuth令牌是同一个。在这一章，我们会一直使用这个访问令牌。</p>
-</blockquote>
-<p><strong>节点ID</strong></p>
-<blockquote>
-<p>查询的基础是ID（标示）为“644382747”的节点，它对应着名为“Matthew A.Russell”的人，他作为当前登录用户是被预先加载的。节点的“id”和“name”值被称为字段。以后就会看到查询的基础可以是其他的任何节点。这样对图进行遍历以及查询其他节点就会非常自然。</p>
-</blockquote>
-<p><strong>关系约束</strong></p>
-<blockquote>
-<p>你可以使用“好友”这个关系对原始查询进行修改，作为结果，我们会得到一个叫做“自我图”（ego graph）的图，因为他有一个执行者作为焦点或逻辑中心，并且连接到周围的其它节点上。</p>
-</blockquote>
-<p><strong>“赞”约束</strong></p>
-<blockquote>
-<p>我们可以对每个好友添加“赞”约束从而对原始查询进行更深入的修改，然而在获取“赞”关系之前，必须通过更新访问令牌然后统一对图谱API管理工具程序进行授权从而使其能够访问好友的“赞”信息。</p>
-</blockquote>
-<p>想要使用这个图API管理工具，先看一下Facebook的<a href="https://developers.facebook.com/docs/graph-api" target="_blank" rel="external">Graph API文档</a>，这是一个图形化的API，因为没什么大用，我就不展示操作了，文档写的还是很清楚的，从获取授权到查询都能通过图形化界面进行操作。<br>下面我们利用requests包进行一下HTTP请求，来模拟该过程。</p>
-<pre><code>import json
-def request_over_http(access_token, url, fields):
-
-  # import requests
-  import requests
-
-  # Build the urls
-  urls = &apos;%s?fields=%s&amp;access_token=%s&apos; % (url, fields, access_token)
-  print &apos;urls: &apos;, urls
-
-  # Get the content
-  content = requests.get(urls, verify=False).json()
-
-  # return
-  return content
-
-url = &apos;https://graph.facebook.com/146581042399042&apos;
-# Get 10 likes for 10 friends
-fields = &apos;id,name,friends.limit(10).fields(likes.limit(10))&apos;
-ACCESS_TOKEN = &apos;181111875601409|CTDX6wKFVFSXKMZQvrUEwco7tqI&apos;
-content = request_over_http(ACCESS_TOKEN, url, fields)
-print json.dumps(content, indent=1)
-</code></pre><p>代码和书上的一样，不知道哪里出错了，返回的信息时error，说不能用GET请求，具体原因还在查找。</p>
-<pre><code>{
- &quot;error&quot;: {
-  &quot;message&quot;: &quot;Unsupported get request. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api&quot;, 
-  &quot;code&quot;: 100, 
-  &quot;type&quot;: &quot;GraphMethodException&quot;, 
-  &quot;fbtrace_id&quot;: &quot;DePsXrXvIf5&quot;
- }
-}
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据挖掘/">数据挖掘</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/社交网络分析/">社交网络分析</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>
