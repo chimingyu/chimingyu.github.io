@@ -158,7 +158,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/RDF/" style="font-size: 10px;">RDF</a> <a href="/tags/libsvm/" style="font-size: 10px;">libsvm</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/svm/" style="font-size: 10px;">svm</a> <a href="/tags/vigenere密码/" style="font-size: 10px;">vigenere密码</a> <a href="/tags/兴趣模型/" style="font-size: 10px;">兴趣模型</a> <a href="/tags/多源数据/" style="font-size: 10px;">多源数据</a> <a href="/tags/密码学/" style="font-size: 17.5px;">密码学</a> <a href="/tags/推荐系统/" style="font-size: 12.5px;">推荐系统</a> <a href="/tags/支持向量机/" style="font-size: 10px;">支持向量机</a> <a href="/tags/数据挖掘/" style="font-size: 15px;">数据挖掘</a> <a href="/tags/本体论/" style="font-size: 10px;">本体论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/梯度下降法/" style="font-size: 10px;">梯度下降法</a> <a href="/tags/模拟登录/" style="font-size: 10px;">模拟登录</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/用户协同过滤/" style="font-size: 10px;">用户协同过滤</a> <a href="/tags/监督学习/" style="font-size: 10px;">监督学习</a> <a href="/tags/相似度度量/" style="font-size: 10px;">相似度度量</a> <a href="/tags/社交网络分析/" style="font-size: 15px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+                        <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/RDF/" style="font-size: 10px;">RDF</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/libsvm/" style="font-size: 12.5px;">libsvm</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/python3/" style="font-size: 10px;">python3</a> <a href="/tags/svm/" style="font-size: 10px;">svm</a> <a href="/tags/vigenere密码/" style="font-size: 10px;">vigenere密码</a> <a href="/tags/兴趣模型/" style="font-size: 10px;">兴趣模型</a> <a href="/tags/多源数据/" style="font-size: 10px;">多源数据</a> <a href="/tags/密码学/" style="font-size: 17.5px;">密码学</a> <a href="/tags/推荐系统/" style="font-size: 12.5px;">推荐系统</a> <a href="/tags/支持向量机/" style="font-size: 10px;">支持向量机</a> <a href="/tags/数据挖掘/" style="font-size: 15px;">数据挖掘</a> <a href="/tags/本体论/" style="font-size: 10px;">本体论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/梯度下降法/" style="font-size: 10px;">梯度下降法</a> <a href="/tags/模拟登录/" style="font-size: 10px;">模拟登录</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/用户协同过滤/" style="font-size: 10px;">用户协同过滤</a> <a href="/tags/监督学习/" style="font-size: 10px;">监督学习</a> <a href="/tags/相似度度量/" style="font-size: 10px;">相似度度量</a> <a href="/tags/社交网络分析/" style="font-size: 15px;">社交网络分析</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
                     </div>
                 </section>
                 
@@ -235,6 +235,70 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-linux下安装libsvm" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/01/linux下安装libsvm/" class="article-date">
+      <time datetime="2016-09-01T10:01:28.000Z" itemprop="datePublished">2016-09-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/01/linux下安装libsvm/">linux下安装libsvm</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>linux 版本 Ubuntu 16.04 LTS 。python 版本 3.5</p>
+<ol>
+<li>首先在官网下载 tar.gz 安装包</li>
+<li>利用 tar -xzvf libsvm-3.21.tar.gz 命令解压</li>
+<li>进入解压后的文件 libsvm-3.21/python 下</li>
+<li>执行 make 命令，在 libsvm-3.21 文件下生成 libsvm.so.2 </li>
+<li>将该文件连同 libsvm-3.21/python 下的 svm.py 和 svmutil.py 一起复制到 usr/lib/python3.5 文件夹下（python包的安装路径）</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/libsvm/">libsvm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python3/">python3</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-整理好心情，重新出发" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1316,107 +1380,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/推荐系统/">推荐系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/用户协同过滤/">用户协同过滤</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-计算相似度评价值的几种方法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/16/计算相似度评价值的几种方法/" class="article-date">
-      <time datetime="2016-03-16T15:55:21.000Z" itemprop="datePublished">2016-03-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/16/计算相似度评价值的几种方法/">计算相似度评价值的几种方法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>今天介绍几种相似度的计算方法，参考《集体智慧编程》$P_{7}$ ~ $P_{14}$</p>
-<p>首先给出测试数据集，一个关于影评的打分集合，包括评价者的名字，及电影评分，评分区间是（0,5），来源于《集体智慧编程》$P_8$：</p>
-<pre><code>critics = {&apos;Lisa Rose&apos;: {&apos;Lady in the Water&apos;:2.5,&apos;Snakes on a Plane&apos;:3.5,
-        &apos;Just My Luck&apos;:3.0,&apos;Superman Returns&apos;:3.5,&apos;You, Me and Dupree&apos;:2.5,
-        &apos;The Night Listener&apos;:3.0},
-        &apos;Gene Seymour&apos;:{&apos;Lady in the Water&apos;:3.0,&apos;Snakes on a Plane&apos;:3.5,
-        &apos;Just My Luck&apos;:1.5,&apos;Superman Returns&apos;:5.0,&apos;You, Me and Dupree&apos;:3.5,
-        &apos;The Night Listener&apos;:3.0},
-        &apos;Michael Phillips&apos;:{&apos;Lady in the water&apos;:2.5,&apos;Snakes on a Plane&apos;:3.0,
-        &apos;Superman Returns&apos;:3.5,&apos;The Night Listener&apos;:4.0},
-        &apos;Claudia Puig&apos;:{&apos;Snakes on a Plane&apos;:3.5,&apos;The Night Listener&apos;:4.5,
-        &apos;Just My Luck&apos;:3.0,&apos;Superman Returns&apos;:4.0,&apos;You, Me and Dupree&apos;:2.5},
-        &apos;Mick LaSalle&apos;:{&apos;Lady in the Water&apos;:3.0,&apos;Snakes on a Plane&apos;:4.0,
-        &apos;Just My Luck&apos;:2.0,&apos;Superman Returns&apos;:3.0,&apos;The Night Listener&apos;:3.0,
-        &apos;You, Me and Dupree&apos;:2.0},
-        &apos;Jack Matthews&apos;:{&apos;Lady in the Water&apos;:3.0,&apos;Snakes on a Plane&apos;:4.0,
-        &apos;The Night Listener&apos;:3.0,&apos;Superman Returns&apos;:5.0,&apos;You, Me and Dupree&apos;:3.5},
-        &apos;Toby&apos;:{&apos;Snakes on a Plane&apos;:4.5,&apos;You, Me and Dupree&apos;:1.0,&apos;Superman Returns&apos;:4.0}}
-</code></pre><p>下面介绍相似度度量：</p>
-<ol>
-<li>欧几里得距离（Euclidean metric）：<br>欧几里得距离来源于欧氏空间中的任意两点距离，对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$d = \sqrt{\sum_{k=1}^N(x_{1k}-x_{2k})^2}$$<br>向量表示方法：<br>$$d = \sqrt{(a-b){(a-b)^T}}$$<br>python代码：</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sim_distance</span><span class="params">(prefs,person1,person2)</span>:</span></span><br><span class="line">    si = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> prefs[person1]:</span><br><span class="line">        <span class="keyword">if</span> item <span class="keyword">in</span> prefs[person2]:</span><br><span class="line">            si[item] = <span class="number">1</span></span><br><span class="line">            </span><br><span class="line">    <span class="keyword">if</span> len(si) == <span class="number">0</span>: </span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    sum_of_squares = sum([pow(prefs[person1][item]-prefs[person2][item],<span class="number">2</span>)</span><br><span class="line">                    <span class="keyword">for</span> item <span class="keyword">in</span> prefs[person1] <span class="keyword">if</span> item <span class="keyword">in</span> prefs[person2]])</span><br><span class="line">                        </span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>/(<span class="number">1</span>+sqrt(sum_of_squares))</span><br></pre></td></tr></table></figure>    
-<ol>
-<li>皮尔逊相关度（Pearson correlation coefficient）<br>样本的简单相关系数一般用 $r$ 表示，其中 $n$ 为样本量， 分别为两个变量的观测值和均值。$r$ 描述的是两个变量间线性相关强弱的程度。$r$ 的取值在-1与+1之间，若 $r&gt;0$，表明两个变量是正相关，即一个变量的值越大，另一个变量的值也会越大；若 $ r&lt;0$ ，表明两个变量是负相关，即一个变量的值越大另一个变量的值反而会越小。对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$\frac{\sum ab^T-\frac{\sum a\sum b}{N}}{\sqrt{(\sum a^2-\frac{\sum a^2}{N})\times(\sum b^2-\frac{\sum b^2}{N})}}$$<br>python代码：</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sim_pearson</span><span class="params">(prefs,p1,p2)</span>:</span></span><br><span class="line">    si = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> prefs[p1]:</span><br><span class="line">        <span class="keyword">if</span> item <span class="keyword">in</span> prefs[p2]:</span><br><span class="line">            si[item] = <span class="number">1</span></span><br><span class="line">    n = len(si)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    sum1 = sum([prefs[p1][it] <span class="keyword">for</span> it <span class="keyword">in</span> si])</span><br><span class="line">    sum2 = sum([prefs[p2][it] <span class="keyword">for</span> it <span class="keyword">in</span> si])</span><br><span class="line">    </span><br><span class="line">    sum1Sq = sum([pow(prefs[p1][it], <span class="number">2</span>) <span class="keyword">for</span> it <span class="keyword">in</span> si])</span><br><span class="line">    sum2Sq = sum([pow(prefs[p2][it], <span class="number">2</span>) <span class="keyword">for</span> it <span class="keyword">in</span> si])</span><br><span class="line">    </span><br><span class="line">    pSum = sum([prefs[p1][it] * prefs[p2][it] <span class="keyword">for</span> it <span class="keyword">in</span> si])</span><br><span class="line">    </span><br><span class="line">    num = pSum - (sum1 * sum2 / n)</span><br><span class="line">    den = sqrt((sum1Sq - pow(sum1, <span class="number">2</span>) / n)*(sum2Sq - pow(sum2, <span class="number">2</span>) / n))</span><br><span class="line">    <span class="keyword">if</span> den == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">    r = num / den</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> r</span><br></pre></td></tr></table></figure>
-<ol>
-<li>杰卡德相似系数(Jaccard similarity coefficient)<br>这部分代码书中没有给出，是自己实现的，广义Jaccard相似度，元素的取值可以是实数。又称为Tanimoto系数，用EJ来表示，对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$EJ = \frac{ab^T}{|a|+|b|-ab^T}$$<br>其中$|a|,|b|$分别代表 $ \vec{a},\vec{b}$的模。<br>python代码实现：</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sim_jaccard</span><span class="params">(prefs,p1,p2)</span>:</span></span><br><span class="line">    si = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> prefs[p1]:</span><br><span class="line">        <span class="keyword">if</span> item <span class="keyword">in</span> prefs[p2]:</span><br><span class="line">            si[item] = <span class="number">1</span></span><br><span class="line">            </span><br><span class="line">    n = len(si)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    times = sum([prefs[p1][item]*prefs[p2][item] <span class="keyword">for</span> item <span class="keyword">in</span> si])</span><br><span class="line">    ma = sum([pow(prefs[p1][item],<span class="number">2</span>) <span class="keyword">for</span> item <span class="keyword">in</span> si])</span><br><span class="line">    mb = sum([pow(prefs[p2][item],<span class="number">2</span>) <span class="keyword">for</span> item <span class="keyword">in</span> si])</span><br><span class="line">    den = times/(ma+mb-times)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> den == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    r = <span class="number">1</span> / (<span class="number">1</span> + den)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> r</span><br></pre></td></tr></table></figure>
-<ol>
-<li>曼哈顿距离(Manhattan Distance)<br>想象你在曼哈顿要从一个十字路口开车到另外一个十字路口，驾驶距离是两点间的直线距离吗？显然不是，除非你能穿越大楼。实际驾驶距离就是这个“曼哈顿距离”。而这也是曼哈顿距离名称的来源， 曼哈顿距离也称为城市街区距离(City Block distance)，对于给定的两个$N$维向量 $a(x_{11},x_{12}, \cdots,x_{1k}),b(x_{21},x_{22},\cdots,x_{2k})$，有如下计算公式：<br>$$d = \sum_{k=1}^N\sqrt{x_{1k}-x_{2k}}$$<br>python代码实现</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sim_manhattan</span><span class="params">(prefs,p1,p2)</span>:</span></span><br><span class="line"> si = &#123;&#125;</span><br><span class="line"> <span class="keyword">for</span> item <span class="keyword">in</span> prefs[p1]:</span><br><span class="line">     <span class="keyword">if</span> item <span class="keyword">in</span> prefs[p2]:</span><br><span class="line">         si[item] = <span class="number">1</span></span><br><span class="line">         </span><br><span class="line"> n = len(si)</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">     <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">     </span><br><span class="line"> den = sum([abs(prefs[p1][item]-prefs[p2][item]) <span class="keyword">for</span> item <span class="keyword">in</span> si])</span><br><span class="line"> </span><br><span class="line"> r = <span class="number">1</span>/(<span class="number">1</span>+den)</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">return</span> r</span><br></pre></td></tr></table></figure>
-<hr>
-<p>利用上面四种方法对数据集进行操作</p>
-<pre><code>print sim_distance(critics,&apos;Jack Matthews&apos;,&apos;Gene Seymour&apos;)
-print sim_pearson(critics,&apos;Jack Matthews&apos;,&apos;Gene Seymour&apos;)
-print sim_manhattan(critics,&apos;Jack Matthews&apos;,&apos;Gene Seymour&apos;)
-print sim_jaccard(critics,&apos;Jack Matthews&apos;,&apos;Gene Seymour&apos;)
-</code></pre><p>结果如下</p>
-<blockquote>
-<p>0.666666666667<br>0.963795681876<br>0.666666666667<br>0.500900900901</p>
-</blockquote>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/推荐系统/">推荐系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/相似度度量/">相似度度量</a></li></ul>
     </div>
 
       
